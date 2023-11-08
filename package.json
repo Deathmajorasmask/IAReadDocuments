@@ -1,0 +1,25 @@
+{
+  "name": "aerpassidocs",
+  "version": "1.0.0",
+  "description": "Passi Docs Natual IA",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js"
+  },
+  "keywords": [
+    "Natural",
+    "IA",
+    "Nodejs",
+    "Passi",
+    "Docs"
+  ],
+  "author": "Deathmajorasmask",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "natural": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
