@@ -26,155 +26,55 @@ app.engine('html', require('ejs').renderFile);
 app.use(fileUpload());
 app.use(bodyParser.urlencoded({extended: false}));
 
-console.log('Creando registros...');
+main();
+async function readDocumentSamples(dirFile, typeFile){
+    const data = fs.readFileSync(__dirname + dirFile, {encoding: 'utf8'});
+    classifier.addDocument(data, typeFile);
+    return data;
+}
 
-// AUTOS SAMPLES
-fs.readFile(__dirname + "/src/documents/sample_auto_Banorte.txt", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Automóviles-Flotilla');
-    }
-});
+async function readSamples(){
+    console.log('Creando registros...');
+    // AUTOS SAMPLES
+    readDocumentSamples("/src/documents/sample_auto_Banorte.txt", "Automóviles-Flotilla");
+    readDocumentSamples("/src/documents/sample_auto_Chubb.txt", "Automóviles-Flotilla");
+    readDocumentSamples("/src/documents/sample_auto_Gnp.txt", "Automóviles-Flotilla");
+    readDocumentSamples("/src/documents/sample_auto_Primero.txt", "Automóviles-Flotilla");
+    readDocumentSamples("/src/documents/sample_auto_Qualitas.txt", "Automóviles-Flotilla");
+    // DENTAL SAMPLES
+    readDocumentSamples("/src/documents/sample_dental_Dentalia.txt", "Dental");
+    readDocumentSamples("/src/documents/sample_dental_Dentegra.txt", "Dental");
+    // GMM Samples
+    readDocumentSamples("/src/documents/sample_gmm_Atlas.txt", "GMM");
+    readDocumentSamples("/src/documents/sample_gmm_Gnp.txt", "GMM");
+    readDocumentSamples("/src/documents/sample_gmm_Axxa.txt", "GMM");
+    readDocumentSamples("/src/documents/sample_gmm_Metlife.txt", "GMM");
+    // GMMenores Samples
+    readDocumentSamples("/src/documents/sample_gmmen_MediAccess.txt", "GMMenores");
+    readDocumentSamples("/src/documents/sample_gmmen_Mms.txt", "GMMenores");
+    // Hogar Samples
+    readDocumentSamples("/src/documents/sample_hogar_Chubb.txt", "Hogar");
+    readDocumentSamples("/src/documents/sample_hogar_Zurich.txt", "Hogar");
+    // Vida Samples
+    readDocumentSamples("/src/documents/sample_vida_Gnp.txt", "Vida");
+    // Funerario Samples
+    readDocumentSamples("/src/documents/sample_funerario_Thona.txt", "Funerario");
+    console.log("Read Sample files content ✅");
+}
 
-fs.readFile(__dirname + "/src/documents/sample_auto_Chubb.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Automóviles-Flotilla');
-    }
-});
+async function fnTrainingDataIA(){
+    console.log('Training IA...');
+    classifier.train();
+    console.log('Saving Classifications...');
+    classifier.save('clasificaciones.json');
+}
 
-fs.readFile(__dirname + "/src/documents/sample_auto_Gnp.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Automóviles-Flotilla');
-    }
-});
+async function main(){
+    await readSamples();
+    await fnTrainingDataIA();
+}
 
-fs.readFile(__dirname + "/src/documents/sample_auto_Primero.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Automóviles-Flotilla');
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/sample_auto_Qualitas.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Automóviles-Flotilla');
-    }
-});
-
-// DENTAL SAMPLES
-fs.readFile(__dirname + "/src/documents/sample_dental_Dentalia.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Dental');
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/sample_dental_Dentegra.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Dental');
-    }
-});
-
-// GMM Samples
-fs.readFile(__dirname + "/src/documents/sample_gmm_Atlas.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'GMM');
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/sample_gmm_Axxa.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'GMM');
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/sample_gmm_Gnp.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'GMM');
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/sample_gmm_Metlife.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'GMM');
-    }
-});
-
-// GMMenores Samples
-fs.readFile(__dirname + "/src/documents/sample_gmmen_MediAccess.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'GMMenores');
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/sample_gmmen_Mms.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'GMMenores');
-    }
-});
-
-// Hogar Samples
-fs.readFile(__dirname + "/src/documents/sample_hogar_Chubb.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Hogar');
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/sample_hogar_Zurich.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Hogar');
-    }
-});
-
-// Vida Samples
-fs.readFile(__dirname + "/src/documents/sample_vida_Gnp.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Vida');
-    }
-});
-
-// Funerario Samples
-fs.readFile(__dirname + "/src/documents/sample_funerario_Thona.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        classifier.addDocument(data, 'Funerario');
-    }
-});
-console.log("Read Sample files content ✅");
-
-console.log('Training IA...');
-classifier.train();
-
+/* 
 console.log('Realizando prueba de clasificación...');
 fs.readFile(__dirname + "/src/documents/test_gmm_Gnp.txt", "utf-8", (err, data) => {
     if (err){
@@ -191,9 +91,6 @@ fs.readFile(__dirname + "/src/documents/test_gmm_Axxa.txt", "utf-8", (err, data)
         console.log( classifier.classify(data) );
     }
 });
-
-console.log('Saving Classifications...');
-classifier.save('clasificaciones.json');
 
 console.log('Loading Classifications...');
 natural.BayesClassifier.load('clasificaciones.json', null, function(err, classifier) {
@@ -212,7 +109,7 @@ natural.BayesClassifier.load('clasificaciones.json', null, function(err, classif
             console.log(classifier.getClassifications(data));
         }
     });
-});
+}); */
 
 app.post("/extract-text", (req, res) => {
     if (!req.files && !req.files.pdfFile) {
