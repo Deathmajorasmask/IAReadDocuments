@@ -1,0 +1,448 @@
+.
+   1
+Zurich Aseguradora Mexicana, S.A. de C.V.,Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+Producto   RELAX HOGAR PLUZ:
+Unidad   Z.P.L.:
+Sucursal   CORREDORES MONTERREY
+:
+Moneda   Moneda Nacional
+:
+Agente   Alternativas en Riesgos Agente de
+:
+Póliza
+Folio:
+O. T.:
+Identificación
+Póliza
+DocumentoPóliza
+  111435941
+:
+:
+Solicitud25220241
+:
+Fecha EmisiónVigencia::2 de Julio de 2023Desde : el 22 de Junio de 2023
+Hasta: el 1 de Junio de 2024
+a las 12 Hrs(medio día) del lugar de su expedición
+Asegura a
+CESAR CABALLERO GUETA
+R.F.C.CAGC-781109-NG9
+Privada del RincÓn Nro. 358
+Rincon Lindavista, Guadalupe
+Nuevo Leon
+  Zurich   Aseguradora   Mexicana,  S.A.  de  C.V.   (    que   en   lo     sucesivo       se
+  denominará  "LA   COMPAÑIA" ), de  acuerdo   con las     condiciones      generales
+  y particulares       de  cada una  de  las   secciones   contratadas,       expide     este
+  documento a  favor    de  la   persona   arriba    citada    (   quién   en   lo     sucesivo
+  se     denomina   "ASEGURADO" ).   Las secciones   y     coberturas      contratadas
+  son  las   que  aparecen  a  continuación.
+Materia Asegurada
+Item número         1
+Ubicación del riesgo:
+Privada del RincÓn Nro. 358
+Colonia Rincon Lindavista, Guadalupe - Nuevo Leon
+Clasificación
+PisosEstructuraTechumbre : 02: Concreto: Concreto
+MurosEntrepiso: Concreto: Concreto
+M.Seguridad: Sin Equipos
+Uso : ViviendaZona Alfa: A2
+
+.
+   2
+Zurich Aseguradora Mexicana, S.A. de C.V.,
+Coberturas
+SumaPrima
+Coberturas Amparadas
+AseguradaNeta
+Incendio Todo Riesgo Contenidos              500,000              200.11
+Incendio Todo Riesgo Casa            1,000,000              351.06
+Remoción de Escombros Contenidos               50,000               10.72
+Remoción de Escombros Casa              100,000               21.44
+Rotura de Cristales               20,000               92.33
+Robo de Menaje              150,000              292.48
+Robo de Joyas u Obras de Arte               10,000               31.77
+Cobertura Standard para Objetos Personales               20,000              177.09
+Gastos Extraordinarios Casa              100,000               22.97
+Gastos Extraordinarios Contenidos               50,000               11.48
+Cobertura Básica de Equipo Electrónico              100,000              403.67
+Equipo Portátil y/o Móvil               25,000              239.78
+Cob. Básica de Calderas y Aparatos Sujetos a Presión               10,000                0.83
+Robo de Dinero y/o Valores                4,000                7.91
+Zurich Asistencia al Hogar                              SC          Amparada              150.00
+Muerte Accidental de Mascotas               10,000               99.06
+Responsabilidad Civil Familiar            1,000,000               77.32
+Prima neta
+                     2,190.02
+Gastos de expedición
+                       200.00
+I. V. A.
+                       382.40
+Prima total                    2,772.42
+  Si el contenido de la póliza o sus  modificaciones no concordaren con
+  la oferta,  el  asegurado podrá pedir  la  rectificación  correspondiente
+  dentro  de  los treinta  días  que sigan al  día en que  reciba  la  póliza.
+  Transcurrido este plazo se considerarán aceptadas las estipulaciones
+  de la póliza o de sus modificaciones.
+  Le sugerimos consultar las COBERTURAS, EXCLUSIONES y RESTRICCIONES
+  del seguro en las Condiciones Generales, las cuales fueron entregadas
+  de  conformidad  con  el  artículo 20  de  la  Ley  Sobre  el  Contrato  de
+  Seguro,  mismas  que se encuentran a disposición del usuario a través
+  de la página www.zurich.com.mx  o  en Portal de Registro de Contratos
+  de Adhesión (RECAS) de la CONDUSEF.
+  Para  realizar  cualquier  operación  relacionada con esta póliza podrá
+  acudir en horarios y días hábiles a cualquiera  de  nuestras  Oficinas  y
+  Centros de atención a Clientes cuyas ubicaciones puede consultar  en
+  la página www.zurich.com.mx
+  Consultas y Reclamaciones:
+  Unidad Especializada de Zurich México                        Comisión Nacional para la Protección y
+  Toreo Parque Central, Torre B, Piso 20                        Defensa de los Usuarios de Servicios
+.
+Funcionario Autorizado
+Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+
+.
+Póliza :   111435941
+Producto   RELAX HOGAR PLUZ:
+Unidad   Z.P.L.:
+Sucursal   CORREDORES MONTERREY:
+Moneda   Moneda Nacional:
+Agente   Alternativas en Riesgos Agente de:
+   3
+Zurich Aseguradora Mexicana, S.A. de C.V.,Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+  Boulevard Manuel Avila Camacho No. 5,                      Financieros (CONDUSEF)
+  Col. Lomas de Sotelo, Naucalpan de Juárez,               Insurgentes Sur 762, Colonia del Valle,
+  Estado de México C.P. 53390                                       C.P. 03100, Ciudad de México
+  Tel. 55 5284 1103                                                         55 5340 0999
+  unidad.especializada@mx.zurich.com                          800 999 8080
+                                                                                        asesoria@condusef.gob.mx
+  En   cumplimiento  a  lo  dispuesto  en  el  artículo  202   de  la  Ley   de
+  Instituciones de Seguros y de Fianzas, la documentación contractual y
+  la   nota   técnica   que   integran  este  producto  de  seguro,  quedaron
+  registradas   ante   la   Comisión   Nacional   de   Seguros   y   Fianzas,
+  a partir del día 04    de Mayo        del   2022, con el número
+  PPAQ-S0037-0027-2022/CONDUSEF-005411-01.
+Condiciones
+  El   periodo     de  indemnización    en  la   cobertura     de    Gastos  Extraordinarios
+  es  de  6  meses.
+  La  póliza    cuenta   con la   cobertura     de  Zurich   Asistencia     Hogar,   siempre
+  y  cuando  en  el   detalle    de  Coberturas    Amparadas de  la   ubicación
+  asegurada,   se  indique    "Zurich     Asistencia    al   Hogar",    para   lo   cual   se
+  anexan  a  este   documento las   condiciones    del   servicio.
+  Nombre Empleado(Contratante):      CESAR CABALLERO GUETA
+  Número Empleado:  2224
+  Asegurado  Adicional:     César  Caballero     Gueta
+  Bienes excluidos pero que pueden ser cubiertos mediante convenio
+  expreso para el inciso b)Joyas y Objetos de valor.
+  Bienes u obras de arte cuyo valor por pieza o juego sea superior
+  500 UMA (Unidad de Medida y Actualización).
+
+.
+   4
+Zurich Aseguradora Mexicana, S.A. de C.V.,
+  D E D  U C I   B L  E  S:
+  En caso  de  siniestro      que  amerite   indemnización    y  cuando  la
+  cobertura    aparezca   como amparada en  la   póliza    se  aplicarán
+  los   siguientes     deducibles:
+  Incendio    Todo Riesgo:         Sin  Deducible.
+  Fenómenos Hidrometeorológicos:
+  Zona       Deducible
+  a1           5% sobre   la   Suma Asegurada de  Edificio     y  Contenidos
+                 y  coaseguro   del   10%.
+  a2           1% sobre   la   Suma Asegurada de  Edificio     y  Contenidos
+                 y  coaseguro   del   10%.
+  a3           1% sobre   la   Suma Asegurada de  Edificio     y  Contenidos
+                 y  coaseguro   del   10%.
+  Bienes  a  la   Intemperie:     5% de  la   Suma Asegurada
+  Terremoto   y/o   Erupción   Volcánica:
+    Zona               Deducible               Coaseguro
+        1                       2%                         10%
+        2                       2%                         20%
+        3                       3%                         30%
+  Árboles,    Jardines    y/o   Plantas:      Sin   Deducible
+  Remoción de  Escombros:                   Sin  Deducible
+  Gastos  Extraordinarios:                       Sin   Deducible
+  Pérdida   de  Rentas:                            Sin  Deducible
+  Rotura   Accidental    de  Cristales:      Sin  Deducible
+  Equipo  Electrónico:                             Deducible    Fijo       $  1,500   M.N.
+                                                               cualquier     daño
+  Equipo  Electrónico     Móvil:                10% de la   suma asegurada
+                                                               contratada
+  Sección  de  Robo con  Violencia     y/o   Asalto:
+  Inciso    a)   Menaje de  casa:              5% de  la   pérdida    con mínimo
+                                                               de  15  UMA
+  Inciso    b)   Joyas  y/o   objeto             5% de la   pérdida    con  mínimo
+                     de  valor:                            de  40 UMA
+  Inciso    c)   Dinero   y  valores:             15 UMA
+  Inciso    d)   Objetos   en tránsito:         5% de la   pérdida    con  mínimo
+                                                               de  15  UMA
+  Responsabilidad    Civil     Familiar:     Sin   deducible
+.
+Funcionario Autorizado
+Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+
+.
+Póliza :   111435941
+Producto   RELAX HOGAR PLUZ:
+Unidad   Z.P.L.:
+Sucursal   CORREDORES MONTERREY:
+Moneda   Moneda Nacional:
+Agente   Alternativas en Riesgos Agente de:
+   5
+Zurich Aseguradora Mexicana, S.A. de C.V.,Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+  Responsabilidad    Civil
+  Arrendatario:                                         Sin  Deducible
+  Muerte  Accidental     Familia
+  Asegurable:                                          Sin   Deducible
+  Reembolso de  Gastos  Funerarios
+  por   Accidente:                                    Sin   Deducible
+  Rotura   de  Maquinaria:                       2% del   valor    de  reposición     del
+                                                               equipo   dañado  con  mínimo de  20
+  Calderas   y/o   aparatos
+  sujetos    a  presión:                             2% del   valor    de  reposición    del
+                                                               equipo   dañado  con  mínimo de  20
+  Mascotas:                                             Sin  Deducible
+
+.
+   6
+Zurich Aseguradora Mexicana, S.A. de C.V.,
+  Las  condiciones    particulares      que  a  continuación     se  describen
+  prevalecerán     sobre  las   condiciones    generales    siempre   y  cuando  la
+  cobertura    aparezca   como amparada en  la   póliza:
+  Se ampara  bajo   convenio   expreso:
+  Inciso    b)   Joyas  y  objetos    de valor:     Bienes   u  obras  de  arte    cuyo  valor
+  por   pieza   o  juego  sea  superior     a  500  UMA (Unidad de  Medida  y
+  Actualización).
+  Indemnizaciones    Inciso    b)  El   límite     máximo de responsabilidad      de  la
+  Compañía será   la   suma asegurada  contratada
+  Inciso    d)   Robo de  objetos   en  tránsito:       Bienes  cuyo  valor    por   pieza   o
+  juego   sea  superior    a  250  UMA (Unidad  de Medida  y  Actualización).
+  Daños a  contenidos    para  fines    de  negocio   propio    del   Asegurado.
+  Quedan cubiertos     bajo  convenio   expreso   los   daños  a  bienes   propiedad
+  del   Asegurado  que  sean utilizados       para  fines    de  negocio,siempre
+  que  estos   daños hayan  sido   a  consecuencia   de  los   riesgos    amparados
+  en  esta   sección.   La  suma asegurada   destinada   a  los   contenidos    para
+  fines    de  negocio  no  debe  exceder   del   15% de la   suma asegurada
+  contratada    para   esta   sección   con  un límite     máximo de  1400  UMA
+  (Unidad   de  Medida  y  Actualización).
+  Fenómenos Hidrometeorológicos
+  La  cobertura    para   fenómenos hidrometeorológicos       para  la   Zona  Alfa   1
+  (A1)   está   excluida    para   ubicaciones    que  se encuentren    a  menos de
+  1000  Mts.    de  la   línea    del   mar ó  cualquier     fuente    de agua.
+  Bienes  a  la   intemperie
+  Quedan cubiertos     de forma   automática   los   bienes   a  la   intemperie
+  propiedad    del  Asegurado,   de  acuerdo   con  la   definición,      siempre   y
+  cuando  estos  daños  sean  a  consecuencia   de  los   riesgos    amparados en  la
+  sección   I   y/o   II   de  Incendio    Todo  Riesgo  hasta   un sublímite     del   20  %
+  de  la   suma asegurada  contratada    en  la   sección   I   y/o   II
+  Este  sublímite     aplica    indistintamente      para   la   sección   I   y/o   II
+.
+Funcionario Autorizado
+Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+
+.
+Póliza :   111435941
+Producto   RELAX HOGAR PLUZ:
+Unidad   Z.P.L.:
+Sucursal   CORREDORES MONTERREY:
+Moneda   Moneda Nacional:
+Agente   Alternativas en Riesgos Agente de:
+   7
+Zurich Aseguradora Mexicana, S.A. de C.V.,Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+  y  no  es  adicional.
+  Este sublímite     no  incrementa   la   responsabilidad     máxima de  la   Compañía.
+  El  deducible    que  se  aplicará     por   cada reclamación    será   del   5% de la
+  perdida    con mínimo  de  $  6,000  MXN
+  Sección  III.-Terremoto        y/o   Erupción   Volcánica.
+  Se amparan  los   daños ocasionados   a  los   siguientes     bienes:
+  -   Muros de  contención    debajo   del   nivel    del   piso   más bajo,   y  muros  de
+  contención    independientes.
+  -   Cualquier    clase   de  frescos   o  murales   que  con  motivo   de decoración    o
+  de  ornamentación   estén   pintados    o formen   parte   del   edificio      o
+  edificios      o  construcciones     aseguradas.
+  C.  Aplicación     Deducible.    -    Para   la   cobertura    de  Terremoto   y/o
+  Erupción   Volcánica    el   deducible   se  aplica    antes   de  haber   restado   el
+  coaseguro   estipulado    como participación       del   Asegurado.
+  Se ampara  mediante  convenio   expreso   daños  a  contenidos    para  fines    de
+  negocio   propio   del   Asegurado.
+  Quedan cubiertos     los   daños a  bienes   propiedad    del   Asegurado  que sean
+  utilizados     para   fines    de negocio,    siempre  que  estos  daños  hayan  sido   a
+  consecuencia   de  los   riesgos   amparados  en  esta   sección.
+  La  suma asegurada  destinada    a  los   contenidos   para   fines    de  negocio   no
+  debe exceder   del   15% de la   suma asegurada  contratada     para  esta   sección
+  con  un  límite    máximo de  1400  UMA (Unidad de  Medida  y  Actualización).
+  Se clara    que  para   el   texto   de  deducibles    lo   siguiente:
+  ROTURA DE MAQUINARIA, CALDERAS Y/O APARATOS
+  SUJETOS A PRESION:  2% DEL VALOR DE REPOSICION DEL
+
+.
+   8
+Zurich Aseguradora Mexicana, S.A. de C.V.,
+  EQUIPO DAÑADO CON MINIMO DE 20 UMA.
+  EN CASO DE  SINIESTRO  FAVOR  DE  COMUNICARSE AL  01800  00  828  00
+  (24     HORAS,  365   DÍAS   DEL  AÑO).
+  Disposiciones    sobre   Lavado  de  Dinero.
+  El Asegurado  se  compromete  a   entregar      la     información      y    documentos
+  necesarios    para  cumplir    con  las   Disposiciones     sobre  Lavado  de    Dinero,
+  que    la    autoridad       correspondiente       haya    emitido.
+  Pago de  Prima.
+  El  Asegurado  declara    bajo   protesta     de decir    verdad     que    los     recursos
+  con    que   será     pagada    la     prima    son    de    procedencia     lícita.
+  Prelación.
+  Las   Condiciones     Especiales     antes     mencionadas   prevalecen    sobre   las
+  Condiciones    Generales,    Particulares      y    textos      anexos,   si   los   hubiere,
+  cuando    se   contrapongan      entre     sí.
+                               CLAUSULA DE TERRORISMO
+  Definición     de  Terrorismo
+  Por  terrorismo      se entenderá,     para  efectos    de  esta   póliza:
+  Los   actos     de una  persona   o  personas  que  por   sí   mismas, o  en  represen-
+  tación     de  alguien   o  en  conexión   con  cualquier     organización     o  gobierno,
+  realicen    actividades     por   la   fuerza,    violencia     o por   la   utilización         de
+  cualquier        otro     medio    con    fines   políticos,        religiosos,       ideológicos,
+  étnicos       o   de    cualquier       otra      naturaleza,       destinados      a    derrocar,
+  influenciar      o  presionar    al   gobierno   de  hecho o    de    derecho     para    que
+  tome una determinación,      o alterar      y/o   influenciar       y/o   producir     alarma,
+  temor,   terror      o  zozobra   en  la   población,    en  un  grupo   o sección   de  ella
+  o  de  algún  sector    de  la   economía.
+  Endoso de Exclusión de Terrorismo
+  Con base  en lo anterior,  quedan excluidas las pérdidas o daños mate-
+  riales por  dichos actos  directos  e indirectos que, con un origen
+  mediato o inmediato, sean el resultante del empleo de explosivos,
+  sustancias tóxicas,  armas  de  fuego, o por cualquier otro medio, en
+  contra de las personas, de las cosas o de los servicios públicos y que
+.
+Funcionario Autorizado
+Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+
+.
+Póliza :   111435941
+Producto   RELAX HOGAR PLUZ:
+Unidad   Z.P.L.:
+Sucursal   CORREDORES MONTERREY:
+Moneda   Moneda Nacional:
+Agente   Alternativas en Riesgos Agente de:
+   9
+Zurich Aseguradora Mexicana, S.A. de C.V.,Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+  ante  la    amenaza o posibilidad de repetirse, produzcan alarma, temor,
+  terror   o   zozobra  en   la    población o en un grupo o sector de ella.
+  También excluye  las  pérdidas,  daños, costos o gastos de cualquier
+  naturaleza,  directa o  indirectamente causados por, o  resultantes
+  de, o  en conexión  con  cualquier  acción tomada para  el  control,
+  prevención o supresión de cualquier acto de terrorismo.
+  .
+
+.
+  10
+Zurich Aseguradora Mexicana, S.A. de C.V.,
+Plan de Pago
+Aceptante
+CESAR CABALLERO GUETA
+R.F.C.CAGC-781109-NG9
+Privada del RincÓn Nro. 358
+Rincon Lindavista, Guadalupe
+Nuevo Leon
+Forma de pago : Contado
+Póliza
+:   111435941
+Detalle de Exhibiciones
+ExhibiciónMonto en :  $Vencimiento
+   1               2,772.42       22/Jun/2023
+Total:                      2,772.42
+.
+Funcionario Autorizado
+Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+
+.
+Derechos Básicos
+del Cliente
+Derechos  básicos del  cliente  (contratante,  asegurado o beneficiario)  antes y durante la contratación de su
+seguro con Zurich Aseguradora Mexicana, S.A. de C.V. (Zurich México)
+En  Zurich  México  siempre  buscamos  la  protección  de nuestros  clientes,  por lo  que queremos  orientarte durante  todo el
+proceso  de contratación  del  seguro.  Es por  ello que  a continuación  te informamos  los  derechos  que tienes  como cliente
+durante la relación que tengas con nosotros.
+En cualquier momento podrás solicitar a tu agente de seguros o a nosotros  la siguiente información:
+1.Identificación que acredite que son intermediarios de seguros.
+2.Comisión o compensación directa por la póliza de seguro ofrecida.
+3.Toda   la   información   que   permita  conocer  las  condiciones generales  del  contrato  de  seguro  a  contratar,
+incluyendo  el  alcance  real   de  la  cobertura  contratada,  la forma   de  conservarla,   así  como  las  formas  de
+terminación  del  contrato.  Adicionalmente  las  condiciones generales   estarán  a  tu  alcance  para  su  consulta
+www.zurich.com.mx.
+Zurich Aseguradora Mexicana, S.A. de C.V., Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel.: 55 5284 1000
+permanente en nuestra página de Internet
+
+.
+Derechos Básicos
+del Cliente
+Derechos  Básicos del cliente  (asegurado o beneficiario)  en caso de siniestro con tu  póliza  de  seguro con
+Zurich México
+En Zurich México siempre buscamos la protección de nuestros clientes, por lo que queremos orientarte en caso de que hagas
+uso de tu seguro.  Es por ello que a continuación te informamos los  derechos que tienes como  cliente durante la relación que
+tengas con nosotros:
+o
+Recibir la atención e indemnización por parte de Zurich México de acuerdo al seguro contratado,  aún cuando la póliza
+no se  encuentre  pagada en  el momento del  siniestro pero  que la misma  esté dentro  del periodo  de gracia  para el
+pago de la prima.
+1
+o
+En el  caso particular  de los seguros  de Daños,  toda indemnización  que Zurich  México  pague,  disminuye  en igual
+proporción  la suma asegurada,  sin embargo  ésta  podrá  ser reinstalada a  petición tuya  y con previa  aceptación de
+Zurich  México.  En caso  de ser  aceptada,  deberás  pagar  la prima  correspondiente  a la  reinstalación  de la  suma
+asegurada.
+o
+En el caso  particular  de  los  seguros  de  Automóviles,  Zurich México  puede  optar  de  acuerdo  a  las  condiciones
+contratadas,   por  la  reparación  de  tu   vehículo  o  pagar  la indemnización  correspondiente,   nosotros  deberemos
+comunicarte la opción aplicable y los criterios a seguir.
+o
+En caso de que  Zurich  México no realice el pago oportuno de la suma asegurada,  podrás cobrar  una indemnización
+por mora.
+o
+Solicitar a la Comisión Nacional para la  Protección y Defensa de los usuarios de Servicios Financieros (CONDUSEF),
+la emisión de un dictamen técnico, si las partes no se sometieron a su arbitraje.
+o
+Podrás conocer el  detalle de como  protegemos tus datos consultando nuestro  aviso de privacidad en nuestra página
+de internetwww.zurich.com.mx.
+o
+Podrás  presentar tus consultas y  reclamaciones    relacionadas con el contrato de seguro en la Unidad Especializada
+2
+de  Zurich  México ubicada  en Toreo  Parque  Central, Torre B, Piso 20  Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan  de  Juárez, Estado de México C.P. 53390  o  llamando  al  número telefónico:
+55 5284 1103,  en un horario de atención  de  9:00 a  17:00 horas. Para mayor información consulta nuestra página de
+unidad.especializada@mx.zurich.com
+1
+2
+Aplican términos y condiciones descritos en las condiciones de la póliza contratada.
+De acuerdo a lo establecido en la Ley de Protección y Defensa al Usuario  de Servicios Financieros.
+Zurich Aseguradora Mexicana, S.A. de C.V., Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel.: 55 5284 1000
+Internet o envía un correo a:
+En   cumplimiento  a  lo  dispuesto  en  el  artículo  202   de  la  Ley   de
+Instituciones de Seguros y de Fianzas, la documentación contractual y
+la   nota   técnica   que   integran  este  producto  de  seguro,  quedaron
+registradas   ante   la   Comisión   Nacional   de   Seguros   y   Fianzas,
+a partir del día 04    de Mayo        del   2022, con el número
+PPAQ-S0037-0027-2022/CONDUSEF-005411-01.
+
+.
+Póliza :   111435941
+Producto   RELAX HOGAR PLUZ:
+Unidad   Z.P.L.:
+Sucursal   CORREDORES MONTERREY:
+Moneda   Moneda Nacional:
+Agente   Alternativas en Riesgos Agente de:
+  13
+Zurich Aseguradora Mexicana, S.A. de C.V.,Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
+  .
+.
+Funcionario Autorizado
+Toreo Parque Central, Torre B, Piso 20 Boulevard Manuel Avila Camacho No. 5,
+Col. Lomas de Sotelo, Naucalpan de Juárez, Estado de México C.P. 53390 Tel. 55 5284 1000
