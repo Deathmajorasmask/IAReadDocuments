@@ -27,11 +27,9 @@ app.use(fileUpload());
 app.use(bodyParser.urlencoded({extended: false}));
 
 console.log('Creando registros...');
-fnSamplesTrainingIA();
 
 // AUTOS SAMPLES
-async function fnSamplesTrainingIA(){
-/* fs.readFile(__dirname + "/src/documents/sample_auto_Banorte.txt", (err, data) => {
+fs.readFile(__dirname + "/src/documents/sample_auto_Banorte.txt", (err, data) => {
     if (err){
         console.log(err);
     } else {
@@ -162,44 +160,21 @@ fs.readFile(__dirname + "/src/documents/sample_vida_Gnp.txt", "utf-8", (err, dat
     } else {
         classifier.addDocument(data, 'Vida');
     }
-}); */
+});
 
 // Funerario Samples
-/* fs.readFile(__dirname + "/src/documents/sample_funerario_Thona.txt", "utf-8", (err, data) => {
+fs.readFile(__dirname + "/src/documents/sample_funerario_Thona.txt", "utf-8", (err, data) => {
     if (err){
         console.log(err);
     } else {
-        console.log('No async');
         classifier.addDocument(data, 'Funerario');
     }
 });
-console.log("Read Sample files content ✅"); */
+console.log("Read Sample files content ✅");
 
-    await prueba("/src/documents/sample_funerario_Thona.txt");
-    await fnTrainingDataIA();
-}
+console.log('Training IA...');
+classifier.train();
 
-async function prueba(ubicacion){
-    fs.readFile(__dirname + ubicacion, "utf-8", (err, data) => {
-        if (err){
-            console.log(err);
-            return err;
-        } else {
-            console.log('async prueba');
-            classifier.addDocument(data, 'Funerario');
-            return data;
-        }
-    });
-}
-
-function fnTrainingDataIA(){
-    console.log('Training IA...');
-    classifier.train();
-}
-
-
-
-/*
 console.log('Realizando prueba de clasificación...');
 fs.readFile(__dirname + "/src/documents/test_gmm_Gnp.txt", "utf-8", (err, data) => {
     if (err){
@@ -238,7 +213,7 @@ natural.BayesClassifier.load('clasificaciones.json', null, function(err, classif
         }
     });
 });
-*/
+
 app.post("/extract-text", (req, res) => {
     if (!req.files && !req.files.pdfFile) {
         res.status(400);
