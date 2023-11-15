@@ -69,47 +69,38 @@ async function fnTrainingDataIA(){
     classifier.save('clasificaciones.json');
 }
 
+async function classifyDocumentSamples(dirFile){
+    const data = fs.readFileSync(__dirname + dirFile, {encoding: 'utf8'});
+    console.log( classifier.classify(data) );
+    return data;
+}
+
+async function fnTestClassification(){
+    console.log('Realizando prueba de clasificación...');
+    classifyDocumentSamples("/src/documents/test_gmm_Gnp.txt");
+    classifyDocumentSamples("/src/documents/test_gmm_Axxa.txt");
+}
+
+async function fnGetClassificationsDocumment(dirFile){
+    const data = fs.readFileSync(__dirname + dirFile, {encoding: 'utf8'});
+    console.log(classifier.getClassifications(data));
+    return data;
+}
+
+async function fnLoadingClassification(){
+    console.log('Loading Classifications...');
+    natural.BayesClassifier.load('clasificaciones.json', null, function(err, classifier) {
+        classifyDocumentSamples("/src/documents/test_gmm_Axxa2.txt");
+        fnGetClassificationsDocumment("/src/documents/test_gmm_Axxa3.txt");
+    });
+}
+
 async function main(){
     await readSamples();
     await fnTrainingDataIA();
+    await fnTestClassification();
+    await fnLoadingClassification();
 }
-
-/* 
-console.log('Realizando prueba de clasificación...');
-fs.readFile(__dirname + "/src/documents/test_gmm_Gnp.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        console.log( classifier.classify(data) );
-    }
-});
-
-fs.readFile(__dirname + "/src/documents/test_gmm_Axxa.txt", "utf-8", (err, data) => {
-    if (err){
-        console.log(err);
-    } else {
-        console.log( classifier.classify(data) );
-    }
-});
-
-console.log('Loading Classifications...');
-natural.BayesClassifier.load('clasificaciones.json', null, function(err, classifier) {
-    fs.readFile(__dirname + "/src/documents/test_gmm_Axxa2.txt", "utf-8", (err, data) => {
-        if (err){
-            console.log(err);
-        } else {
-            console.log(classifier.classify(data));
-        }
-    });
-
-    fs.readFile(__dirname + "/src/documents/test_gmm_Axxa3.txt", "utf-8", (err, data) => {
-        if (err){
-            console.log(err);
-        } else {
-            console.log(classifier.getClassifications(data));
-        }
-    });
-}); */
 
 app.post("/extract-text", (req, res) => {
     if (!req.files && !req.files.pdfFile) {
