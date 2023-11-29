@@ -10,6 +10,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const path = require('path');
 
+// Settings
+app.set('port', 3000)
+
 // fs module
 const fs = require("fs");
 
@@ -17,8 +20,18 @@ const fs = require("fs");
 const natural = require('natural')
 const classifier = new natural.BayesClassifier();
 
-// Settings
-app.set('port', 3000)
+// Multer & Cors (GET/SET Read Documents)
+global.__basedir = __dirname;
+const cors = require("cors");
+var corsOptions = {
+    origin: "http://localhost:3001"
+}
+app.use(cors(corsOptions));
+
+const initRoutes = require("./src/routes");
+
+app.use(express.urlencoded({ extended: true }));
+initRoutes(app);
 
 // Middleware
 app.use(express.static(path.join(__dirname,'public')))
