@@ -2,6 +2,9 @@ const uploadFile = require("../middleware/upload");
 const fs = require("fs");
 const baseUrl = "http://localhost:3000/files/";
 
+// OCR Documment
+const ocrData = require("./ocrfile.controller");
+
 const upload = async (req, res) => {
   try {
     await uploadFile(req, res);
@@ -9,7 +12,7 @@ const upload = async (req, res) => {
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
     }
-
+    const Variable = ocrData.fnOcrExtractData(req.file.originalname);
     res.status(200).send({
       message: "Uploaded the file successfully: " + req.file.originalname,
     });
