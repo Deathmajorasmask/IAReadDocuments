@@ -12,7 +12,7 @@ const upload = async (req, res) => {
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
     }
-    const Variable = ocrData.fnOcrExtractData(req.file.originalname);
+    const Variable = await ocrData.fnOcrExtractData(req.file.originalname);
     res.status(200).send({
       message: "Uploaded the file successfully: " + req.file.originalname,
     });
