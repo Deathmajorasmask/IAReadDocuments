@@ -1,0 +1,144 @@
+DATOS GENERALES
+Cuenta
+13844878-8
+Nombre:EDDY JAVIER CAZARES AVILA
+Calle:MONTE KATYN
+Núm:0237Dpto:
+Colonia:VILLA CASTELLO
+C.P.:66053
+Mpo/Edo:GENERAL ESCOBEDO, NUEVO LEON
+Medidor:5019001675
+Control
+N° FE32843949
+Tarifa: G1 Doméstico
+Emitida:S. PEDRO G
+Lote:10671
+UUID
+6C5F5F45-8DD0-4364-9F13-FBBED044622B
+No. Certificado
+00001000000509890101
+Folio
+000032843949
+Serie
+X12023F0FE
+Emisor
+NATURGY MEXICO
+GNM9712017P7
+Regimen Fiscal:
+601 General de Ley
+Personas Morales
+Lugar de Expedicion:64460
+Tipo de Comprobante:I  INGRESO
+Lectura
+Actual:1110
+Anterior:1085
+Consumo25
+Fecha
+(  13Sep23  )
+(  13Jul23  )
+M³  X1 FC = 25 M³
+Tipo
+(  REAL  )
+(  REAL  )
+Fechas Importantes
+LIMITE DE PAGO
+01Oct23
+SUJETO A CORTE
+02Oct23
+Fecha Timbrado
+2023-09-19 04:57:00
+Receptor
+RFC: XAXX010101000
+Uso CFDI: S01 Sin efectos fiscales.
+C.P: 66053
+Régimen Fiscal: 616 Sin obligaciones fiscales
+Historial de Consumo
+PODER CALORIFICO: 0.035976 GJOULES/M3
+CFDI RelacionadoTipo Relacion
+FACTURA
+No Certificado SAT:00001000000506202789Fecha Timbrado:2023-09-19 05:02:20RFC PAC:SST060807KU0
+Sello:
+k8C/3MN31b6Ni2f12k8atzzaGYL/dmPI0doH3oq958LoRTgyRlfFsvV+APvGwpN+K2HHeW9LV29pcm+HXui7ei91YnLHISOtfR6gQ6ibDlNjHrxoI689p/6RS+xuyX/Nw
+mN9n7fUNHQ8JXrmaaMDrkOZ5WjS07sRWg3+dIOh2NaFghZLz6pLAxLnEkT41nTaRVXeDn8DIzQCd9cK/mSgETpMbUUg5C1eN+SnmUnRZEHL8i+X6yQIxJXAG
+2aNy1LFB2At1sOQW9+re+3QdnAAnZcocREMeTzZ71jTtJvbPCijSMA6T1s52OBrL/5E9V0TAtQHWk+xuZEhYbBWSnMqyg==
+Sello SAT:
+fb1qxG0Rl+bVToSRwQIOp2/YabBmzvrP2HO0fWXXsxGSPuAgMkz0ywHyUtQSgKsOzc0PpZyTJDRcAnXa9WNk1IcxVcKOLFdg6OPVDRLOqFEvro6e/pze+HUtsR
++A95jr7kjHX22ofcEcGyfA0WD3I3osykgO/TSr8ORqAv2yqW6dS7ovQtabJfIZF5UWNqNLINcQ6y65XZwouda3OxFiEwoaBANeUT0T5sN3S+pAYHfk2WO6cVy699B
+Z09JhMevT0giDqRYBH+p0io9LOWD04Cqy8y9N+6VwvjeI+K53E3jXo1PNUgZ2JC/nPq+mrp3ukjZEUiRRuMVrkUeio+VydA==
+Cadena
+Original:
+ESTE DOCUMENTO ES UNA REPRESENTACIÓN IMPRESA DE UN CFDIVersión 4.0
+*****************************TERMINA REPRESENTACIÓN IMPRESA DE UN CFDI***************************
+MonedaMXN
+Forma de Pago99 POR DEFINIR
+Método de PagoPPD
+**Conceptos Aplicables
+Impuesto002 - IVA
+Tipo FactorTasa
+Tasa o Cuota0.16
+CvePrdSrvCantidadClave UnidadDescripciónValor UnitarioImporteDescuentoBaseImporte(IVA)
+1511151225.00MTQ*PRECIO ADQUISICION2.217655.440.0055.4408.87
+8014170225.00MTQ*DISTRIBUCION CON COMERCIALIZACION3.942198.550.0098.5515.76
+831016001.00E48CARGO SERVICIO117.7600117.760.00117.7618.84
+801417021.00E48AJUSTE OPERATIVO1.100001.100.0001.1000.17
+||1.1|6C5F5F45-8DD0-4364-9F13-FBBED044622B|2023-09-
+19T05:02:20|SST060807KU0|k8C/3MN31b6Ni2f12k8atzzaGYL/dmPI0doH3oq958LoRTgyRlfFsvV+APvGwpN+K2HHeW9LV29pcm+HXui7ei91YnLHISOtfR6gQ6ib
+DlNjHrxoI689p/6RS+xuyX/NwmN9n7fUNHQ8JXrmaaMDrkOZ5WjS07sRWg3+dIOh2NaFghZLz6pLAxLnEkT41nTaRVXeDn8DIzQCd9cK/mSgETpMbUUg5C1eN+S
+nmUnRZEHL8i+X6yQIxJXAG2aNy1LFB2At1sOQW9+re+3QdnAAnZcocREMeTzZ71jTtJvbPCijSMA6T1s52OBrL/5E9V0TAtQHWk+xuZEhYbBWSnMqyg==|00001
+000000506202789||
+ESTADO DE CUENTA
+OTROS CONCEPTOS PROPIOS (OCP)
+Nombre del ConceptoTOTAL
+0.00
+Total (OCP)
+0.00
+DEUDA VENCIDA (DV)
+Nombre del ConceptoTOTAL
+0.00
+Total (DV)0.00
+CONCEPTOS DE TERCEROS (CT)
+Nombre del ConceptoTOTAL
+0.00
+Total (CT)0.00
+SUBTOTAL
+272.85
+IVA43.64
+DESCUENTO
+0.00
+TOTAL CONSUMO316.49
+TOTAL (OCP)0.00
+TOTAL (DV)0.00
+TOTAL (CT)0.00
+TOTAL A PAGAR316.00
+0.74SALDO PENDIENTE D/IVA:0.00SALDO PENDIENTE A/IVA:
+Revisa que tus datos fiscales sean correctos, en caso contrario, tienes 30 días naturales posteriores a la emisión para solicitar la corrección, después de esta fecha ya
+no es posible modificar el documento fiscal
+NATURGY MÉXICO, S.A. DE C.V. GNM9712017P7 Horacio No. 1750 Colonia Los Morales Polanco, Miguel Hidalgo Ciudad de México, C.P. 11510
+NATURGY MÉXICO, S.A. DE C.V. GNM9712017P7 Sucursal Monterrey Av. Calzada del Valle No. 105 Ote. San Pedro Garza García, N.L. C.P. 66220
+Las Condiciones Generales para la Prestación del Servicio establecen en las siguientes Cláusulas:
+° En caso de no pagar en la fecha limite, se adicionará a su factura un cargo por cobranza e intereses moratorios (TIIE x 1.5 Vigente en el primer día del mes) de acuerdo a lo establecido en las clausulas 1.6.8 y 2.3.4.
+° El permisionario podrá suspender el servicio sin responsabilidad en caso de incumplimiento de pago, conforme a lo establecido en la cláusula 2.7, hasta que el usuario cubra las cantidades adeudadas.
+° Este documento constituye el único aviso previo de suspensión; Asi como de rescisión de contrato en caso de falta de pago, conforme lo establecido en la cláusula 2.1.11.
+*CONCEPTOS EXPRESADOS EN PESOS/M3 TARIFAS APROBADAS POR LA CRE
+IMPORTANTE
+TALÓN
+SCOTIABANK: NO. SERVICIO: 3311
+SANTANDER SERFIN: CONV. 4528
+BBVA BANCOMER: CIE: 0570028
+HSBC: TXT 5503 CVE 4082
+BANORTE: EMISORA 02032 REF 000170138448781309230
+BANAMEX:  GASNATMTY PA REF 10170138448781309237
+Cuenta: 13844878-8
+Referencia:
+0170138448781309239
+Ref. CARGO: 170138448781
+Ref. Cliente:17013844878
+Total a Pagar
+Fecha Límite
+01Oct23
+EDDY JAVIER CAZARES AVILA
+MONTE KATYN                 Num: 0237 Depto:
+VILLA CASTELLO            C:P.: 66053
+GENERAL ESCOBEDO, NUEVO LEON
+Entre Calles: VILLA CASTELLO
+316.00

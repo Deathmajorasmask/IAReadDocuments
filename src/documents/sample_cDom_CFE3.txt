@@ -1,0 +1,70 @@
+TOTAL A PAGAR:
+$2,175
+(DOS MIL CIENTO SETENTA Y CINCO PESOS
+M.N.)
+LÍMITE DE PAGO:07 SEP 23
+CORTE A PARTIR:
+08 SEP 23
+MALTOS RITA
+QUINTA ELSA 1508
+QUINTA VERONICA
+QUINTAS DEL VALLE. C.P. 32540
+CD JUAREZ, CHIH.
+NO. DE SERVICIO :596010921881
+RMU :32600 01-09-29 XAXX-010101 033 CFE
+PERIODO FACTURADO:20 JUN 23 - 21 AGO 23
+TARIFA:1CNO. MEDIDOR:CY814AMULTIPLICADOR:1
+Energía (kWh)
+XX
+09297081261171
+  Básico
+  Intermedio1
+  Intermedio2
+  Excedente
+  Suma
+3000.876262.80
+3001.016304.80
+3001.310393.00
+2713.496947.41
+1,1711,908.01
+Suministro176.200.000.00176.20
+Distribución0.000.001,447.821,447.82
+Transmisión0.000.00205.86205.86
+CENACE0.000.007.387.38
+Energía0.000.00907.53907.53
+Capacidad0.000.00603.07603.07
+SCnMEM(¹)0.000.007.267.26
+Apoyo Gubernamental 1,447.10
+Energía1,908.02
+IVA  8%152.64
+Fac. del Periodo2,060.66
+DAP²114.12
+Adeudo Anterior650.79
+Su Pago650.00-
+Total$2,175.57
+-1-
+Fecha, hora y lugar de impresión: 05 SEP 2023 11:23:26 hrs. Av. Valle de Juarez Col. San Lorenzo Juarez Juarez Chihuahua Mexico 32427
+32600 01-09-29 XAXX-010101 033 CFE
+01 596010921881 230907 000002175 9
+28DC04B012846640Repartir
+$2,175
+(DOS MIL CIENTO SETENTA Y CINCO PESOS  M.N.)
+
+del 19 ABR 23 al 20 JUN 23536$650.00$650.00
+del 17 FEB 23 al 19 ABR 23413$753.00$753.00
+del 16 DIC 22 al 17 FEB 23412$742.00$742.00
+del 18 OCT 22 al 16 DIC 22455$825.00$825.00
+del 17 AGO 22 al 18 OCT 22797$889.00$889.00
+del 14 JUN 22 al 17 AGO 221264$2,292.00$2,292.00
+del 12 ABR 22 al 14 JUN 22759$853.00$853.00
+del 11 FEB 22 al 12 ABR 22322$396.00$396.00
+del 14 DIC 21 al 11 FEB 22361$462.00$462.00
+del 13 OCT 21 al 14 DIC 21432$591.00$591.00
+del 12 AGO 21 al 13 OCT 21899$958.00$958.00
+Datos Fiscales del Receptor       Cadena Original       Este documento es una representación impresa de un CFDI       PPD
+RFC: RFC  Razón Social:  Régimen Fiscal: General de Ley Personas Morales. Uso CFDI: Gastos en general. CP: 00000 Serie: CC Folio: 000052119513 Folio Fiscal: UUID N.
+Certificado del SAT:  No. certificado del CSD:  Fecha y Hora de certificación:  Unidad de medida: No Aplica
+||1.0|UUID||||||
+Corte a partir del 08 SEP 23.
+Con este consumo se redujo la aportación gubernamental. Ahorrar luz podría representar beneficios en su gasto familiar.
+Le invitamos a que se registre en nuestro portal y disfrute de la comodidad de nuestros servicios en linea.

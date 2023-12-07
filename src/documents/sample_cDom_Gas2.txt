@@ -1,0 +1,142 @@
+DATOS GENERALES
+Cuenta
+8957613-3
+Nombre:BARRON BAEZ LUCIANO
+Calle:RIO OBI
+Núm:1919Dpto:
+Colonia:RIBERAS DE DOS RIOS
+C.P.:67134
+Mpo/Edo:GUADALUPE, NUEVO LEON
+Medidor:0001314225
+Control
+N° FE23785364
+Tarifa: G1 Doméstico
+Emitida:S. PEDRO G
+Lote:50245
+UUID
+C811E02D-ADD7-43EC-9404-1D0C37AE3B4A
+No. Certificado
+00001000000509890101
+Folio
+000023785364
+Serie
+X12022F0FE
+Emisor
+NATURGY MEXICO
+GNM9712017P7
+Regimen Fiscal:
+601 General de Ley
+Personas Morales
+Lugar de Expedicion:64460
+Tipo de Comprobante:I  INGRESO
+Lectura
+Actual:4787
+Anterior:4733
+Consumo54
+Fecha
+(  13Dic22  )
+(  17Oct22  )
+M³  X1 FC = 54 M³
+Tipo
+(  REAL  )
+(  REAL  )
+Fechas Importantes
+LIMITE DE PAGO
+30Dic22
+SUJETO A CORTE
+31Dic22
+Fecha Timbrado
+2022-12-18 04:33:00
+Receptor
+RFC: XAXX010101000
+Uso CFDI: S01 Sin efectos fiscales.
+C.P: 67134
+Régimen Fiscal: 616 Sin obligaciones fiscales
+Historial de Consumo
+PODER CALORIFICO: 0.035895 GJOULES/M3
+CFDI RelacionadoTipo Relacion
+FACTURA
+No Certificado SAT:00001000000506202789Fecha Timbrado:2022-12-18 04:41:07RFC PAC:SST060807KU0
+Sello:
+MB5CNtilrawi5kjAQxdz3gBe+ObdHQVDAZ9NhK1/4R7lnYi3s0VL84nOm+Dn8IKyGOfgyB9f0ftP8735QOBh1frPMUIjzWlI3FFVmjsb9js6SmeyYOhGO4I4000VSbWJ
+mME65oR4t22e+ON1U95VP8ucHKIOrr4vVTGVIG1Do3W2X8fSE2+l4sgGITWCI2HgUWQpXwSpYC2yjnNLCM1SobHUx+hG/o2XAsRPwIHG07ttUXYkmu9REk2rq
+utLVGiEvkqcGRV46ZFw+du93HCFXXsZztv2jf1R5X1Wqv+jpSRTkZOBOw9Y+5Xh7uk6yPSzsBTQ9t6HpVZhbU+HN0ajsA==
+Sello SAT:
+uUdHXSVkiAvt599KC9eu9laoO32sfu6+3SrkqaVkQln+I9tKu7+thY3UPDXQVRN5NxPmkzX1DxNljaaiuLvCY7uCkiihD7gnLZssZjoOBq3Lj8LzbR/RCLy6ctY6eg4Ap9a
+MZ0faYjczvlw4nxil54JrnIDcryXgCogiQwLPjd9q0bdZ3OmDz9+aSwhsoHnoLQH3srqUkzRKvTyqHpUx8ndzzKB4B3UKL8fsC3nVm/QMZM1awATs29qaPHvzD4HdD
+7aKTSdw3YaBQSxU5qw/58drZCvZmc54cbHJYufT2BO69zAGbrwZSwcK+vTtoVQRNkX6ClKjVKCq9h5/tI8ZmQ==
+Cadena
+Original:
+ESTE DOCUMENTO ES UNA REPRESENTACIÓN IMPRESA DE UN CFDIVersión 4.0
+*****************************TERMINA REPRESENTACIÓN IMPRESA DE UN CFDI***************************
+MonedaMXN
+Forma de Pago99 POR DEFINIR
+Método de PagoPPD
+**Conceptos Aplicables
+Impuesto002 - IVA
+Tipo FactorTasa
+Tasa o Cuota0.16
+CvePrdSrvCantidadClave UnidadDescripciónValor UnitarioImporteDescuentoBaseImporte(IVA)
+1511151254.00MTQ*PRECIO ADQUISICION4.3629235.590.00235.5937.69
+8014170254.00MTQ*DISTRIBUCION CON COMERCIALIZACION3.9332212.390.00212.3933.98
+831016001.00E48CARGO SERVICIO117.7600117.760.00117.7618.84
+801417021.00E48AJUSTE OPERATIVO4.710004.710.0004.7100.75
+||1.1|C811E02D-ADD7-43EC-9404-1D0C37AE3B4A|2022-12-
+18T04:41:07|SST060807KU0|MB5CNtilrawi5kjAQxdz3gBe+ObdHQVDAZ9NhK1/4R7lnYi3s0VL84nOm+Dn8IKyGOfgyB9f0ftP8735QOBh1frPMUIjzWlI3FFVmjsb9js
+6SmeyYOhGO4I4000VSbWJmME65oR4t22e+ON1U95VP8ucHKIOrr4vVTGVIG1Do3W2X8fSE2+l4sgGITWCI2HgUWQpXwSpYC2yjnNLCM1SobHUx+hG/o2XAs
+RPwIHG07ttUXYkmu9REk2rqutLVGiEvkqcGRV46ZFw+du93HCFXXsZztv2jf1R5X1Wqv+jpSRTkZOBOw9Y+5Xh7uk6yPSzsBTQ9t6HpVZhbU+HN0ajsA==|000010
+00000506202789||
+ESTADO DE CUENTA
+OTROS CONCEPTOS PROPIOS (OCP)
+Nombre del ConceptoTOTAL
+AJUSTE POR REDONDEO1.00
+Total (OCP)
+01.00
+DEUDA VENCIDA (DV)
+Nombre del ConceptoTOTAL
+0.00
+Total (DV)0.00
+CONCEPTOS DE TERCEROS (CT)
+Nombre del ConceptoTOTAL
+0.00
+Total (CT)0.00
+SUBTOTAL
+570.45
+IVA91.26
+DESCUENTO
+0.00
+TOTAL CONSUMO661.71
+TOTAL (OCP)01.00
+TOTAL (DV)0.00
+TOTAL (CT)0.00
+TOTAL A PAGAR662.00
+0.64SALDO PENDIENTE D/IVA:0.00SALDO PENDIENTE A/IVA:
+NATURGY MÉXICO, S.A. DE C.V. GNM9712017P7 Horacio No. 1750 Colonia Los Morales Polanco, Miguel Hidalgo Ciudad de México, C.P. 11510
+NATURGY MÉXICO, S.A. DE C.V. GNM9712017P7 Sucursal Monterrey Av. Calzada del Valle No. 105 Ote. San Pedro Garza García, N.L. C.P. 66220
+Las Condiciones Generales para la Prestación del Servicio establecen en las siguientes Cláusulas:
+° En caso de no pagar en la fecha limite, se adicionará a su factura un cargo por cobranza e intereses moratorios (TIIE x 1.5 Vigente en el primer día del mes) de acuerdo a lo establecido en las clausulas 1.6.8 y 2.3.4.
+° El permisionario podrá suspender el servicio sin responsabilidad en caso de incumplimiento de pago, conforme a lo establecido en la cláusula 2.7, hasta que el usuario cubra las cantidades adeudadas.
+° Este documento constituye el único aviso previo de suspensión; Asi como de rescisión de contrato en caso de falta de pago, conforme lo establecido en la cláusula 2.1.11.
+*CONCEPTOS EXPRESADOS EN PESOS/M3 TARIFAS APROBADAS POR LA CRE
+IMPORTANTE
+TALÓN
+SCOTIABANK: NO. SERVICIO: 3311
+SANTANDER SERFIN: CONV. 4528
+BBVA BANCOMER: CIE: 0570028
+HSBC: TXT 5503 CVE 4082
+BANORTE: EMISORA 02032 REF 000170089576131312220
+BANAMEX:  GASNATMTY PA REF 10170089576131312227
+Cuenta: 8957613-3
+Referencia:
+0170089576131312229
+Ref. CARGO: 170089576135
+Ref. Cliente:17008957613
+Total a Pagar
+Fecha Límite
+30Dic22
+BARRON BAEZ LUCIANO
+RIO OBI                     Num: 1919 Depto:
+RIBERAS DE DOS RIOS       C:P.: 67134
+GUADALUPE, NUEVO LEON
+Entre Calles: RIBERAS DE DOS RIOS
+662.00

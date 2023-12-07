@@ -72,6 +72,16 @@ async function readSamples(){
     readDocumentSamples("sample_funerario_Thona.txt", "Funerario-Thona");
     readDocumentSamples("sample_funerario_Thona2.txt", "Funerario-Thona");
     readDocumentSamples("sample_funerario_Thona3.txt", "Funerario-Thona");
+    // Other Samples
+    readDocumentSamples("sample_cActa_Matrimonio.txt", "cActa-Matrimonio");
+    readDocumentSamples("sample_cCURP_Basic.txt", "cCURP-CURP");
+    readDocumentSamples("sample_cDom_Agua.txt", "cDom-Agua");
+    readDocumentSamples("sample_cDom_CFE.txt", "cDom-CFE");
+    readDocumentSamples("sample_cDom_CFE2.txt", "cDom-CFE");
+    readDocumentSamples("sample_cDom_CFE3.txt", "cDom-CFE");
+    readDocumentSamples("sample_cDom_Gas.txt", "cDom-Gas");
+    readDocumentSamples("sample_cDom_Gas2.txt", "cDom-Gas");
+    readDocumentSamples("sample_cPers_Conductor_Err.txt", "Error-Conductor");
     console.log("Read Sample files content ✅");
 }
 

@@ -1,0 +1,102 @@
+DATOS DEL USUARIO
+       JORGEARMANDOCHAPAOYERVIDES
+USUARIO
+                  
+DIRECCIÓN DE ENVÍO
+Lesbos419
+Vallede San CarlosSan Nicolásde los GarzaNL C.P.
+66437Vallede San Carlos
+DATOS DE FACTURACIÓN
+          10/OCT/2023
+VENCIMIENTO
+             SEP/2023
+MES FACTURADO
+                  26/AGO/2023
+25/SEP/2023
+PERIODO DE CONSUMO
+                   64060-Mty.,N.L.
+LUGAR DE EXPEDICIÓN
+                     
+DIRECCIÓN DE SERVICIO
+Lesbos419
+Vallede San CarlosSan Nicolásde los GarzaNL
+     
+R.F.C
+XAXX010101000
+     
+N.I.S
+3211828-01DV 1
+     
+N.I.R
+0321182801000250622785
+                 
+OFICINA COMERCIAL
+G.C.SANNICOLAS
+      
+TARIFA
+Doméstica- Cat.2
+          
+UNIDAD USO
+1
+    
+GIRO
+Doméstico
+                       
+INFORMACIÓNDEL CONSUMO
+MEDIDORLECTURA ANTERIORULTIMA LECTURACONSUMO
+21008510M1671771847
+FACTURASPENDIENTESUNIDADUSODETALLEDE FACTURACIÓN
+VENCIMIENTO       IMPORTE
+NO APLICACONSUMODE AGUA97.99
+NO APLICACUOTADE DRENAJE6.39
+NO APLICACUOTADE SANEAMIENTO0.00
+NO APLICAIVA1.02
+NO APLICAREDONDEOMESANTERIOR0.73
+NO APLICAAJUSTEPORREDONDEO-0.13
+MESES
+ANTERIORES
+MESES
+DE ADEUDO
+0TOTALDEL MES106.00
+ADEUDOPENDIENTE0.00
+TOTALA PAGAR$ 106.00
+PAGOEN UNA SOLAEXHIBICIÓN
+Fechay hora de certificación:2023-09-26T22:05:59
+FechaEmision:2023-09-26T21:54:52Serie:Folio:
+FolioFiscal(UUID):C4B7F0A5-F362-4358-A639-55E5A3833E04
+No. SerieCertificadoSAT:00001000000507237013
+No. SerieCertificadoCSD:00001000000506032584
+"Válidocomofacturasi muestrala cantidadimpresapor máquinaregistradorao selloy firmadel cajeroo reciboexpedidopor la institución."
+SelloDigitaldel Emisor:
+SICRQuUOSCzzei8io80ZpnO1QEOoRqhLlts8wq+cB5YHxsEoRJWTAKUQ2g+SKQrvQoygQvFGpJnuqVVby
+AVHBynAWJeNmjNIdXDAd/oNW5DsFLnIInrONeBejqL01yAliCB5Q8ucrNzzSeqFhZDb95O9aKQSxQbSnCW
++Hw1rdgnWIyVdGJHT3kK/Ausdr2f2qmIxfPA9DRG8Y9rFaPYhYLHrwP+F9xHJ1XQKtolrdMLQNRmN8v+dx
+63RQtqSDNprMtOQTxRGayFwc/CELi69vbThHn9+TkKXcVJ1Fzq1JDdGeDpKtaMMFm8DNtkdMiPUc0omfB
+Rmh8s2QZzvwZMJ9Q==
+SelloDigitaldel SAT:
+nRQp0fJwec/K+x2oMiU3YCXRcAEBa6IP9eEVll41d/ZZ9JtV4YgACe7jRH53m/J12lZlOPEG8ijDM/5hAuVXS
+QSsfUP9S7zLKO11yrZpRqcAvYVUwXEuTM95B30MyHGngnkEYy38TrV+WDOQj2FNe8MykqdHnehxTGML
+5E01ollEb/PGtsqCI6lVDQkwU8SnzPH1U62qadalg8ZA9pGmIZbqxVM2FWtis8pYYdldPrv20aggF0IpUUvtZw
+0dOwo/Zp3le0c5qyC1h0gH9ygvnqRVZy2khN/wQO7tIfcb9wUh2He+v0ZTn4OHBOzYmXe3GmojUpJrtyRI7X
+BPK1cVRQ==
+CadenaOriginal:
+||1.1|C4B7F0A5-F362-4358-A639-55E5A3833E04|2023-09-26T22:05:59|DCD090706E42|SICRQuUOS
+ESTEDOCUMENTOES UNA REPRESENTACIÓNIMPRESADE UN CFDI
+"El pagode esta facturano liberaal suscriptorde adeudosanterioreso serviciosprestadosno incluidos.Los títulosde créditodadosen pagosseránbajo la condición"salvobuencobro"
+En casode chequesdevueltos,"Serviciosde Aguay Drenajede Monterrey,I.P.D",se reservael derechode cobrarel 20%de indemnizaciónen términosdel Art. 193 de la ley de Títulosy
+Operacionesde Crédito
+}A,sq-S_<v!!!"'!§.~ 
+}A,sq-S_<v!!!"'!§.~ 
+32118280125062278500000001060096
+BanorteEmpresa:06944Ref.: 0321182801154008930
+AfirmeRef.:0321182801154008930
+Bajio Ref.:0321182801154008930
+PA Banamex:197001Ref.:03211828011540089295
+ScotiabankNo. Serv.:1639Ref.: 03211828011540089295
+SantanderNo. Conv.:7054Ref.:03211828011540089295
+BancomerNo. Conv.:1291505Ref.: 03211828011540089295
+HSBCConvenioRAP.:4299Ref.:03211828011540089295
+FORMADE PAGO:99-PordefinirFORMADE PAGO:99-Pordefinir
+NUM.DE CUENTA:No AplicaNUM.DE CUENTA:No Aplica
+USODE CFDI:S01-SinefectosfiscalesUSODE CFDI:S01-Sinefectosfiscales
+REG.FISCAL:616-SinobligacionesfiscalesREG.FISCAL:616-Sinobligacionesfiscales

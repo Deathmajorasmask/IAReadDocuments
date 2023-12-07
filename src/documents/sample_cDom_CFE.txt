@@ -1,0 +1,104 @@
+Este gráfico refleja tu nivel de consumo. A menor uso, mayor apoyo.
+(1) SCnMEM: Costos relacionados con los servicios del Mercado. (2) DAP: Derecho al Alumbrado Público. (3) Cargos o créditos: Diversos conceptos que se pueden incluir en el aviso recibo relacionados con el suministro.
+Subtotal
+Concepto
+Desglose del importe a pagar
+Importe (MXN)
+Importe (MXN)Concepto
+Costos de la energía en el Mercado Eléctrico Mayorista 
+$/kWh$/kW$
+ 
+CFE Suministrador de Servicios Básicos
+Río Ródano No. 14, colonia Cuauhtémoc,
+Alcaldía Cuauhtémoc, Código Postal 06500, 
+Ciudad de México. 
+RFC: CSS160330CP7
+Concepto
+Total 
+periodo(MXN)
+Subtotal
+(MXN)
+Lectura actual
+Medida  Estimada  
+Lectura anterior
+Estimada  Medida  
+Precio
+MONTERRUBIO LARA EMILIO
+FONCEA 148 CP.0
+FONCEA
+LA RIOJA FRAC MTY C.P. 64988
+MONTERREY N.L., N.L.
+NO. DE SERVICIO: 378100202541
+RMU: 64988 10-02-25 XAXX-010101 001 CFE
+LÍMITE DE PAGO: 02 JUN 23
+CORTE A PARTIR: 03 JUN 23
+TARIFA: 1C NO. MEDIDOR: 39U5T8
+MULTIPLICADOR: 1
+PERIODO FACTURADO: 17 MAR 23 - 17 MAY 23
+TOTAL A PAGAR:
+$1,198
+$1,198
+(UN MIL CIENTO NOVENTA Y OCHO PESOS  M.N.)
+(UN MIL CIENTO NOVENTA Y OCHO PESOS  M.N.)
+XX
+Energía (kWh)
+↓
+Apoyo Gubernamental 1,003.07
+Fecha, hora y lugar de impresion: 05/06/2023 13:17:11hrs AV. EUGENIO GARZA SADA 3755   COL . CONTRY ALTOS Monterrey Monterrey Nuevo Leon Mexico CP 64103
+64988 10-02-25 XAXX-010101 001 CFE
+29DD12E012944330          Repartir
+01 378100202541 230602 000001198 5
+-1-
+74,47773,551926
+Básico3000.861258.30
+Intermedio13000.998299.40
+Intermedio23001.286385.80
+Suministro88.380.000.0088.38
+Distribución0.000.00628.48628.48
+Transmisión0.000.00162.79162.79
+CENACE0.000.005.835.83
+Energía0.000.00674.13674.13
+Capacidad0.000.00470.41470.41
+SCnMEM(1)0.000.005.745.74
+Energía1,032.68
+IVA 16%165.23
+Fac. del Periodo1,197.91
+Adeudo Anterior3,240.70
+Su Pago-3,240.00
+Total1,198.61
+
+CONSUMO HISTÓRICO
+Conoce los servicios de los diferentes suministradores: http://usuariocalificado.cre.gob.mx/UsuarioCalificado/ListadoSuministrador
+ 
+Importe
+Pagos
+Pendientes 
+de P ago
+jun-17ago-17oct-17dic-17feb-18abr-18jun-18ago-18oct-18dic-18
+feb-19
+Período
+¡AVISO IMPORTANTE!
+Instancias y recursos a disposición de los usuarios para atender quejas: 
+RFC FONCEA 148 CP.0 MONTERREY N.L., N.L., Serie: DH Folio: 000064657328 Folio Fiscal:  N. Certificado del SAT:  No. certificado del CSD:  Fecha y Hora de certificación:  Unidad de medida: No Aplica  M
+étodo de pago: NA  Régimen Fiscal: RÉGIMEN GENERAL DE PERSONAS MORALES
+Datos Fiscales del Receptor     Cadena Original     Este documento es una representación impresa de un CFDI     Pago en una sola exhibición
+||1.0|UUID||||||
+
+
+Corte a partir del 03 JUN 23.
+Con este consumo se redujo la aportación gubernamental. Ahorrar luz podría representar beneficios en su gasto familiar.
+Le invitamos a que se registre en nuestro portal y disfrute de la comodidad de nuestros servicios en linea.
+
+
+-2-
+del 19 ENE 23 al 17 MAR 231064$3,240.00$3,240.00
+del 22 NOV 22 al 19 ENE 231297$4,105.00$4,105.00
+del 22 SEP 22 al 22 NOV 22935$2,668.00$2,668.00
+del 20 JUL 22 al 22 SEP 221958$5,052.00$5,052.00
+del 20 MAY 22 al 20 JUL 221677$3,941.00$3,941.00
+del 23 MAR 22 al 20 MAY 22781$853.00$853.00
+del 21 ENE 22 al 23 MAR 221689$5,302.00$5,302.00
+del 22 NOV 21 al 21 ENE 221032$2,864.00$2,864.00
+del 22 SEP 21 al 22 NOV 21747$1,825.00$1,825.00
+del 22 JUL 21 al 22 SEP 211727$3,941.00$3,941.00
+del 20 MAY 21 al 22 JUL 211387$2,712.00$2,712.00
