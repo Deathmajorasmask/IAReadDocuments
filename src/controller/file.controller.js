@@ -2,8 +2,14 @@ const uploadFile = require("../middleware/upload");
 const fs = require("fs");
 const baseUrl = "http://localhost:3000/files/";
 
+// Generate UID for Users Documents
+const { v4: uuidv4 } = require('uuid');
+
 // OCR Documment
 const ocrData = require("./ocrfile.controller");
+
+// AWS S3 Buckets
+const AWS = require('aws-sdk');
 
 const upload = async (req, res) => {
   try {
@@ -12,6 +18,8 @@ const upload = async (req, res) => {
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
     }
+    let idUnic = uuidv4();
+    console.log("El id único es: ", idUnic);
     const Variable = await ocrData.fnOcrExtractData(req.file.originalname);
     res.status(200).send({
       message: "Uploaded the file successfully: " + req.file.originalname,

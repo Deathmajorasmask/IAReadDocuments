@@ -12,7 +12,7 @@ async function fnOcrExtractData(dirPathDoc){
     pdfParse(__basedir + "/resources/static/assets/uploads/" + dirPathDoc).then(result => {
         console.log(result.text)
         console.log("--------------NaturalClassify------------------")
-        if(!(result.text) || ! result.text.length <= 0 || result.text.trim()){
+        if(!(result.text) || result.text.length <= 0 || result.text.match(/^\s*$/) !==null){
             console.log('Otro-Documento-NoCategorizado')
         }
         else {
