@@ -1,17 +1,44 @@
 const pg = require("pg");
 
+/* const fs = require('fs');
 const pool = new pg.Pool({
+  host: '127.0.0.1',
+  user: 'fgalvan',
+  password: 'b4s3T3st',
+  database: 'postgres',
+  port: '3310',
+  ssl : {
+    ca: fs.readFileSync('/jumpbox.pem').toString()
+}
+});
+ */
+
+/* const pool = new pg.Client({
+  host: "127.0.0.1",
+  user: "fgalvan",
+  password: "b4s3T3st",
+  database: "postgres",
+  port: "3310",
+  ssl: true
+}); */
+
+const pool = new pg.Pool({
+  /* host: "127.0.0.1",
+  user: "postgres",
+  password: "Aurq5x2D5p",
+  database: "postgres",
+  port: "3309", */
   host: "127.0.0.1",
   user: "fgalvan",
   password: "b4s3T3st",
   database: "postgres",
   port: "3310",
   /* host: "127.0.0.1",
-  user: "fgalvan",
-  password: "b4s3T3st",
+  user: "paasidocs",
+  password: "33IzOJWk4Sd9",
   database: "postgres",
-  port: "3310", */
-/*   host: "localhost",
+  port: "3309", */
+  /* host: "localhost",
   user: "postgres",
   password: "clocktown21",
   database: "testapi",
@@ -19,7 +46,6 @@ const pool = new pg.Pool({
 });
 
 const getUsers = async (req, res) => {
-  
   const response = await pool.query("SELECT * FROM users limit 10");
   pool.end();
   console.log(response.rows);
