@@ -1,15 +1,27 @@
 const pg = require("pg");
 
 const pool = new pg.Pool({
-  host: "localhost",
+  host: "127.0.0.1",
+  user: "fgalvan",
+  password: "b4s3T3st",
+  database: "postgres",
+  port: "3310",
+  /* host: "127.0.0.1",
+  user: "fgalvan",
+  password: "b4s3T3st",
+  database: "postgres",
+  port: "3310", */
+/*   host: "localhost",
   user: "postgres",
   password: "clocktown21",
   database: "testapi",
-  port: "5432",
+  port: "5432", */
 });
 
 const getUsers = async (req, res) => {
-  const response = await pool.query("SELECT * FROM users");
+  
+  const response = await pool.query("SELECT * FROM users limit 10");
+  pool.end();
   console.log(response.rows);
   res.status(200).json(response.rows);
 };

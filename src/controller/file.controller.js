@@ -8,8 +8,25 @@ const { v4: uuidv4 } = require('uuid');
 // OCR Documment
 const ocrData = require("./ocrfile.controller");
 
+/*
 // AWS S3 Buckets
 const AWS = require('aws-sdk');
+
+//configuring the AWS environment
+AWS.config.update({
+  accessKeyId: "<Access Key Here>",
+  secretAccessKey: "<Secret Access Key Here>"
+});
+
+var s3 = new AWS.S3();
+
+//configuring parameters
+var params = {
+  Bucket: '<Bucket Name Here>',
+  Body : fs.createReadStream(filePath),
+  Key : "folder/"+Date.now()+"_"+path.basename(filePath)
+};
+*/
 
 const upload = async (req, res) => {
   try {
@@ -21,6 +38,20 @@ const upload = async (req, res) => {
     let idUnic = uuidv4();
     console.log("El id único es: ", idUnic);
     const Variable = await ocrData.fnOcrExtractData(req.file.originalname);
+
+    // Aws S3 Bucket Upload File
+    /* s3.upload(params, function (err, data) {
+      //handle error
+      if (err) {
+        console.log("Error", err);
+      }
+    
+      //success
+      if (data) {
+        console.log("Uploaded in:", data.Location);
+      }
+    }); */
+
     res.status(200).send({
       message: "Uploaded the file successfully: " + req.file.originalname,
     });
