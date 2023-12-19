@@ -1,48 +1,14 @@
+// .env file
+require("dotenv").config();
+
 const pg = require("pg");
 
-/* const fs = require('fs');
 const pool = new pg.Pool({
-  host: '127.0.0.1',
-  user: 'fgalvan',
-  password: 'b4s3T3st',
-  database: 'postgres',
-  port: '3310',
-  ssl : {
-    ca: fs.readFileSync('/jumpbox.pem').toString()
-}
-});
- */
-
-/* const pool = new pg.Client({
-  host: "127.0.0.1",
-  user: "fgalvan",
-  password: "b4s3T3st",
-  database: "postgres",
-  port: "3310",
-  ssl: true
-}); */
-
-const pool = new pg.Pool({
-  /* host: "127.0.0.1",
-  user: "postgres",
-  password: "Aurq5x2D5p",
-  database: "postgres",
-  port: "3309", */
-  host: "127.0.0.1",
-  user: "fgalvan",
-  password: "b4s3T3st",
-  database: "postgres",
-  port: "3310",
-  /* host: "127.0.0.1",
-  user: "paasidocs",
-  password: "33IzOJWk4Sd9",
-  database: "postgres",
-  port: "3309", */
-  /* host: "localhost",
-  user: "postgres",
-  password: "clocktown21",
-  database: "testapi",
-  port: "5432", */
+  host: process.env.RESIO_HOST,
+  user: process.env.RESIO_USER,
+  password: process.env.RESIO_PASSWORD,
+  database: process.env.RESIO_DATABASE,
+  port: process.env.RESIO_PORT,
 });
 
 const getUsers = async (req, res) => {

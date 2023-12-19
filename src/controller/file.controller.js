@@ -1,43 +1,53 @@
 const uploadFile = require("../middleware/upload");
+
+// .env file
+require("dotenv").config();
+
+// File reader
 const fs = require("fs");
 const baseUrl = "http://localhost:3000/files/";
 
 // Generate UID for Users Documents
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 // OCR Documment
 const ocrData = require("./ocrfile.controller");
 
-/*
 // AWS S3 Buckets
-const AWS = require('aws-sdk');
+const AWS = require("aws-sdk");
 
 //configuring the AWS environment
 AWS.config.update({
-  accessKeyId: "<Access Key Here>",
-  secretAccessKey: "<Secret Access Key Here>"
+  accessKeyId: process.env.AWSS3_ACCESS_KEYID,
+  secretAccessKey: process.env.AWSS3_ACCESS_KEY,
 });
+const s3 = new AWS.S3();
 
-var s3 = new AWS.S3();
-
-//configuring parameters
-var params = {
-  Bucket: '<Bucket Name Here>',
-  Body : fs.createReadStream(filePath),
-  Key : "folder/"+Date.now()+"_"+path.basename(filePath)
-};
-*/
+// reSIO database controller
+const reSIODBQuerys = require("./reSIO.query.controller");
 
 const upload = async (req, res) => {
   try {
     await uploadFile(req, res);
-
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
     }
+
     let idUnic = uuidv4();
     console.log("El id único es: ", idUnic);
+
     const Variable = await ocrData.fnOcrExtractData(req.file.originalname);
+
+    // Seach user by tuid
+    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid('9581447934793'); // 9581447934793 // Maza 1950918133558
+    console.log("TUID resultado de la busqueda de PG: "+ userInfo.body.uid);
+
+    // configuring parameters
+    var params = {
+      Bucket: "resio",
+      Body: fs.createReadStream(req.file.path),
+      Key: `QA/users/${userInfo.body.uid}-${req.file.path}`,
+    };
 
     // Aws S3 Bucket Upload File
     /* s3.upload(params, function (err, data) {
@@ -45,7 +55,7 @@ const upload = async (req, res) => {
       if (err) {
         console.log("Error", err);
       }
-    
+
       //success
       if (data) {
         console.log("Uploaded in:", data.Location);
@@ -53,7 +63,7 @@ const upload = async (req, res) => {
     }); */
 
     res.status(200).send({
-      message: "Uploaded the file successfully: " + req.file.originalname,
+      message: "Uploaded the file successfully: " + req.file.path,
     });
   } catch (err) {
     console.log(err);
