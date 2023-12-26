@@ -4,12 +4,17 @@ const pdfParse = require("pdf-parse");
 
 async function fnOcrExtractData(dirPathDoc) {
   console.log("-----------ocrspace----------");
-  let res1 = await ocrSpace(
+  let res = await ocrSpace(
     __basedir + "/resources/static/assets/uploads/" + dirPathDoc
   );
-  console.log(res1);
+  console.log(res);
   console.log("-----------End_ocrspace----------");
 
+  return res;
+}
+
+async function fnOcrExtractClassify(dirPathDoc) {
+  let res;
   console.log("-----------pdfParse----------");
   pdfParse(__basedir + "/resources/static/assets/uploads/" + dirPathDoc).then(
     (result) => {
@@ -21,16 +26,18 @@ async function fnOcrExtractData(dirPathDoc) {
         result.text.match(/^\s*$/) !== null
       ) {
         console.log("Otro-Documento-NoCategorizado");
+        res = "";
       } else {
-        naturalfnController.fnGetClassifyData(result.text);
+        res = naturalfnController.fnGetClassifyData(result.text);
       }
       console.log("--------------End_NaturalClassify------------------");
     }
   );
   console.log("-----------End_pdfParse----------");
-  return res1;
+  return res;
 }
 
 module.exports = {
   fnOcrExtractData,
+  fnOcrExtractClassify,
 };

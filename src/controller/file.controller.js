@@ -1,3 +1,4 @@
+// Middleware load
 const uploadFile = require("../middleware/upload");
 
 // .env file
@@ -5,7 +6,6 @@ require("dotenv").config();
 
 // File reader
 const fs = require("fs");
-const baseUrl = "http://localhost:3000/files/";
 
 // Generate UID for Users Documents
 const { v4: uuidv4 } = require("uuid");
@@ -29,6 +29,27 @@ const reSIODBQuerys = require("./reSIO.query.controller");
 const upload = async (req, res) => {
   try {
     await uploadFile(req, res);
+    if (!req.body.doc_group_id){
+      return res.status(400).send({ message: "Please req a doc_group_id field!" });
+    }
+    if (!req.body.doc_type_id){
+      return res.status(400).send({ message: "Please req a doc_type_id field!" });
+    }
+    if (!req.body.contract_id){
+      return res.status(400).send({ message: "Please req a contract_id field!" });
+    }
+    if (!req.body.owner_user_id){
+      return res.status(400).send({ message: "Please req a owner_user_id field!" });
+    }
+    if (!req.body.owner_org_id){
+      return res.status(400).send({ message: "Please req a owner_org_id field!" });
+    }
+    if (!req.body.owner_office_id){
+      return res.status(400).send({ message: "Please req a owner_office_id field!" });
+    }
+    if (!req.body.expired_at){
+      return res.status(400).send({ message: "Please req a expired_at field!" });
+    }
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
     }
@@ -36,17 +57,49 @@ const upload = async (req, res) => {
     let idUnic = uuidv4();
     console.log("El id único es: ", idUnic);
 
-    const Variable = await ocrData.fnOcrExtractData(req.file.originalname);
+    const fileContent = await ocrData.fnOcrExtractData(req.file.originalname);
+    const fileClassify = await ocrData.fnOcrExtractClassify(req.file.originalname);
 
     // Seach user by tuid
-    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid('9581447934793'); // 9581447934793 // Maza 1950918133558
-    console.log("TUID resultado de la busqueda de PG: "+ userInfo.body.uid);
+    //let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid('1950918133558'); // 9581447934793 // Maza 1950918133558
+    console.log("el request de tuid: "+ req.body.tuid)
+    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid(req.body.tuid);
+
+    // Search org id for owner_org_id (doc - owner_org_id -> org - id)
+    let orgInfo = await reSIODBQuerys.fnSearchOrgsInfoById(req.body.owner_org_id);
+
+    // Create fields to DB reSIO
+    let isactive = true;
+
+    // Add Document in DB reSIO
+    let documentInfo = await reSIODBQuerys.fnCreateDocumentToDB(
+      fileClassify,
+      req.body.doc_group_id,
+      req.body.doc_type_id,
+      req.body.contract_id,
+      req.body.url,
+      req.body.isvalid,
+      req.body.isreviewed,
+      isactive,
+      req.body.owner_user_id,
+      req.body.owner_org_id,
+      req.body.owner_office_id,
+      req.body.expired_at,
+      req.body.created_at,
+      req.body.modified_at
+    )
+
+    if(!fileContent.IsErroredOnProcessing){
+      // Save in reSIO data for pdf file
+      console.log("reSIO Data for pdf file");
+      console.log(fileContent.ParsedResults[0].ParsedText);
+    }
 
     // configuring parameters
     var params = {
       Bucket: "resio",
       Body: fs.createReadStream(req.file.path),
-      Key: `QA/users/${userInfo.body.uid}-${req.file.path}`,
+      Key: `${orgInfo.biz_abbr}/users/${userInfo.body.tuid}_${req.file.path}`,
     };
 
     // Aws S3 Bucket Upload File

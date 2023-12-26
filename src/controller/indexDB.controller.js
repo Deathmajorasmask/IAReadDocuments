@@ -1,6 +1,9 @@
 // .env file
 require("dotenv").config();
 
+// File reader
+const fs = require("fs");
+
 const pg = require("pg");
 
 const pool = new pg.Pool({
@@ -9,6 +12,13 @@ const pool = new pg.Pool({
   password: process.env.RESIO_PASSWORD,
   database: process.env.RESIO_DATABASE,
   port: process.env.RESIO_PORT,
+  ssl: {
+    rejectUnauthorized: false, // Esto es para un entorno de desarrollo, para producción considera manejar certificados
+  },
+  /* ssl: {
+    // Especifica la ruta al certificado raíz de RDS
+    ca: fs.readFileSync('./us-west-2-bundle.pem').toString()
+  } */
 });
 
 const getUsers = async (req, res) => {

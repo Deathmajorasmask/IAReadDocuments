@@ -28,7 +28,7 @@ const initRoutes = require("./src/routes");
 
 // Middleware api
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 initRoutes(app);
 
 // Middleware
