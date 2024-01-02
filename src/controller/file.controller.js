@@ -29,67 +29,105 @@ const reSIODBQuerys = require("./reSIO.query.controller");
 const upload = async (req, res) => {
   try {
     await uploadFile(req, res);
-    if (!req.body.doc_group_id){
-      return res.status(400).send({ message: "Please req a doc_group_id field!" });
+    if (!req.body.doc_group_id) {
+      return res
+        .status(400)
+        .send({ message: "Please req a doc_group_id field!" });
     }
-    if (!req.body.doc_type_id){
-      return res.status(400).send({ message: "Please req a doc_type_id field!" });
+    if (!req.body.contract_id) {
+      return res
+        .status(400)
+        .send({ message: "Please req a contract_id field!" });
     }
-    if (!req.body.contract_id){
-      return res.status(400).send({ message: "Please req a contract_id field!" });
+    if (!req.body.owner_user_tuid) {
+      return res
+        .status(400)
+        .send({ message: "Please req a owner_user_tuid field!" });
     }
-    if (!req.body.owner_user_id){
-      return res.status(400).send({ message: "Please req a owner_user_id field!" });
+    if (!req.body.owner_org_toid) {
+      return res
+        .status(400)
+        .send({ message: "Please req a owner_org_toid field!" });
     }
-    if (!req.body.owner_org_id){
-      return res.status(400).send({ message: "Please req a owner_org_id field!" });
+    if (!req.body.owner_office_id) {
+      req.body.owner_office_id = null;
     }
-    if (!req.body.owner_office_id){
-      return res.status(400).send({ message: "Please req a owner_office_id field!" });
-    }
-    if (!req.body.expired_at){
-      return res.status(400).send({ message: "Please req a expired_at field!" });
+    if (!req.body.expired_at) {
+      return res
+        .status(400)
+        .send({ message: "Please req a expired_at field!" });
     }
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
     }
 
-    let idUnic = uuidv4();
-    console.log("El id único es: ", idUnic);
+    /* let idUnic = uuidv4();
+    console.log("El id único es: ", idUnic); */
 
     const fileContent = await ocrData.fnOcrExtractData(req.file.originalname);
-    const fileClassify = await ocrData.fnOcrExtractClassify(req.file.originalname);
+    const fileClassify = await ocrData.fnOcrExtractClassify(
+      req.file.originalname
+    );
 
     // Seach user by tuid
-    //let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid('1950918133558'); // 9581447934793 // Maza 1950918133558
-    console.log("el request de tuid: "+ req.body.tuid)
-    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid(req.body.tuid);
+    console.log("el request de tuid: " + req.body.owner_user_tuid);
+    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid(
+      req.body.owner_user_tuid
+    ); // 9998797483398 // Maza 1950918133558
 
-    // Search org id for owner_org_id (doc - owner_org_id -> org - id)
-    let orgInfo = await reSIODBQuerys.fnSearchOrgsInfoById(req.body.owner_org_id);
+    // Search org id for owner_org_toid (doc - owner_org_toid -> org - tuid)
+    let orgInfo = await reSIODBQuerys.fnSearchOrgsInfoByToid(
+      req.body.owner_org_toid
+    );
 
     // Create fields to DB reSIO
     let isactive = true;
+    let isvalid = true;
+    let isreviewed = false;
+    let arrClassifyNatural = fileClassify.split(/_/); //split(/_ ¡|! ¿|[?]/);//split(/_/);
+    // get current date
+    let date_time = new Date();
+    // adjust 0 before single digit date
+    let date = ("0" + date_time.getDate()).slice(-2);
+    // get current month
+    let month = ("0" + (date_time.getMonth() + 1)).slice(-2);
+    // get current year
+    let year = date_time.getFullYear();
+    /* // get current hours
+    let hours = date_time.getHours();
+    // get current minutes
+    let minutes = date_time.getMinutes();
+    // get current seconds
+    let seconds = date_time.getSeconds();
+    // get current milliseconds
+    let milliseconds = date_time.getMilliseconds(); */
+    let typeIdDoc = "";
+    if (arrClassifyNatural[0] == "1") {
+      typeIdDoc = "25";
+    } else {
+      typeIdDoc = arrClassifyNatural[1];
+    }
 
     // Add Document in DB reSIO
     let documentInfo = await reSIODBQuerys.fnCreateDocumentToDB(
-      fileClassify,
+      `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
       req.body.doc_group_id,
-      req.body.doc_type_id,
+      typeIdDoc,
       req.body.contract_id,
-      req.body.url,
-      req.body.isvalid,
-      req.body.isreviewed,
+      `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      isvalid,
+      isreviewed,
       isactive,
-      req.body.owner_user_id,
-      req.body.owner_org_id,
+      userInfo.body.id,
+      orgInfo.body.id,
       req.body.owner_office_id,
-      req.body.expired_at,
-      req.body.created_at,
-      req.body.modified_at
-    )
+      req.body.expired_at.toString()
+      /*       `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
+      `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00` */
+    );
+    console.log(documentInfo);
 
-    if(!fileContent.IsErroredOnProcessing){
+    if (!fileContent.IsErroredOnProcessing) {
       // Save in reSIO data for pdf file
       console.log("reSIO Data for pdf file");
       console.log(fileContent.ParsedResults[0].ParsedText);
@@ -97,13 +135,13 @@ const upload = async (req, res) => {
 
     // configuring parameters
     var params = {
-      Bucket: "resio",
+      Bucket: process.env.AWSS3_ACCESS_BUCKET,
       Body: fs.createReadStream(req.file.path),
-      Key: `${orgInfo.biz_abbr}/users/${userInfo.body.tuid}_${req.file.path}`,
+      Key: `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
     };
 
     // Aws S3 Bucket Upload File
-    /* s3.upload(params, function (err, data) {
+    s3.upload(params, function (err, data) {
       //handle error
       if (err) {
         console.log("Error", err);
@@ -111,9 +149,12 @@ const upload = async (req, res) => {
 
       //success
       if (data) {
+        console.log("Ruta de archivo a borrar: " + req.file.path);
+        removeFile = fnRemoveAsyncFile(req.file.path);
         console.log("Uploaded in:", data.Location);
       }
-    }); */
+    });
+
 
     res.status(200).send({
       message: "Uploaded the file successfully: " + req.file.path,
@@ -184,6 +225,17 @@ const remove = (req, res) => {
       message: "File is deleted.",
     });
   });
+};
+
+async function fnRemoveAsyncFile(dirPathDoc) {
+  try {
+    fs.unlinkSync(dirPathDoc);
+    return true;
+  } catch (err) {
+    res.status(500).send({
+      message: "Could not delete the file. " + err,
+    });
+  }
 };
 
 const removeSync = (req, res) => {

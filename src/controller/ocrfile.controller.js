@@ -4,37 +4,38 @@ const pdfParse = require("pdf-parse");
 
 async function fnOcrExtractData(dirPathDoc) {
   console.log("-----------ocrspace----------");
-  let res = await ocrSpace(
+  let res = ocrSpace(
     __basedir + "/resources/static/assets/uploads/" + dirPathDoc
   );
-  console.log(res);
   console.log("-----------End_ocrspace----------");
-
   return res;
 }
 
 async function fnOcrExtractClassify(dirPathDoc) {
-  let res;
   console.log("-----------pdfParse----------");
-  pdfParse(__basedir + "/resources/static/assets/uploads/" + dirPathDoc).then(
-    (result) => {
-      console.log(result.text);
-      console.log("--------------NaturalClassify------------------");
-      if (
-        !result.text ||
-        result.text.length <= 0 ||
-        result.text.match(/^\s*$/) !== null
-      ) {
-        console.log("Otro-Documento-NoCategorizado");
-        res = "";
-      } else {
-        res = naturalfnController.fnGetClassifyData(result.text);
-      }
-      console.log("--------------End_NaturalClassify------------------");
-    }
-  );
+  let pdfParseData = await fnPdfParseExtractData(dirPathDoc);
   console.log("-----------End_pdfParse----------");
+  let res = "";
+  console.log("--------------NaturalClassify------------------");
+  if (
+    !pdfParseData ||
+    pdfParseData.length <= 0 ||
+    pdfParseData.match(/^\s*$/) !== null
+  ) {
+    console.log("-1_Documento_NoCategorizado");
+  } else {
+    res = naturalfnController.fnGetClassifyData(pdfParseData);
+  }
+  console.log("--------------End_NaturalClassify------------------");
   return res;
+}
+
+async function fnPdfParseExtractData(dirPathDoc) {
+  return pdfParse(
+    __basedir + "/resources/static/assets/uploads/" + dirPathDoc
+  ).then((result) => {
+    return result.text;
+  });
 }
 
 module.exports = {

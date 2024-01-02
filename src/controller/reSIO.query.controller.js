@@ -22,10 +22,8 @@ const pool = new pg.Pool({
   } */
 });
 
-async function fnLoadIdClassifyProductsArray(){
-  const response = await pool.query(
-    "SELECT * FROM products"
-  );
+async function fnLoadIdClassifyProductsArray() {
+  const response = await pool.query("SELECT * FROM products");
 
   let context = {
     status: 200,
@@ -35,7 +33,7 @@ async function fnLoadIdClassifyProductsArray(){
       "Content-Type": "application/json",
     },
   };
-  console.log(context);
+  //console.log(context);
   return context;
 }
 
@@ -51,14 +49,15 @@ async function fnCreateDocumentToDB(
   owner_user_id,
   owner_org_id,
   owner_office_id,
-  expired_at,
-  created_at,
-  modified_at
+  expired_at
 ) {
+  console.log(
+    "SELECT * FROM passi_set_docs" +
+      `(${name}, ${doc_group_id}, ${doc_type_id}, ${contract_id}, ${url}, ${isvalid}, ${isreviewed}, ${isactive}, ${owner_user_id}, ${owner_org_id}, ${owner_office_id}, ${expired_at})`
+  );
   const response = await pool.query(
-    "INSERT INTO users " +
-      "(name, doc_group_id, doc_type_id, contract_id, url, isvalid, isreviewed, isactive, owner_user_id, owner_org_id, owner_office_id, expired_at, created_at, modified_at)" +
-      "VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
+    "SELECT * FROM passi_set_docs" +
+      "($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)",
     [
       name,
       doc_group_id,
@@ -72,8 +71,6 @@ async function fnCreateDocumentToDB(
       owner_org_id,
       owner_office_id,
       expired_at,
-      created_at,
-      modified_at
     ]
   );
   console.log(response);
@@ -94,8 +91,6 @@ async function fnCreateDocumentToDB(
         owner_org_id,
         owner_office_id,
         expired_at,
-        created_at,
-        modified_at,
       },
     },
     headers: {
@@ -167,7 +162,7 @@ async function fnSearchOrgsInfoById(id) {
   if (id) {
     const response = await pool.query(
       "SELECT * FROM orgs WHERE id = $1 LIMIT 1",
-      [toid]
+      [id]
     );
     let context = {
       status: 200,
@@ -187,25 +182,22 @@ async function fnSearchOrgsInfoById(id) {
         "Content-Type": "application/json",
       },
     };
-    console.log("toid empty - undefined - null");
+    console.log("id empty - undefined - null");
   }
   return context;
 }
 
 async function fnLoadIdClassifyDocsTypeArray() {
-
-    const response = await pool.query(
-      "SELECT * FROM docs_type"
-    );
-    let context = {
-      status: 200,
-      isRaw: true,
-      body: response.rows,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log(context);
+  const response = await pool.query("SELECT * FROM docs_type");
+  let context = {
+    status: 200,
+    isRaw: true,
+    body: response.rows,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  //console.log(context);
 
   return context;
 }
@@ -332,5 +324,5 @@ module.exports = {
   fnCreateDocumentToDB,
   fnSearchOrgsInfoByToid,
   fnSearchOrgsInfoById,
-  fnLoadIdClassifyDocsTypeArray
+  fnLoadIdClassifyDocsTypeArray,
 };
