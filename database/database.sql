@@ -20,3 +20,6 @@ CREATE OR REPLACE FUNCTION passi_set_docs(in_name character varying, in_doc_grou
   return QUERY SELECT docs.id FROM docs ORDER BY id DESC LIMIT 1;
   end;
   $func$;
+
+GRANT UPDATE, INSERT, DELETE ON docs TO fgalvan;
+GRANT USAGE, SELECT ON SEQUENCE docs_id_seq TO fgalvan;

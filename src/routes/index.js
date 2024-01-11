@@ -5,6 +5,8 @@ const usersController = require("../controller/indexDB.controller");
 
 let routes = (app) => {
   router.post("/upload", controller.upload);
+  router.post("/aercontupload", controller.aerContUpload);
+  router.post("/tndseguploadbucket", controller.tndSegUploadBucket);
   router.get("/files", controller.getListFiles);
   router.get("/files/:name", controller.download);
   router.delete("/files/:name", controller.remove);
