@@ -79,6 +79,7 @@ async function fnCreateDocumentToDB(
     isRaw: true,
     body: {
       req: {
+        id: response.rows[0].id,
         name,
         doc_group_id,
         doc_type_id,

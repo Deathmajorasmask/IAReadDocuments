@@ -318,227 +318,10 @@ const aerContUpload = async (req, res) => {
   }
 };
 
-const ttndSegUploadBucket = async (req, res) => {
-  try {
-    await fnCreatePathFiles();
-    await uploadFile(req, res);
-    if (!req.body.owner_org_toid) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a owner_org_toid field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    if (!req.body.owner_user_tuid) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a owner_user_tuid field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    if (!req.body.doc_group_id) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a doc_group_id field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    if (!req.body.type_id_doc) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a type_id_doc field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    if (!req.body.contract_id) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a contract_id field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    
-    if (req.file == undefined) {
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please upload a file!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-
-    // Search user by tuid
-    console.log("el request de tuid: " + req.body.owner_user_tuid);
-    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid(
-      req.body.owner_user_tuid
-    ); // 9998797483398 // Maza 1950918133558
-
-    // Search org id for owner_org_toid (doc - owner_org_toid -> org - tuid)
-    let orgInfo = await reSIODBQuerys.fnSearchOrgsInfoByToid(
-      req.body.owner_org_toid
-    );
-
-    /* const fileContent = await ocrData.fnOcrExtractData(req.file.originalname);
-    console.log(fileContent); */
-    const fileClassify = await ocrData.fnOcrExtractClassify(
-      req.file.originalname
-    );
-
-    let arrClassifyNatural = fileClassify.split(/_/); //split(/_ ¡|! ¿|[?]/);//split(/_/);
-
-    let typeIdDoc = "";
-    if (arrClassifyNatural[0] == "1") {
-      typeIdDoc = "25";
-    } else {
-      typeIdDoc = arrClassifyNatural[1];
-    }
-    
-    // get current date
-    let date_time = new Date();
-    // adjust 0 before single digit date
-    let date = ("0" + date_time.getDate()).slice(-2);
-    // get current month
-    let month = ("0" + (date_time.getMonth() + 1)).slice(-2);
-    // get current year
-    let year = date_time.getFullYear();
-
-    // configuring parameters
-    var params = {
-      Bucket: process.env.AWSS3_ACCESS_BUCKET,
-      Body: fs.createReadStream(req.file.path),
-      Key: `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${req.body.type_id_doc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
-    };
-
-    // Aws S3 Bucket Upload File
-    s3.upload(params, function (err, data) {
-      //handle error
-      if (err) {
-        console.log("Error", err);
-      }
-
-      //success
-      if (data) {
-        removeFile = fnRemoveAsyncFile(req.file.path);
-        console.log("Uploaded in:", data.Location);
-      }
-    });
-
-    res.status(200).send({
-      status: 200,
-      isRaw: true,
-      body: {
-        req: {
-          ocrDocName: `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
-          message: "Uploaded the file successfully: " + req.file.path,
-        },
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  } catch (err) {
-    console.log(err);
-
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
-      });
-    }
-    res.status(500).send({
-      status: 500,
-      isRaw: true,
-      body: {
-        req: {
-          message: `Could not upload the file: ${req.file.originalname}. ${err}`,
-        },
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  }
-};
-
 const tndSegUploadBucket = async (req, res) => {
   try {
     await fnCreatePathFiles();
     await uploadFile(req, res);
-    if (!req.body.owner_org_toid) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a owner_org_toid field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    if (!req.body.owner_user_tuid) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a owner_user_tuid field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
     if (!req.body.doc_group_id) {
       removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
@@ -547,21 +330,6 @@ const tndSegUploadBucket = async (req, res) => {
         body: {
           req: {
             message: "Please req a doc_group_id field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    if (!req.body.type_id_doc) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a type_id_doc field!",
           },
         },
         headers: {
@@ -584,8 +352,56 @@ const tndSegUploadBucket = async (req, res) => {
         },
       });
     }
-    
+    if (!req.body.owner_user_tuid) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a owner_user_tuid field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    if (!req.body.owner_org_toid) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a owner_org_toid field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    if (!req.body.owner_office_id || req.body.owner_office_id == "null") {
+      req.body.owner_office_id = null;
+    }
+    if (!req.body.expired_at) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a expired_at field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
     if (req.file == undefined) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
         isRaw: true,
@@ -600,7 +416,13 @@ const tndSegUploadBucket = async (req, res) => {
       });
     }
 
-    // Search user by tuid
+    const fileContent = await ocrData.fnOcrExtractData(req.file.originalname);
+    console.log(fileContent);
+    const fileClassify = await ocrData.fnOcrExtractClassify(
+      req.file.originalname
+    );
+
+    // Seach user by tuid
     console.log("el request de tuid: " + req.body.owner_user_tuid);
     let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid(
       req.body.owner_user_tuid
@@ -611,21 +433,11 @@ const tndSegUploadBucket = async (req, res) => {
       req.body.owner_org_toid
     );
 
-    /* const fileContent = await ocrData.fnOcrExtractData(req.file.originalname);
-    console.log(fileContent); */
-    const fileClassify = await ocrData.fnOcrExtractClassify(
-      req.file.originalname
-    );
-
+    // Create fields to DB reSIO
+    let isactive = true;
+    let isvalid = true;
+    let isreviewed = false;
     let arrClassifyNatural = fileClassify.split(/_/); //split(/_ ¡|! ¿|[?]/);//split(/_/);
-
-    let typeIdDoc = "";
-    if (arrClassifyNatural[0] == "1") {
-      typeIdDoc = "25";
-    } else {
-      typeIdDoc = arrClassifyNatural[1];
-    }
-    
     // get current date
     let date_time = new Date();
     // adjust 0 before single digit date
@@ -635,11 +447,47 @@ const tndSegUploadBucket = async (req, res) => {
     // get current year
     let year = date_time.getFullYear();
 
+    let typeIdDoc = "";
+    if (arrClassifyNatural[0] == "1") {
+      typeIdDoc = "25";
+    } else {
+      typeIdDoc = arrClassifyNatural[1];
+    }
+
+    // Add Document in DB reSIO
+    let documentInfo = await reSIODBQuerys.fnCreateDocumentToDB(
+      `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
+      req.body.doc_group_id,
+      typeIdDoc,
+      req.body.contract_id,
+      `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      isvalid,
+      isreviewed,
+      isactive,
+      userInfo.body.id,
+      orgInfo.body.id,
+      req.body.owner_office_id,
+      req.body.expired_at.toString()
+    );
+    console.log(documentInfo);
+
+    if (!fileContent.IsErroredOnProcessing) {
+      // Save in reSIO data for pdf file
+      console.log("reSIO Data for pdf file");
+      console.log(fileContent.ParsedResults[0].ParsedText);
+    } else {
+      // Error in pdf file
+      // Se usara provisionalmente
+      let numPaginas = fileContent.ParsedResults.length;
+      for (j = 0; j < numPaginas; j++) {}
+      console.log(fileContent.ParsedResults[0].ParsedText);
+    }
+
     // configuring parameters
     var params = {
       Bucket: process.env.AWSS3_ACCESS_BUCKET,
       Body: fs.createReadStream(req.file.path),
-      Key: `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${req.body.type_id_doc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      Key: `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
     };
 
     // Aws S3 Bucket Upload File
@@ -661,6 +509,8 @@ const tndSegUploadBucket = async (req, res) => {
       isRaw: true,
       body: {
         req: {
+          dbresioDocId: documentInfo.body.req.id,
+          ocrDocClassify: fileClassify,
           ocrDocName: `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
           message: "Uploaded the file successfully: " + req.file.path,
         },
@@ -673,10 +523,20 @@ const tndSegUploadBucket = async (req, res) => {
     console.log(err);
 
     if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
+      res.status(500).send({
+        status: 500,
+        isRaw: true,
+        body: {
+          req: {
+            message: "File size cannot be larger!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
     }
+
     res.status(500).send({
       status: 500,
       isRaw: true,
