@@ -366,7 +366,7 @@ async function mainNatural() {
   await readSamplesInit();
   await fnTrainingDataIA();
   await fnTestClassification();
-  await fnLoadingClassification();
+  //await fnLoadingClassification();
 }
 
 module.exports = {
