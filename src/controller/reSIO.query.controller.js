@@ -33,7 +33,6 @@ async function fnLoadIdClassifyProductsArray() {
       "Content-Type": "application/json",
     },
   };
-  //console.log(context);
   return context;
 }
 
@@ -200,122 +199,6 @@ async function fnLoadIdClassifyDocsTypeArray() {
   };
   //console.log(context);
 
-  return context;
-}
-
-async function fnSearchDocsTypeInfoById(id) {
-  if (id) {
-    const response = await pool.query(
-      "SELECT * FROM docs_type WHERE id = $1 LIMIT 1",
-      [id]
-    );
-    let context = {
-      status: 200,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log(context);
-  } else {
-    let context = {
-      status: 204,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log("id empty - undefined - null");
-  }
-  return context;
-}
-
-async function fnSearchDocsInfoById(id) {
-  if (id) {
-    const response = await pool.query(
-      "SELECT * FROM docs WHERE id = $1 LIMIT 1",
-      [id]
-    );
-    let context = {
-      status: 200,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log(context);
-  } else {
-    let context = {
-      status: 204,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log("id empty - undefined - null");
-  }
-  return context;
-}
-
-async function fnSearchClaimsInfoById(id) {
-  if (id) {
-    const response = await pool.query(
-      "SELECT * FROM claims WHERE id = $1 LIMIT 1",
-      [id]
-    );
-    let context = {
-      status: 200,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log(context);
-  } else {
-    let context = {
-      status: 204,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log("id empty - undefined - null");
-  }
-  return context;
-}
-
-async function fnSearchClaimDocketInfoById(id) {
-  if (id) {
-    const response = await pool.query(
-      "SELECT * FROM claim_docket WHERE id = $1 LIMIT 1",
-      [id]
-    );
-    let context = {
-      status: 200,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log(context);
-  } else {
-    let context = {
-      status: 204,
-      isRaw: true,
-      body: response.rows[0],
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log("id empty - undefined - null");
-  }
   return context;
 }
 
