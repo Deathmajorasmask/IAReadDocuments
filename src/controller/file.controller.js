@@ -174,6 +174,25 @@ const upload = async (req, res) => {
   }
 };
 
+const test = async (req, res) => {
+  console.log(JSON.stringify(req.headers));
+  const sentence = JSON.stringify(req.headers);
+  const word = 'multipart/form-data';
+  if(sentence.includes(word)){
+    console.log("Si es multipart");
+  }
+  else{
+    console.log("NO NO");
+  }
+  res.status(200).send({
+    status: 200,
+    isRaw: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
 const aerContUpload = async (req, res) => {
   try {
     await fnCreatePathFiles();
@@ -302,6 +321,14 @@ const aerContUpload = async (req, res) => {
     let month = ("0" + (date_time.getMonth() + 1)).slice(-2);
     // get current year
     let year = date_time.getFullYear();
+    // get current hours
+    let hours = date_time.getHours();
+    // get current minutes
+    let minutes = date_time.getMinutes();
+    // get current seconds
+    let seconds = date_time.getSeconds();
+    // get current milliseconds
+    let milliseconds = date_time.getMilliseconds();
 
     let typeIdDoc = "";
     if (arrClassifyNatural[0] == "1") {
@@ -365,9 +392,22 @@ const aerContUpload = async (req, res) => {
       isRaw: true,
       body: {
         req: {
-          dbresioDocId: documentInfo.body.req.id,
+          id: documentInfo.body.req.id,
+          name: documentInfo.body.req.name,
+          doc_group_id: documentInfo.body.req.doc_group_id,
+          doc_type_id: documentInfo.body.req.doc_type_id,
+          contract_id: documentInfo.body.req.contract_id,
+          url: documentInfo.body.req.url,
+          isvalid: documentInfo.body.req.isvalid,
+          isreviewed: documentInfo.body.req.isreviewed,
+          isactive: documentInfo.body.req.isactive,
+          owner_user_id: documentInfo.body.req.owner_user_id,
+          owner_org_id: documentInfo.body.req.owner_org_id,
+          owner_office_id: documentInfo.body.req.owner_office_id,
+          expired_at: documentInfo.body.req.expired_at,
+          created_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
+          modified_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
           ocrDocClassify: fileClassify,
-          ocrDocName: `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
           message: "Uploaded the file successfully: " + req.file.path,
         },
       },
@@ -410,6 +450,22 @@ const aerContUpload = async (req, res) => {
 
 const tndSegUploadBucket = async (req, res) => {
   try {
+    const sentence = JSON.stringify(req.headers);
+    const word = 'multipart/form-data';
+    if(!(sentence.includes(word))){
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req isn't multipart/form-data!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
     await fnCreatePathFiles();
     await uploadFile(req, res);
     if (!req.body.doc_group_id) {
@@ -536,6 +592,14 @@ const tndSegUploadBucket = async (req, res) => {
     let month = ("0" + (date_time.getMonth() + 1)).slice(-2);
     // get current year
     let year = date_time.getFullYear();
+    // get current hours
+    let hours = date_time.getHours();
+    // get current minutes
+    let minutes = date_time.getMinutes();
+    // get current seconds
+    let seconds = date_time.getSeconds();
+    // get current milliseconds
+    let milliseconds = date_time.getMilliseconds();
 
     let typeIdDoc = "";
     if (arrClassifyNatural[0] == "1") {
@@ -587,9 +651,22 @@ const tndSegUploadBucket = async (req, res) => {
       isRaw: true,
       body: {
         req: {
-          dbresioDocId: documentInfo.body.req.id,
+          id: documentInfo.body.req.id,
+          name: documentInfo.body.req.name,
+          doc_group_id: documentInfo.body.req.doc_group_id,
+          doc_type_id: documentInfo.body.req.doc_type_id,
+          contract_id: documentInfo.body.req.contract_id,
+          url: documentInfo.body.req.url,
+          isvalid: documentInfo.body.req.isvalid,
+          isreviewed: documentInfo.body.req.isreviewed,
+          isactive: documentInfo.body.req.isactive,
+          owner_user_id: documentInfo.body.req.owner_user_id,
+          owner_org_id: documentInfo.body.req.owner_org_id,
+          owner_office_id: documentInfo.body.req.owner_office_id,
+          expired_at: documentInfo.body.req.expired_at,
+          created_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
+          modified_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
           ocrDocClassify: fileClassify,
-          ocrDocName: `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
           message: "Uploaded the file successfully: " + req.file.path,
         },
       },
@@ -653,6 +730,7 @@ module.exports = {
   upload,
   aerContUpload,
   tndSegUploadBucket,
+  test,
 };
 
 /**

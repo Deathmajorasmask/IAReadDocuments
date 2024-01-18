@@ -6,6 +6,7 @@ let routes = (app) => {
   router.post("/upload", controller.upload);
   router.post("/aercontupload", controller.aerContUpload);
   router.post("/tndseguploadbucket", controller.tndSegUploadBucket);
+  router.post("/test", controller.test);
   app.use(router);
 };
 
