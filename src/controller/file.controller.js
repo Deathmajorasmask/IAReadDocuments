@@ -26,6 +26,7 @@ const s3 = new AWS.S3();
 // reSIO database controller
 const reSIODBQuerys = require("./reSIO.query.controller");
 
+
 const upload = async (req, res) => {
   try {
     await fnCreatePathFiles();
@@ -601,20 +602,17 @@ const tndSegUploadBucket = async (req, res) => {
     // get current milliseconds
     let milliseconds = date_time.getMilliseconds();
 
-    let typeIdDoc = "";
     if (arrClassifyNatural[0] == "1") {
-      typeIdDoc = "25";
-    } else {
-      typeIdDoc = arrClassifyNatural[1];
-    }
+      arrClassifyNatural[1] = "25";
+    } 
 
     // Add Document in DB reSIO
     let documentInfo = await reSIODBQuerys.fnCreateDocumentToDB(
       `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
       req.body.doc_group_id,
-      typeIdDoc,
+      arrClassifyNatural[1],
       req.body.contract_id,
-      `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${arrClassifyNatural[1]}_${req.body.contract_id}_${year}${month}${date}.pdf`,
       isvalid,
       isreviewed,
       isactive,
@@ -630,10 +628,18 @@ const tndSegUploadBucket = async (req, res) => {
       Bucket: process.env.AWSS3_ACCESS_BUCKET,
       Body: fs.createReadStream(req.file.path),
       Key: `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      //ACL: 'public-read',
+      ContentType: "application/pdf"
+    };
+
+    const options = {
+      headers: {
+        'Content-Type': 'application/pdf'
+      }
     };
 
     // Aws S3 Bucket Upload File
-    s3.upload(params, function (err, data) {
+    s3.upload(params, options, function (err, data) {
       //handle error
       if (err) {
         console.log("Error", err);
@@ -707,6 +713,271 @@ const tndSegUploadBucket = async (req, res) => {
   }
 };
 
+const seguTiendaSekuraUploadBucket = async (req, res) => {
+  try {
+    const sentence = JSON.stringify(req.headers);
+    const word = 'multipart/form-data';
+    if(!(sentence.includes(word))){
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req isn't multipart/form-data!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    await fnCreatePathFiles();
+    await uploadFile(req, res);
+    if (!req.body.doc_group_id) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a doc_group_id field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    if (!req.body.contract_id) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a contract_id field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    if (!req.body.owner_user_tuid) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a owner_user_tuid field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    if (!req.body.owner_org_toid) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a owner_org_toid field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    if (!req.body.owner_office_id || req.body.owner_office_id == "null") {
+      req.body.owner_office_id = null;
+    }
+    if (!req.body.expired_at) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please req a expired_at field!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    if (req.file == undefined) {
+      removeFile = fnRemoveAsyncFile(req.file.path);
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: "Please upload a file!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    const fileContent = await ocrData.fnOcrExtractData(req.file.originalname);
+    console.log(fileContent);
+    const fileClassify = await ocrData.fnOcrExtractClassify(
+      req.file.originalname
+    );
+
+    // Seach user by tuid
+    console.log("el request de tuid: " + req.body.owner_user_tuid);
+    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid(
+      req.body.owner_user_tuid
+    ); // 9998797483398 // Maza 1950918133558
+
+    // Search org id for owner_org_toid (doc - owner_org_toid -> org - tuid)
+    let orgInfo = await reSIODBQuerys.fnSearchOrgsInfoByToid(
+      req.body.owner_org_toid
+    );
+
+    // Create fields to DB reSIO
+    let isactive = true;
+    let isvalid = true;
+    let isreviewed = false;
+    let arrClassifyNatural = fileClassify.split(/_/); //split(/_ ¡|! ¿|[?]/);//split(/_/);
+    // get current date
+    let date_time = new Date();
+    // adjust 0 before single digit date
+    let date = ("0" + date_time.getDate()).slice(-2);
+    // get current month
+    let month = ("0" + (date_time.getMonth() + 1)).slice(-2);
+    // get current year
+    let year = date_time.getFullYear();
+    // get current hours
+    let hours = date_time.getHours();
+    // get current minutes
+    let minutes = date_time.getMinutes();
+    // get current seconds
+    let seconds = date_time.getSeconds();
+    // get current milliseconds
+    let milliseconds = date_time.getMilliseconds();
+
+    if (arrClassifyNatural[0] == "1") {
+      arrClassifyNatural[1] = "25";
+    } 
+
+    // Add Document in DB reSIO
+    let documentInfo = await reSIODBQuerys.fnCreateDocumentToDB(
+      `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
+      req.body.doc_group_id,
+      arrClassifyNatural[1],
+      req.body.contract_id,
+      `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${arrClassifyNatural[1]}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      isvalid,
+      isreviewed,
+      isactive,
+      userInfo.body.id,
+      orgInfo.body.id,
+      req.body.owner_office_id,
+      req.body.expired_at.toString()
+    );
+    console.log(documentInfo);
+
+    // configuring parameters
+    var params = {
+      Bucket: process.env.AWSS3_ACCESS_BUCKET,
+      Body: fs.createReadStream(req.file.path),
+      Key: `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      //ACL: 'public-read',
+      ContentType: "application/pdf"
+    };
+
+    const options = {
+      headers: {
+        'Content-Type': 'application/pdf'
+      }
+    };
+
+    // Aws S3 Bucket Upload File
+    s3.upload(params, options, function (err, data) {
+      //handle error
+      if (err) {
+        console.log("Error", err);
+      }
+
+      //success
+      if (data) {
+        removeFile = fnRemoveAsyncFile(req.file.path);
+        console.log("Uploaded in:", data.Location);
+      }
+    });
+
+    res.status(200).send({
+      status: 200,
+      isRaw: true,
+      body: {
+        req: {
+          id: documentInfo.body.req.id,
+          name: documentInfo.body.req.name,
+          doc_group_id: documentInfo.body.req.doc_group_id,
+          doc_type_id: documentInfo.body.req.doc_type_id,
+          contract_id: documentInfo.body.req.contract_id,
+          url: documentInfo.body.req.url,
+          isvalid: documentInfo.body.req.isvalid,
+          isreviewed: documentInfo.body.req.isreviewed,
+          isactive: documentInfo.body.req.isactive,
+          owner_user_id: documentInfo.body.req.owner_user_id,
+          owner_org_id: documentInfo.body.req.owner_org_id,
+          owner_office_id: documentInfo.body.req.owner_office_id,
+          expired_at: documentInfo.body.req.expired_at,
+          created_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
+          modified_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
+          ocrdoc_classify: fileClassify,
+          url_bucket: `https://resio.s3.amazonaws.com/${documentInfo.body.req.url}`,
+          message: "Uploaded the file successfully: " + req.file.path,
+        },
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.log(err);
+
+    if (err.code == "LIMIT_FILE_SIZE") {
+      res.status(500).send({
+        status: 500,
+        isRaw: true,
+        body: {
+          req: {
+            message: "File size cannot be larger!",
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    res.status(500).send({
+      status: 500,
+      isRaw: true,
+      body: {
+        req: {
+          message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+        },
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+};
+
 async function fnRemoveAsyncFile(dirPathDoc) {
   try {
     fs.unlinkSync(dirPathDoc);
@@ -730,6 +1001,7 @@ module.exports = {
   upload,
   aerContUpload,
   tndSegUploadBucket,
+  seguTiendaSekuraUploadBucket,
   test,
 };
 
