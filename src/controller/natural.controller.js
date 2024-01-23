@@ -302,14 +302,14 @@ async function classifyDocumentSamples(dirFile) {
     path.join(__dirname, "./../documents/" + dirFile),
     { encoding: "utf8" }
   );
-  console.log(classifier.classify(data));
   return data;
 }
 
 async function fnTestClassification() {
-  console.log("Realizando prueba de clasificación...");
+  console.log("Classification test is carried out...");
   classifyDocumentSamples("test_gmm_Gnp.txt");
   classifyDocumentSamples("test_gmm_Axxa.txt");
+  console.log("Classifier working correctly");
 }
 
 async function fnGetClassificationsDocumment(dirFile) {
@@ -347,13 +347,11 @@ async function fnLoadGetClassifyFileFromJson(jsonName, dirFile) {
 
 async function fnLoadGetClassifyDataFromJson(jsonName, data) {
   natural.BayesClassifier.load(jsonName, null, function (err, classifier) {
-    console.log(classifier.classify(data));
     return classifier.classify(data);
   });
 }
 
 async function fnGetClassifyData(data) {
-  console.log(classifier.classify(data));
   let res = classifier.classify(data);
   return res;
 }

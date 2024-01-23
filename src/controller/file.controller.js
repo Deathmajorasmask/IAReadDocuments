@@ -713,7 +713,7 @@ const tndSegUploadBucket = async (req, res) => {
   }
 };
 
-const seguTiendaSekuraUploadBucket = async (req, res) => {
+const seguTiendaSekuraUploadFile = async (req, res) => {
   try {
     const sentence = JSON.stringify(req.headers);
     const word = 'multipart/form-data';
@@ -733,14 +733,14 @@ const seguTiendaSekuraUploadBucket = async (req, res) => {
     }
     await fnCreatePathFiles();
     await uploadFile(req, res);
-    if (!req.body.doc_group_id) {
+    if (!req.body.id_user) {
       removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
         isRaw: true,
         body: {
           req: {
-            message: "Please req a doc_group_id field!",
+            message: "Please req a id_user field!",
           },
         },
         headers: {
@@ -748,14 +748,14 @@ const seguTiendaSekuraUploadBucket = async (req, res) => {
         },
       });
     }
-    if (!req.body.contract_id) {
+    if (!req.body.id_product) {
       removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
         isRaw: true,
         body: {
           req: {
-            message: "Please req a contract_id field!",
+            message: "Please req a id_product field!",
           },
         },
         headers: {
@@ -763,14 +763,14 @@ const seguTiendaSekuraUploadBucket = async (req, res) => {
         },
       });
     }
-    if (!req.body.owner_user_tuid) {
+    if (!req.body.docs_group) {
       removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
         isRaw: true,
         body: {
           req: {
-            message: "Please req a owner_user_tuid field!",
+            message: "Please req a docs_group field!",
           },
         },
         headers: {
@@ -778,32 +778,14 @@ const seguTiendaSekuraUploadBucket = async (req, res) => {
         },
       });
     }
-    if (!req.body.owner_org_toid) {
+    if (!req.body.abbr_folder) {
       removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
         isRaw: true,
         body: {
           req: {
-            message: "Please req a owner_org_toid field!",
-          },
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
-    if (!req.body.owner_office_id || req.body.owner_office_id == "null") {
-      req.body.owner_office_id = null;
-    }
-    if (!req.body.expired_at) {
-      removeFile = fnRemoveAsyncFile(req.file.path);
-      return res.status(400).send({
-        status: 400,
-        isRaw: true,
-        body: {
-          req: {
-            message: "Please req a expired_at field!",
+            message: "Please req a abbr_folder field!",
           },
         },
         headers: {
@@ -832,66 +814,35 @@ const seguTiendaSekuraUploadBucket = async (req, res) => {
     const fileClassify = await ocrData.fnOcrExtractClassify(
       req.file.originalname
     );
+    console.log(fileClassify);
 
-    // Seach user by tuid
-    console.log("el request de tuid: " + req.body.owner_user_tuid);
-    let userInfo = await reSIODBQuerys.fnSearchUserInfoByTuid(
-      req.body.owner_user_tuid
-    ); // 9998797483398 // Maza 1950918133558
-
-    // Search org id for owner_org_toid (doc - owner_org_toid -> org - tuid)
-    let orgInfo = await reSIODBQuerys.fnSearchOrgsInfoByToid(
-      req.body.owner_org_toid
-    );
-
-    // Create fields to DB reSIO
-    let isactive = true;
-    let isvalid = true;
-    let isreviewed = false;
-    let arrClassifyNatural = fileClassify.split(/_/); //split(/_ ¡|! ¿|[?]/);//split(/_/);
+    let arrClassifyNatural = fileClassify.split(/_/);
     // get current date
     let date_time = new Date();
-    // adjust 0 before single digit date
     let date = ("0" + date_time.getDate()).slice(-2);
-    // get current month
     let month = ("0" + (date_time.getMonth() + 1)).slice(-2);
-    // get current year
     let year = date_time.getFullYear();
-    // get current hours
     let hours = date_time.getHours();
-    // get current minutes
     let minutes = date_time.getMinutes();
-    // get current seconds
     let seconds = date_time.getSeconds();
-    // get current milliseconds
     let milliseconds = date_time.getMilliseconds();
+    let customDate = year + month + date;
 
-    if (arrClassifyNatural[0] == "1") {
+    if(req.body.date){
+      customDate = req.body.date
+    }
+    if (arrClassifyNatural[0] == "1" && !req.body.docs_type) {
       arrClassifyNatural[1] = "25";
-    } 
-
-    // Add Document in DB reSIO
-    let documentInfo = await reSIODBQuerys.fnCreateDocumentToDB(
-      `Poliza ${arrClassifyNatural[2]} ${arrClassifyNatural[3]}`,
-      req.body.doc_group_id,
-      arrClassifyNatural[1],
-      req.body.contract_id,
-      `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${arrClassifyNatural[1]}_${req.body.contract_id}_${year}${month}${date}.pdf`,
-      isvalid,
-      isreviewed,
-      isactive,
-      userInfo.body.id,
-      orgInfo.body.id,
-      req.body.owner_office_id,
-      req.body.expired_at.toString()
-    );
-    console.log(documentInfo);
+    }
+    if (req.body.docs_type) {
+      arrClassifyNatural[1] = req.body.docs_type;
+    }
 
     // configuring parameters
-    var params = {
+    let params = {
       Bucket: process.env.AWSS3_ACCESS_BUCKET,
       Body: fs.createReadStream(req.file.path),
-      Key: `${orgInfo.body.biz_abbr}/users/${userInfo.body.tuid}_${req.body.doc_group_id}_${typeIdDoc}_${req.body.contract_id}_${year}${month}${date}.pdf`,
+      Key: `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`,
       //ACL: 'public-read',
       ContentType: "application/pdf"
     };
@@ -921,23 +872,15 @@ const seguTiendaSekuraUploadBucket = async (req, res) => {
       isRaw: true,
       body: {
         req: {
-          id: documentInfo.body.req.id,
-          name: documentInfo.body.req.name,
-          doc_group_id: documentInfo.body.req.doc_group_id,
-          doc_type_id: documentInfo.body.req.doc_type_id,
-          contract_id: documentInfo.body.req.contract_id,
-          url: documentInfo.body.req.url,
-          isvalid: documentInfo.body.req.isvalid,
-          isreviewed: documentInfo.body.req.isreviewed,
-          isactive: documentInfo.body.req.isactive,
-          owner_user_id: documentInfo.body.req.owner_user_id,
-          owner_org_id: documentInfo.body.req.owner_org_id,
-          owner_office_id: documentInfo.body.req.owner_office_id,
-          expired_at: documentInfo.body.req.expired_at,
-          created_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
-          modified_at: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
-          ocrdoc_classify: fileClassify,
-          url_bucket: `https://resio.s3.amazonaws.com/${documentInfo.body.req.url}`,
+          id_user: req.body.id_user,
+          id_product: req.body.id_product,
+          docs_type: req.body.docs_type,
+          docs_group: req.body.docs_group,
+          timestamp: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
+          abbr_folder: req.body.abbr_folder,
+          url: `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`,
+          url_bucket: `https://resio.s3.amazonaws.com/${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`,
+          ocrdoc_classify: arrClassifyNatural[0] + "_" + arrClassifyNatural[1] + "_" + arrClassifyNatural[2] + "_" + arrClassifyNatural[3],
           message: "Uploaded the file successfully: " + req.file.path,
         },
       },
@@ -1001,7 +944,7 @@ module.exports = {
   upload,
   aerContUpload,
   tndSegUploadBucket,
-  seguTiendaSekuraUploadBucket,
+  seguTiendaSekuraUploadFile,
   test,
 };
 
