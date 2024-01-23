@@ -16,6 +16,13 @@ const ocrData = require("./ocrfile.controller");
 // AWS S3 Buckets
 const AWS = require("aws-sdk");
 
+// winston logs file config
+const errorLog = require("../logs_module/logs.controller").errorlog;
+const successLog = require("../logs_module/logs.controller").successlog;
+
+// errorlog.error(`Error Message : ${error}`);
+// successlog.info(`Success Message and variables: ${variable}`);
+
 //configuring the AWS environment
 AWS.config.update({
   accessKeyId: process.env.AWSS3_ACCESS_KEYID,
@@ -176,22 +183,7 @@ const upload = async (req, res) => {
 };
 
 const test = async (req, res) => {
-  console.log(JSON.stringify(req.headers));
-  const sentence = JSON.stringify(req.headers);
-  const word = 'multipart/form-data';
-  if(sentence.includes(word)){
-    console.log("Si es multipart");
-  }
-  else{
-    console.log("NO NO");
-  }
-  res.status(200).send({
-    status: 200,
-    isRaw: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  
 };
 
 const aerContUpload = async (req, res) => {
