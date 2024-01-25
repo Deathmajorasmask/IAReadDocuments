@@ -1,40 +1,25 @@
-/**
- * Configurations of logger.
- */
+// logger.js
 const winston = require('winston');
-const winstonRotator = require('winston-daily-rotate-file');
+const DailyRotateFile = require('winston-daily-rotate-file');
 
-const consoleConfig = [
-  new winston.transports.Console({
-    'colorize': true
-  })
-];
-
-const createLogger = new winston.Logger({
-  'transports': consoleConfig
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.printf(({ timestamp, level, message }) => {
+      return `[${timestamp}] ${level.toUpperCase()}: ${message}`;
+    })
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new DailyRotateFile({
+      filename: 'logs/application-%DATE%.log',
+      datePattern: 'YYYY-MM-DD',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '7d',
+    }),
+  ],
 });
 
-const successLogger = createLogger;
-successLogger.add(winstonRotator, {
-  'name': 'access-file',
-  'level': 'info',
-  'filename': './logs/access.log',
-  'json': false,
-  'datePattern': 'yyyy-MM-dd-',
-  'prepend': true
-});
-
-const errorLogger = createLogger;
-errorLogger.add(winstonRotator, {
-  'name': 'error-file',
-  'level': 'error',
-  'filename': './logs/error.log',
-  'json': false,
-  'datePattern': 'yyyy-MM-dd-',
-  'prepend': true
-});
-
-module.exports = {
-  'successlog': successLogger,
-  'errorlog': errorLogger
-};
+module.exports = logger;

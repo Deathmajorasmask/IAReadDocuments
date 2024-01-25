@@ -16,6 +16,9 @@ app.set("port", 3000);
 // Natural IA
 const naturalfnController = require("./src/controller/natural.controller");
 
+// winston logs file config
+const logger = require("./src/logs_module/logs.controller");
+
 // Multer & Cors (GET/SET Read Documents)
 global.__basedir = __dirname;
 const cors = require("cors");
@@ -51,5 +54,5 @@ app.post("/extract-text", (req, res) => {
 });
 
 app.listen(app.get("port"), () => {
-  console.log("App listening in port " + app.get("port"));
+  logger.info(`App listening in port: ${app.get("port")}`);
 });

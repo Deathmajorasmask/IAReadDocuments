@@ -1,12 +1,11 @@
-// Natural IA See Documentation: https://github.com/NaturalNode/natural
 // fs module
 const fs = require("fs");
 const path = require("path");
+// Natural IA See Documentation: https://github.com/NaturalNode/natural
 const natural = require("natural");
 const classifier = new natural.BayesClassifier();
-
-// reSIO database controller
-const reSIODBQuerysNatural = require("./reSIO.query.controller");
+// winston logs file config
+const logger = require("../logs_module/logs.controller");
 
 async function readDocumentSamples(dirFile, typeFile) {
   const data = fs.readFileSync(
@@ -18,20 +17,21 @@ async function readDocumentSamples(dirFile, typeFile) {
 }
 
 async function readSamplesInit() {
-  console.log("Connect DB reSIO...");
-  let classifyProducts =
-    await reSIODBQuerysNatural.fnLoadIdClassifyProductsArray();
-  let classifyDocsType =
-    await reSIODBQuerysNatural.fnLoadIdClassifyDocsTypeArray();
-  console.log("End Connection DB reSIO...");
+  logger.info(`Extract natural_classify...`);
+  let classifyProducts = await fnLoadIdClassifyProductsArray();
+  logger.info(`classifyProducts: ${classifyProducts}`);
+  let classifyDocsType = await fnLoadIdClassifyDocsTypeArray();
+  logger.info(`classifyProducts: ${classifyDocsType}`);
+  logger.info(`End extract natural_classify...`);
 
-  console.log("Read Samples...");
+  logger.info(`Read Samples...`);
   for (i = 0; i < classifyProducts.body.length; i++) {
     switch (classifyProducts.body[i].id) {
       case 1: // Autos - auto
+        logger.warn(`Waiting for samples AUTOS_SAMPLES`);
         break;
       case 2: // Flotillas - flotillas
-        console.log("AUTOS_SAMPLES");
+        logger.info(`Loaded AUTOS_SAMPLES`);
         readDocumentSamples(
           "sample_auto_Banorte.txt",
           `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Banorte`
@@ -94,7 +94,7 @@ async function readSamplesInit() {
         );
         break;
       case 3: // Gastos Médicos Mayores - gmm
-        console.log("GMM_Samples");
+        logger.info(`Loaded GMM_Samples`);
         readDocumentSamples(
           "sample_gmm_Atlas.txt",
           `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Atlas`
@@ -145,7 +145,7 @@ async function readSamplesInit() {
         );
         break;
       case 4: // Gastos Médicos Menores - accidentes
-        console.log("GMMenores_Samples");
+        logger.info(`Loaded GMMenores_Samples`);
         readDocumentSamples(
           "sample_gmmen_MediAccess.txt",
           `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_MediAccess`
@@ -172,7 +172,7 @@ async function readSamplesInit() {
         );
         break;
       case 5: // Seguro Dental - dental
-        console.log("DENTAL_SAMPLES");
+        logger.info(`Loaded DENTAL_SAMPLES`);
         readDocumentSamples(
           "sample_dental_Dentalia.txt",
           `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Dentalia`
@@ -199,7 +199,7 @@ async function readSamplesInit() {
         );
         break;
       case 6: // Vida - vida
-        console.log("Vida_Samples");
+        logger.info(`Loaded VIDA_SAMPLES`);
         readDocumentSamples(
           "sample_vida_Gnp.txt",
           `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
@@ -214,7 +214,7 @@ async function readSamplesInit() {
         );
         break;
       case 7: // Gastos Funerarios - funeral
-        console.log("Funerario_Samples");
+        logger.info(`Loaded FUNERARIO_SAMPLES`);
         readDocumentSamples(
           "sample_funerario_Thona.txt",
           `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Thona`
@@ -229,11 +229,13 @@ async function readSamplesInit() {
         );
         break;
       case 8: // Accidentes Personales - ap
+        logger.warn(`Waiting for samples ACCIDENTES PERSONALES_SAMPLES`);
         break;
       case 9: // Vida Deudor - NULL
+        logger.warn(`Waiting for samples VIDA DEUDOR_SAMPLES`);
         break;
       case 10: // Daños Casa  - casa
-        console.log("Hogar_Samples");
+        logger.info(`Loaded HOGAR_SAMPLES`);
         readDocumentSamples(
           "sample_hogar_Chubb.txt",
           `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Chubb`
@@ -260,10 +262,13 @@ async function readSamplesInit() {
         );
         break;
       case 11: // Excesos GMM - excesos
+        logger.warn(`Waiting for samples EXCESOS GMM_SAMPLES`);
         break;
       case 12: // Ambulancia - ambulancia
+        logger.warn(`Waiting for samples AMBULANCIA_SAMPLES`);
         break;
       case 13: // Daños Activos - daños
+        logger.warn(`Waiting for samples DAÑOS ACTIVOS_SAMPLES`);
         break;
       default:
     }
@@ -271,7 +276,9 @@ async function readSamplesInit() {
 
   for (i = 0; i < classifyDocsType.body.length; i++) {
     for (j = 0; j < 3; j++) {
-      //console.log(`sample_${classifyDocsType.body[i].id}_${classifyDocsType.body[i].name}_${j}.txt`);
+      logger.info(
+        `sample_${classifyDocsType.body[i].id}_${classifyDocsType.body[i].name}_${j}.txt`
+      );
       readDocumentSamples(
         `sample_${classifyDocsType.body[i].id}_${classifyDocsType.body[i].name}_${j}.txt`,
         `2_${classifyDocsType.body[i].id}_${classifyDocsType.body[i].name}_DocsPersonal`
@@ -286,14 +293,13 @@ async function readSamplesInit() {
   readDocumentSamples("sample_cDom_Gas.txt", "2_33_cDom_Gas");
   readDocumentSamples("sample_cDom_Gas2.txt", "2_33_cDom_Gas");
   readDocumentSamples("sample_cPers_Conductor_Err.txt", "2_33_Error_Conductor");
-
-  console.log("Read Sample files content ✅");
+  logger.info(`Read Sample files content ✅`);
 }
 
 async function fnTrainingDataIA() {
-  console.log("Training IA...");
+  logger.info(`Training IA...`);
   classifier.train();
-  console.log("Saving Classifications...");
+  logger.info(`Saving Classifications...`);
   classifier.save("clasificaciones.json");
 }
 
@@ -306,10 +312,10 @@ async function classifyDocumentSamples(dirFile) {
 }
 
 async function fnTestClassification() {
-  console.log("Classification test is carried out...");
+  logger.info(`Classification test is carried out...`);
   classifyDocumentSamples("test_gmm_Gnp.txt");
   classifyDocumentSamples("test_gmm_Axxa.txt");
-  console.log("Classifier working correctly");
+  logger.info(`Classifier working correctly`);
 }
 
 async function fnGetClassificationsDocumment(dirFile) {
@@ -322,7 +328,7 @@ async function fnGetClassificationsDocumment(dirFile) {
 }
 
 async function fnLoadingClassification() {
-  console.log("Loading Classifications...");
+  logger.info(`Loading Classifications...`);
   natural.BayesClassifier.load(
     "clasificaciones.json",
     null,
@@ -356,15 +362,31 @@ async function fnGetClassifyData(data) {
   return res;
 }
 
-/* async function mainReadClassifyDoc(jsonName, data){
-    await fnLoadGetClassifyDataFromJson(jsonName, data);
-} */
+async function fnLoadIdClassifyProductsArray() {
+  let file = fs.readFileSync(
+    path.join(
+      __dirname,
+      "./../natural_classify/natural.classify.products.json"
+    ),
+    "utf8"
+  );
+  let json = JSON.parse(file);
+  return json;
+}
+
+async function fnLoadIdClassifyDocsTypeArray() {
+  let file = fs.readFileSync(
+    path.join(__dirname, "./../natural_classify/natural.classify.docs.json"),
+    "utf8"
+  );
+  let json = JSON.parse(file);
+  return json;
+}
 
 async function mainNatural() {
   await readSamplesInit();
   await fnTrainingDataIA();
   await fnTestClassification();
-  //await fnLoadingClassification();
 }
 
 module.exports = {

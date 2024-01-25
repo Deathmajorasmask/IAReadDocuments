@@ -1,0 +1,113 @@
+{
+    "status":200,
+    "isRaw":true,
+    "body":[
+       {
+          "id":1,
+          "name":"Autos",
+          "product_branch_id":1,
+          "shortname":"auto",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:56:45.168Z"
+       },
+       {
+          "id":2,
+          "name":"Flotillas",
+          "product_branch_id":1,
+          "shortname":"flotillas",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:51:01.101Z"
+       },
+       {
+          "id":3,
+          "name":"Gastos Médicos Mayores",
+          "product_branch_id":2,
+          "shortname":"gmm",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:49:43.015Z"
+       },
+       {
+          "id":4,
+          "name":"Gastos Médicos Menores",
+          "product_branch_id":2,
+          "shortname":"accidentes",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:49:58.513Z"
+       },
+       {
+          "id":5,
+          "name":"Seguro Dental",
+          "product_branch_id":2,
+          "shortname":"dental",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:49:48.713Z"
+       },
+       {
+          "id":6,
+          "name":"Vida",
+          "product_branch_id":4,
+          "shortname":"vida",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:50:54.292Z"
+       },
+       {
+          "id":7,
+          "name":"Gastos Funerarios",
+          "product_branch_id":4,
+          "shortname":"funeral",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:50:16.616Z"
+       },
+       {
+          "id":8,
+          "name":"Accidentes Personales",
+          "product_branch_id":2,
+          "shortname":"ap",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:50:23.760Z"
+       },
+       {
+          "id":9,
+          "name":"Vida Deudor",
+          "product_branch_id":4,
+          "shortname":null,
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-10-09T20:00:50.125Z"
+       },
+       {
+          "id":10,
+          "name":"Daños Casa",
+          "product_branch_id":3,
+          "shortname":"casa",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:50:31.278Z"
+       },
+       {
+          "id":11,
+          "name":"Excesos GMM",
+          "product_branch_id":2,
+          "shortname":"excesos",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:50:44.495Z"
+       },
+       {
+          "id":12,
+          "name":"Ambulancia",
+          "product_branch_id":2,
+          "shortname":"ambulancia",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:50:09.822Z"
+       },
+       {
+          "id":13,
+          "name":"Daños Activos",
+          "product_branch_id":3,
+          "shortname":"daños",
+          "created_at":"2023-10-09T20:00:50.125Z",
+          "modified_at":"2023-12-12T16:50:37.227Z"
+       }
+    ],
+    "headers":{
+       "Content-Type":"application/json"
+    }
+ }

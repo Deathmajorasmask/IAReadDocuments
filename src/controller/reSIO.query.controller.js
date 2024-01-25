@@ -23,7 +23,7 @@ const pool = new pg.Pool({
 });
 
 async function fnLoadIdClassifyProductsArray() {
-  const response = await pool.query("SELECT * FROM products");
+  const response = await pool.query("SELECT * FROM products ORDER BY id");
 
   let context = {
     status: 200,
@@ -188,7 +188,7 @@ async function fnSearchOrgsInfoById(id) {
 }
 
 async function fnLoadIdClassifyDocsTypeArray() {
-  const response = await pool.query("SELECT * FROM docs_type");
+  const response = await pool.query("SELECT * FROM docs_type ORDER BY id");
   let context = {
     status: 200,
     isRaw: true,

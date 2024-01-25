@@ -31,7 +31,8 @@
     "pg": "^8.11.3",
     "tesseract.js": "^5.0.3",
     "uuid": "^9.0.1",
-    "winston": "^3.11.0"
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

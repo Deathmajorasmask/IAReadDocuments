@@ -3,9 +3,6 @@ const router = express.Router();
 const controller = require("../controller/file.controller");
 
 let routes = (app) => {
-  router.post("/upload", controller.upload);
-  router.post("/aercontupload", controller.aerContUpload);
-  router.post("/tndseguploadbucket", controller.tndSegUploadBucket);
   router.post("/segutiendasekurauploadfile", controller.seguTiendaSekuraUploadFile);
   router.post("/test", controller.test);
   app.use(router);
