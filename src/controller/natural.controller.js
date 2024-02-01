@@ -1,15 +1,19 @@
 // fs module
-const fs = require("fs");
-const path = require("path");
+import { readFileSync } from "fs";
+import { join } from "path";
 // Natural IA See Documentation: https://github.com/NaturalNode/natural
-const natural = require("natural");
-const classifier = new natural.BayesClassifier();
+/* import { BayesClassifier } from "natural";
+const classifier = new BayesClassifier(); */
+import pkg from 'natural';
+const { BayesClassifier } = pkg;
+const classifier = new BayesClassifier();
+
 // winston logs file config
-const logger = require("../logs_module/logs.controller");
+import logger from "../logs_module/logs.controller.js";
 
 async function readDocumentSamples(dirFile, typeFile) {
-  const data = fs.readFileSync(
-    path.join(__dirname, "./../documents/" + dirFile),
+  const data = readFileSync(
+    join(__dirname, "./src/documents/" + dirFile),
     { encoding: "utf8" }
   );
   classifier.addDocument(data, typeFile);
@@ -25,8 +29,8 @@ async function readSamplesInit() {
   logger.info(`End extract natural_classify...`);
 
   logger.info(`Read Samples...`);
-  for (i = 0; i < classifyProducts.body.length; i++) {
-    switch (classifyProducts.body[i].id) {
+  for (const element of classifyProducts.body) {
+    switch (element.id) {
       case 1: // Autos - auto
         logger.warn(`Waiting for samples AUTOS_SAMPLES`);
         break;
@@ -34,198 +38,198 @@ async function readSamplesInit() {
         logger.info(`Loaded AUTOS_SAMPLES`);
         readDocumentSamples(
           "sample_auto_Banorte.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Banorte`
+          `1_${element.id}_${element.name}_Banorte`
         );
         readDocumentSamples(
           "sample_auto_Banorte2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Banorte`
+          `1_${element.id}_${element.name}_Banorte`
         );
         readDocumentSamples(
           "sample_auto_Banorte3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Banorte`
+          `1_${element.id}_${element.name}_Banorte`
         );
         readDocumentSamples(
           "sample_auto_Chubb.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Chubb`
+          `1_${element.id}_${element.name}_Chubb`
         );
         readDocumentSamples(
           "sample_auto_Chubb2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Chubb`
+          `1_${element.id}_${element.name}_Chubb`
         );
         readDocumentSamples(
           "sample_auto_Chubb3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Chubb`
+          `1_${element.id}_${element.name}_Chubb`
         );
         readDocumentSamples(
           "sample_auto_Gnp.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_auto_Gnp2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_auto_Gnp3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_auto_Primero.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Primero`
+          `1_${element.id}_${element.name}_Primero`
         );
         readDocumentSamples(
           "sample_auto_Primero2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Primero`
+          `1_${element.id}_${element.name}_Primero`
         );
         readDocumentSamples(
           "sample_auto_Primero3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Primero`
+          `1_${element.id}_${element.name}_Primero`
         );
         readDocumentSamples(
           "sample_auto_Qualitas.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Qualitas`
+          `1_${element.id}_${element.name}_Qualitas`
         );
         readDocumentSamples(
           "sample_auto_Qualitas2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Qualitas`
+          `1_${element.id}_${element.name}_Qualitas`
         );
         readDocumentSamples(
           "sample_auto_Qualitas3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Qualitas`
+          `1_${element.id}_${element.name}_Qualitas`
         );
         break;
       case 3: // Gastos Médicos Mayores - gmm
         logger.info(`Loaded GMM_Samples`);
         readDocumentSamples(
           "sample_gmm_Atlas.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Atlas`
+          `1_${element.id}_${element.name}_Atlas`
         );
         readDocumentSamples(
           "sample_gmm_Atlas2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Atlas`
+          `1_${element.id}_${element.name}_Atlas`
         );
         readDocumentSamples(
           "sample_gmm_Atlas3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Atlas`
+          `1_${element.id}_${element.name}_Atlas`
         );
         readDocumentSamples(
           "sample_gmm_Gnp.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_gmm_Gnp2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_gmm_Gnp3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_gmm_Axxa.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_AXA`
+          `1_${element.id}_${element.name}_AXA`
         );
         readDocumentSamples(
           "sample_gmm_Axxa2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_AXA`
+          `1_${element.id}_${element.name}_AXA`
         );
         readDocumentSamples(
           "sample_gmm_Axxa3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_AXA`
+          `1_${element.id}_${element.name}_AXA`
         );
         readDocumentSamples(
           "sample_gmm_Metlife.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Metlife`
+          `1_${element.id}_${element.name}_Metlife`
         );
         readDocumentSamples(
           "sample_gmm_Metlife2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Metlife`
+          `1_${element.id}_${element.name}_Metlife`
         );
         readDocumentSamples(
           "sample_gmm_Metlife3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Metlife`
+          `1_${element.id}_${element.name}_Metlife`
         );
         break;
       case 4: // Gastos Médicos Menores - accidentes
         logger.info(`Loaded GMMenores_Samples`);
         readDocumentSamples(
           "sample_gmmen_MediAccess.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_MediAccess`
+          `1_${element.id}_${element.name}_MediAccess`
         );
         readDocumentSamples(
           "sample_gmmen_MediAccess2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_MediAccess`
+          `1_${element.id}_${element.name}_MediAccess`
         );
         readDocumentSamples(
           "sample_gmmen_MediAccess3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_MediAccess`
+          `1_${element.id}_${element.name}_MediAccess`
         );
         readDocumentSamples(
           "sample_gmmen_Mms.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Mms`
+          `1_${element.id}_${element.name}_Mms`
         );
         readDocumentSamples(
           "sample_gmmen_Mms2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Mms`
+          `1_${element.id}_${element.name}_Mms`
         );
         readDocumentSamples(
           "sample_gmmen_Mms3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Mms`
+          `1_${element.id}_${element.name}_Mms`
         );
         break;
       case 5: // Seguro Dental - dental
         logger.info(`Loaded DENTAL_SAMPLES`);
         readDocumentSamples(
           "sample_dental_Dentalia.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Dentalia`
+          `1_${element.id}_${element.name}_Dentalia`
         );
         readDocumentSamples(
           "sample_dental_Dentalia2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Dentalia`
+          `1_${element.id}_${element.name}_Dentalia`
         );
         readDocumentSamples(
           "sample_dental_Dentalia3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Dentalia`
+          `1_${element.id}_${element.name}_Dentalia`
         );
         readDocumentSamples(
           "sample_dental_Dentegra.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Dentegra`
+          `1_${element.id}_${element.name}_Dentegra`
         );
         readDocumentSamples(
           "sample_dental_Dentegra2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Dentegra`
+          `1_${element.id}_${element.name}_Dentegra`
         );
         readDocumentSamples(
           "sample_dental_Dentegra3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Dentegra`
+          `1_${element.id}_${element.name}_Dentegra`
         );
         break;
       case 6: // Vida - vida
         logger.info(`Loaded VIDA_SAMPLES`);
         readDocumentSamples(
           "sample_vida_Gnp.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_vida_Gnp2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         readDocumentSamples(
           "sample_vida_Gnp3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_GNP`
+          `1_${element.id}_${element.name}_GNP`
         );
         break;
       case 7: // Gastos Funerarios - funeral
         logger.info(`Loaded FUNERARIO_SAMPLES`);
         readDocumentSamples(
           "sample_funerario_Thona.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Thona`
+          `1_${element.id}_${element.name}_Thona`
         );
         readDocumentSamples(
           "sample_funerario_Thona2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Thona`
+          `1_${element.id}_${element.name}_Thona`
         );
         readDocumentSamples(
           "sample_funerario_Thona3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Thona`
+          `1_${element.id}_${element.name}_Thona`
         );
         break;
       case 8: // Accidentes Personales - ap
@@ -238,27 +242,27 @@ async function readSamplesInit() {
         logger.info(`Loaded HOGAR_SAMPLES`);
         readDocumentSamples(
           "sample_hogar_Chubb.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Chubb`
+          `1_${element.id}_${element.name}_Chubb`
         );
         readDocumentSamples(
           "sample_hogar_Chubb2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Chubb`
+          `1_${element.id}_${element.name}_Chubb`
         );
         readDocumentSamples(
           "sample_hogar_Chubb3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Chubb`
+          `1_${element.id}_${element.name}_Chubb`
         );
         readDocumentSamples(
           "sample_hogar_Zurich.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Zurich`
+          `1_${element.id}_${element.name}_Zurich`
         );
         readDocumentSamples(
           "sample_hogar_Zurich2.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Zurich`
+          `1_${element.id}_${element.name}_Zurich`
         );
         readDocumentSamples(
           "sample_hogar_Zurich3.txt",
-          `1_${classifyProducts.body[i].id}_${classifyProducts.body[i].name}_Zurich`
+          `1_${element.id}_${element.name}_Zurich`
         );
         break;
       case 11: // Excesos GMM - excesos
@@ -274,14 +278,14 @@ async function readSamplesInit() {
     }
   }
 
-  for (i = 0; i < classifyDocsType.body.length; i++) {
-    for (j = 0; j < 3; j++) {
+  for (const element of classifyDocsType.body) {
+    for (let j = 0; j < 3; j++) {
       logger.info(
-        `sample_${classifyDocsType.body[i].id}_${classifyDocsType.body[i].name}_${j}.txt`
+        `sample_${element.id}_${element.name}_${j}.txt`
       );
       readDocumentSamples(
-        `sample_${classifyDocsType.body[i].id}_${classifyDocsType.body[i].name}_${j}.txt`,
-        `2_${classifyDocsType.body[i].id}_${classifyDocsType.body[i].name}_DocsPersonal`
+        `sample_${element.id}_${element.name}_${j}.txt`,
+        `2_${element.id}_${element.name}_DocsPersonal`
       );
     }
   }
@@ -304,8 +308,8 @@ async function fnTrainingDataIA() {
 }
 
 async function classifyDocumentSamples(dirFile) {
-  const data = fs.readFileSync(
-    path.join(__dirname, "./../documents/" + dirFile),
+  const data = readFileSync(
+    join(__dirname, "./src/documents/" + dirFile),
     { encoding: "utf8" }
   );
   return data;
@@ -319,8 +323,8 @@ async function fnTestClassification() {
 }
 
 async function fnGetClassificationsDocumment(dirFile) {
-  const data = fs.readFileSync(
-    path.join(__dirname, "./../documents/" + dirFile),
+  const data = readFileSync(
+    join(__dirname, "./src/documents/" + dirFile),
     { encoding: "utf8" }
   );
   console.log(classifier.getClassifications(data));
@@ -329,7 +333,7 @@ async function fnGetClassificationsDocumment(dirFile) {
 
 async function fnLoadingClassification() {
   logger.info(`Loading Classifications...`);
-  natural.BayesClassifier.load(
+  BayesClassifier.load(
     "clasificaciones.json",
     null,
     function (err, classifier) {
@@ -340,19 +344,19 @@ async function fnLoadingClassification() {
 }
 
 async function fnLoadClassifyFileFromJson(jsonName, dirFile) {
-  natural.BayesClassifier.load(jsonName, null, function (err, classifier) {
+  BayesClassifier.load(jsonName, null, function (err, classifier) {
     classifyDocumentSamples(dirFile);
   });
 }
 
 async function fnLoadGetClassifyFileFromJson(jsonName, dirFile) {
-  natural.BayesClassifier.load(jsonName, null, function (err, classifier) {
+  BayesClassifier.load(jsonName, null, function (err, classifier) {
     fnGetClassificationsDocumment(dirFile);
   });
 }
 
 async function fnLoadGetClassifyDataFromJson(jsonName, data) {
-  natural.BayesClassifier.load(jsonName, null, function (err, classifier) {
+  BayesClassifier.load(jsonName, null, function (err, classifier) {
     return classifier.classify(data);
   });
 }
@@ -363,10 +367,10 @@ async function fnGetClassifyData(data) {
 }
 
 async function fnLoadIdClassifyProductsArray() {
-  let file = fs.readFileSync(
-    path.join(
+  let file = readFileSync(
+    join(
       __dirname,
-      "./../natural_classify/natural.classify.products.json"
+      "./src/natural_classify/natural.classify.products.json"
     ),
     "utf8"
   );
@@ -375,8 +379,8 @@ async function fnLoadIdClassifyProductsArray() {
 }
 
 async function fnLoadIdClassifyDocsTypeArray() {
-  let file = fs.readFileSync(
-    path.join(__dirname, "./../natural_classify/natural.classify.docs.json"),
+  let file = readFileSync(
+    join(__dirname, "./src/natural_classify/natural.classify.docs.json"),
     "utf8"
   );
   let json = JSON.parse(file);
@@ -389,7 +393,7 @@ async function mainNatural() {
   await fnTestClassification();
 }
 
-module.exports = {
+export {
   readDocumentSamples,
   readSamplesInit,
   fnTrainingDataIA,

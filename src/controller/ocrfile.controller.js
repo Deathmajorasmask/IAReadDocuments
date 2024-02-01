@@ -1,32 +1,56 @@
-const { ocrSpace } = require("ocr-space-api-wrapper");
-const naturalfnController = require("./natural.controller");
-const pdfParse = require("pdf-parse");
+import { ocrSpace } from "ocr-space-api-wrapper";
+import { fnGetClassifyData } from "./natural.controller.js";
+import pdfParse from "pdf-parse";
+  
+// winston logs file config
+import logger from "../logs_module/logs.controller.js";
+
+let rows = {}; // indexed by y-position
+import { PdfReader } from "pdfreader";
+
+function flushRows() {
+  Object.keys(rows) // => array of y-positions (type: float)
+    .sort((y1, y2) => parseFloat(y1) - parseFloat(y2)) // sort float positions
+    .forEach((y) => console.log((rows[y] || []).join("")));
+  rows = {}; // clear rows for next page
+}
+
+async function fnOcrExtractDataReader(dirPathDoc){
+  new PdfReader().parseFileItems( __basedir + "/resources/static/assets/uploads/" + dirPathDoc, (err, item) => {
+    if (err) {
+      logger.error({ err });
+    } else if (!item) {
+      flushRows();
+      logger.info("END OF FILE");
+    } else if (item.page) {
+      flushRows(); // print the rows of the previous page
+      logger.info(`PAGE: ${ item.page }`);
+    } else if (item.text) {
+      // accumulate text items into rows object, per line
+      (rows[item.y] = rows[item.y] || []).push(item.text);
+    }
+  });
+}
 
 async function fnOcrExtractData(dirPathDoc) {
-  console.log("-----------ocrspace----------");
   let res = ocrSpace(
     __basedir + "/resources/static/assets/uploads/" + dirPathDoc
   );
-  console.log("-----------End_ocrspace----------");
   return res;
 }
 
 async function fnOcrExtractClassify(dirPathDoc) {
-  console.log("-----------pdfParse----------");
   let pdfParseData = await fnPdfParseExtractData(dirPathDoc);
-  console.log("-----------End_pdfParse----------");
   let res = "";
-  console.log("--------------NaturalClassify------------------");
   if (
     !pdfParseData ||
     pdfParseData.length <= 0 ||
     pdfParseData.match(/^\s*$/) !== null
   ) {
-    console.log("-1_Documento_NoCategorizado");
+    res = "-1_33_Documento_NoCategorizado";
   } else {
-    res = naturalfnController.fnGetClassifyData(pdfParseData);
+    res = fnGetClassifyData(pdfParseData);
   }
-  console.log("--------------End_NaturalClassify------------------");
   return res;
 }
 
@@ -38,7 +62,8 @@ async function fnPdfParseExtractData(dirPathDoc) {
   });
 }
 
-module.exports = {
+export {
+  fnOcrExtractDataReader,
   fnOcrExtractData,
   fnOcrExtractClassify,
 };

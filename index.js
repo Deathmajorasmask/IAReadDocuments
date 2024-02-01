@@ -1,46 +1,53 @@
 // Express routing module
-const express = require("express");
-const fileUpload = require("express-fileupload");
+import express, { json, urlencoded } from "express";
+import fileUpload from "express-fileupload";
+
+// .env file
+import "dotenv/config.js";
 
 // Pdf Reading module
-const pdfParse = require("pdf-parse");
-const bodyParser = require("body-parser");
+import pkg from 'body-parser';
+const { urlencoded: _urlencoded } = pkg;
 
 // Variable app
 const app = express();
-const path = require("path");
+import path from "path";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+global.__dirname = path.dirname(__filename);
 
 // Settings
 app.set("port", 3000);
 
 // Natural IA
-const naturalfnController = require("./src/controller/natural.controller");
+import { mainNatural } from "./src/controller/natural.controller.js";
 
 // winston logs file config
-const logger = require("./src/logs_module/logs.controller");
+import logger from "./src/logs_module/logs.controller.js";
 
 // Multer & Cors (GET/SET Read Documents)
 global.__basedir = __dirname;
-const cors = require("cors");
+import cors from "cors";
 const corsOptions = {
   origin: "http://localhost:3001",
 };
 app.use(cors(corsOptions));
 
-const initRoutes = require("./src/routes");
+import initRoutes from "./src/routes/index.js";
 
 // Middleware api
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 initRoutes(app);
 
 // Middleware
 app.use(express.static(path.join(__dirname, "public")));
-app.engine("html", require("ejs").renderFile);
+//app.engine("html", require("ejs").renderFile);
 app.use(fileUpload());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(_urlencoded({ extended: false }));
 
-naturalfnController.mainNatural();
+mainNatural();
 
 app.post("/extract-text", (req, res) => {
   if (!req.files && !req.files.pdfFile) {

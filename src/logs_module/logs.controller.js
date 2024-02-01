@@ -1,17 +1,17 @@
 // logger.js
-const winston = require('winston');
-const DailyRotateFile = require('winston-daily-rotate-file');
+import { createLogger, format as _format, transports as _transports } from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
 
-const logger = winston.createLogger({
+const logger = createLogger({
   level: 'info',
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.printf(({ timestamp, level, message }) => {
+  format: _format.combine(
+    _format.timestamp(),
+    _format.printf(({ timestamp, level, message }) => {
       return `[${timestamp}] ${level.toUpperCase()}: ${message}`;
     })
   ),
   transports: [
-    new winston.transports.Console(),
+    new _transports.Console(),
     new DailyRotateFile({
       filename: 'logs/application-%DATE%.log',
       datePattern: 'YYYY-MM-DD',
@@ -22,4 +22,4 @@ const logger = winston.createLogger({
   ],
 });
 
-module.exports = logger;
+export default logger;

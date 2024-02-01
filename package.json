@@ -1,7 +1,8 @@
 {
   "name": "aerpassidocs",
+  "type": "module",
   "version": "1.0.0",
-  "description": "Passi Docs Natual IA",
+  "description": "Passi Docs Natural IA",
   "main": "index.js",
   "scripts": {
     "serve": "nodemon index.js"
@@ -28,6 +29,7 @@
     "ocr-space-api-wrapper": "^2.3.0",
     "pdf-parse": "^1.1.1",
     "pdf-poppler": "^0.2.1",
+    "pdfreader": "^3.0.2",
     "pg": "^8.11.3",
     "tesseract.js": "^5.0.3",
     "uuid": "^9.0.1",

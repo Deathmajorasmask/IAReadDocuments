@@ -1,14 +1,14 @@
-const express = require("express");
-const router = express.Router();
-const controller = require("../controller/file.controller");
+import { Router } from "express";
+const router = Router();
+import { seguTiendaSekuraUploadFile, test } from "../controller/file.controller.js";
 
 let routes = (app) => {
-  router.post("/segutiendasekurauploadfile", controller.seguTiendaSekuraUploadFile);
-  router.post("/test", controller.test);
+  router.post("/segutiendasekurauploadfile", seguTiendaSekuraUploadFile);
+  router.post("/test", test);
   app.use(router);
 };
 
-module.exports = routes;
+export default routes;
 
 /**
 There are 3 routes with corresponding controller methods:
