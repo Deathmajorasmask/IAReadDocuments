@@ -1,7 +1,7 @@
 import { ocrSpace } from "ocr-space-api-wrapper";
 import { fnGetClassifyData } from "./natural.controller.js";
 import pdfParse from "pdf-parse";
-  
+
 // winston logs file config
 import logger from "../logs_module/logs.controller.js";
 
@@ -15,21 +15,96 @@ function flushRows() {
   rows = {}; // clear rows for next page
 }
 
-async function fnOcrExtractDataReader(dirPathDoc){
-  new PdfReader().parseFileItems( __basedir + "/resources/static/assets/uploads/" + dirPathDoc, (err, item) => {
-    if (err) {
-      logger.error({ err });
-    } else if (!item) {
-      flushRows();
-      logger.info("END OF FILE");
-    } else if (item.page) {
-      flushRows(); // print the rows of the previous page
-      logger.info(`PAGE: ${ item.page }`);
-    } else if (item.text) {
-      // accumulate text items into rows object, per line
-      (rows[item.y] = rows[item.y] || []).push(item.text);
+async function fnOcrExtractDataReader(dirPathDoc) {
+  new PdfReader().parseFileItems(
+    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+    (err, item) => {
+      if (err) {
+        logger.error({ err });
+      } else if (!item) {
+        flushRows();
+        logger.info("END OF FILE");
+      } else if (item.page) {
+        flushRows(); // print the rows of the previous page
+        logger.info(`PAGE: ${item.page}`);
+      } else if (item.text) {
+        // accumulate text items into rows object, per line
+        (rows[item.y] = rows[item.y] || []).push(item.text);
+      }
     }
-  });
+  );
+}
+
+async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
+  new PdfReader({ password: pdfPassword }).parseFileItems(
+    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+    function (err, item) {
+      if (err) logger.error(err);
+      else if (!item) logger.warn("end of file");
+      else if (item.text) logger.info(item.text);
+    }
+  );
+}
+// In progress...
+async function fnOcrExtractDataReaderRuleOnTable(dirPathDoc) {
+  const processItem = Rule.makeItemProcessor([
+    Rule.on(/^Hello \"(.*)\"$/)
+      .extractRegexpValues()
+      .then(displayValue),
+    Rule.on(/^Value\:/)
+      .parseNextItemValue()
+      .then(displayValue),
+    Rule.on(/^c1$/).parseTable(3).then(displayTable),
+    Rule.on(/^Values\:/)
+      .accumulateAfterHeading()
+      .then(displayValue),
+  ]);
+  new PdfReader().parseFileItems(
+    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+    (err, item) => {
+      if (err) console.error(err);
+      else processItem(item);
+    }
+  );
+}
+// In progress...
+async function fnOcrExtractDataReaderOnTable(dirPathDoc) {
+  const nbCols = 2;
+  const cellPadding = 40; // each cell is padded to fit 40 characters
+  const columnQuantitizer = (item) => parseFloat(item.x) >= 20;
+
+  const padColumns = (array, nb) =>
+    Array.apply(null, { length: nb }).map((val, i) => array[i] || []);
+  // .. because map() skips undefined elements - nb length
+
+  const mergeCells = (cells) =>
+    (cells || [])
+      .map((cell) => cell.text)
+      .join("") // merge cells
+      .substr(0, cellPadding)
+      .padEnd(cellPadding, " "); // padding
+
+  const renderMatrix = (matrix) =>
+    (matrix || [])
+      .map((row, y) => padColumns(row, nbCols).map(mergeCells).join(" | "))
+      .join("\n");
+
+  var table = new PdfReader.TableParser();
+
+  new PdfReader.PdfReader().parseFileItems(
+    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+    function (err, item) {
+      if (!item || item.page) {
+        // end of file, or page
+        console.log(renderMatrix(table.getMatrix()));
+        console.log("PAGE:", item.page);
+        table = new PdfReader.TableParser(); // new/clear table for next page
+      } else if (item.text) {
+        // accumulate text items into rows object, per line
+        table.processItem(item, columnQuantitizer(item));
+      }
+    }
+  );
 }
 
 async function fnOcrExtractData(dirPathDoc) {
@@ -64,6 +139,7 @@ async function fnPdfParseExtractData(dirPathDoc) {
 
 export {
   fnOcrExtractDataReader,
+  fnOcrExtractDataReaderPassword,
   fnOcrExtractData,
   fnOcrExtractClassify,
 };
