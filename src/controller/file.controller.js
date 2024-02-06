@@ -2,24 +2,23 @@
 import uploadFile from "../middleware/upload.js";
 
 // File reader
-import { createReadStream, unlinkSync, existsSync, mkdirSync } from "fs";
+import { createReadStream } from "fs";
 
 // OCR Documment
-import { fnOcrExtractDataReader, fnOcrExtractData, fnOcrExtractClassify } from "./ocrfile.controller.js";
+import {
+  fnOcrExtractDataReader,
+  fnOcrExtractData,
+  fnOcrExtractClassify,
+} from "./ocrfile.controller.js";
 
-// AWS S3 Buckets
-import pkg from 'aws-sdk';
-const { config, S3 } = pkg;
+// File Utils
+import {fnRemoveAsyncFile, fnCreatePathFiles} from "./file.utils.controller.js";
+
+// AWS S3 Module
+import { aws3BucketUploadPDF } from "./s3bucket.controller.js";
 
 // winston logs file config
 import logger from "../logs_module/logs.controller.js";
-
-//configuring the AWS environment
-config.update({
-  accessKeyId: process.env.AWSS3_ACCESS_KEYID,
-  secretAccessKey: process.env.AWSS3_ACCESS_KEY,
-});
-const s3 = new S3();
 
 const test = async (req, res) => {
   try {
@@ -101,7 +100,7 @@ const test = async (req, res) => {
         },
       });
     }
-    if (req.file == undefined || req.file == '') {
+    if (req.file == undefined || req.file == "") {
       let removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
@@ -119,12 +118,14 @@ const test = async (req, res) => {
 
     const fileContent = await fnOcrExtractData(req.file.originalname);
     logger.info(`fileContent of ocrExtractData: ${fileContent}`);
-    const fileClassify = await fnOcrExtractClassify(
+    const fileClassify = await fnOcrExtractClassify(req.file.originalname);
+    logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
+    const fileContentDataReader = await fnOcrExtractDataReader(
       req.file.originalname
     );
-    logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
-    const fileContentDataReader = await fnOcrExtractDataReader(req.file.originalname);
-    logger.info(`fileClassify of OcrExtractDataReade: ${fileContentDataReader}`);
+    logger.info(
+      `fileContent of OcrExtractDataReader: ${fileContentDataReader}`
+    );
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date
@@ -148,34 +149,11 @@ const test = async (req, res) => {
       arrClassifyNatural[1] = req.body.docs_type;
     }
 
-    // configuring parameters
-    let params = {
-      Bucket: process.env.AWSS3_ACCESS_BUCKET,
-      Body: createReadStream(req.file.path),
-      Key: `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`,
-      //ACL: 'public-read',
-      ContentType: "application/pdf",
-    };
-
-    const options = {
-      headers: {
-        "Content-Type": "application/pdf",
-      },
-    };
-
-    // Aws S3 Bucket Upload File
-    s3.upload(params, options, function (err, data) {
-      //handle error
-      if (err) {
-        logger.error(`Error S3: ${err}`);
-      }
-
-      //success
-      if (data) {
-        let removeFile = fnRemoveAsyncFile(req.file.path);
-        logger.info(`Uploaded in: ${data.Location}`);
-      }
-    });
+    await aws3BucketUploadPDF(
+      process.env.AWSS3_ACCESS_BUCKET,
+      req.file.path,
+      `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`
+    );
 
     res.status(200).send({
       status: 200,
@@ -318,7 +296,7 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
         },
       });
     }
-    if (req.file == undefined || req.file == '') {
+    if (req.file == undefined || req.file == "") {
       let removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
@@ -336,10 +314,14 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
 
     const fileContent = await fnOcrExtractData(req.file.originalname);
     logger.info(`fileContent of ocrExtractData: ${fileContent}`);
-    const fileClassify = await fnOcrExtractClassify(
+    const fileClassify = await fnOcrExtractClassify(req.file.originalname);
+    logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
+    const fileContentDataReader = await fnOcrExtractDataReader(
       req.file.originalname
     );
-    logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
+    logger.info(
+      `fileContent of OcrExtractDataReader: ${fileContentDataReader}`
+    );
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date
@@ -363,34 +345,11 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
       arrClassifyNatural[1] = req.body.docs_type;
     }
 
-    // configuring parameters
-    let params = {
-      Bucket: process.env.AWSS3_ACCESS_BUCKET,
-      Body: createReadStream(req.file.path),
-      Key: `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`,
-      //ACL: 'public-read',
-      ContentType: "application/pdf",
-    };
-
-    const options = {
-      headers: {
-        "Content-Type": "application/pdf",
-      },
-    };
-
-    // Aws S3 Bucket Upload File
-    s3.upload(params, options, function (err, data) {
-      //handle error
-      if (err) {
-        logger.error(`Error S3: ${err}`);
-      }
-
-      //success
-      if (data) {
-        let removeFile = fnRemoveAsyncFile(req.file.path);
-        logger.info(`Uploaded in: ${data.Location}`);
-      }
-    });
+    await aws3BucketUploadPDF(
+      process.env.AWSS3_ACCESS_BUCKET,
+      req.file.path,
+      `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`
+    );
 
     res.status(200).send({
       status: 200,
@@ -453,39 +412,13 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
   }
 };
 
-async function fnRemoveAsyncFile(dirPathDoc) {
-  try {
-    unlinkSync(dirPathDoc);
-    return true;
-  } catch (err) {
-    res.status(500).send({
-      message: "Could not delete the file. " + err,
-    });
-  }
-}
-
-async function fnCreatePathFiles() {
-  if (existsSync(__basedir + "/resources/static/assets/uploads")) {
-    console.log("Create Path");
-  } else {
-    mkdirSync("./resources/static/assets/uploads", { recursive: true });
-  }
-}
-
-export {
-  seguTiendaSekuraUploadFile,
-  test,
-};
+export { seguTiendaSekuraUploadFile, test };
 
 /**
 File Upload method, we will export upload() function that:
 – use middleware function for file upload
 – catch Multer error (in middleware function)
 – return response with message
-
-For File Information and Download:
-– getListFiles(): read all files in uploads folder, return list of files’ information (name, url)
-– download(): receives file name as input parameter, then uses Express res.download API to transfer the file at path (directory + file name) as an ‘attachment’.
 
 – We call middleware function uploadFile() first.
 – If the HTTP request doesn’t include a file, send 400 status in the response.
