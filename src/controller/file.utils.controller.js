@@ -13,9 +13,7 @@ async function fnRemoveAsyncFile(dirPathDoc) {
 }
 
 async function fnCreatePathFiles() {
-  if (existsSync(__basedir + "/resources/static/assets/uploads")) {
-    console.log("Create Path");
-  } else {
+  if (!existsSync(__basedir + "/resources/static/assets/uploads")) {
     mkdirSync("./resources/static/assets/uploads", { recursive: true });
   }
 }

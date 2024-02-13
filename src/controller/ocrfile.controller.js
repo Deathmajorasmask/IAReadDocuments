@@ -15,6 +15,7 @@ function flushRows() {
   rows = {}; // clear rows for next page
 }
 
+// Extract information in raw format from any PDF file
 async function fnOcrExtractDataReader(dirPathDoc) {
   let PdfReaderAsync = () => {
     return new Promise((res, rej) => {
@@ -25,9 +26,11 @@ async function fnOcrExtractDataReader(dirPathDoc) {
             logger.error({ err });
           } else if (!item) {
             flushRows();
+            resultDocument += "(END_OF_FILE)";
             res(resultDocument);
           } else if (item.page) {
             flushRows(); // print the rows of the previous page
+            resultDocument += `(PAGE ${item.page})`;
           } else if (item.text) {
             // accumulate text items into rows object, per line
             (rows[item.y] = rows[item.y] || []).push(item.text);
@@ -36,9 +39,11 @@ async function fnOcrExtractDataReader(dirPathDoc) {
       );
     });
   };
-
+  
   try {
+    resultDocument = ""; // clear page for next documents
     let item = await PdfReaderAsync();
+    resultDocument = ""; // clear page for next documents
     let result = {
       status: 200,
       isRaw: true,
@@ -47,15 +52,17 @@ async function fnOcrExtractDataReader(dirPathDoc) {
         "Content-Type": "application/json",
       },
       IsErroredOnProcessing: false,
-      ErrorMessage: err,
+      ErrorMessage: "",
     };
     return result;
   } catch (err) {
-    let item = await PdfReaderAsync();
+    logger.error({ err });
+    resultDocument = ""; // clear page for next documents
+    rows = {}; // clear rows for next page
     let result = {
       status: 204,
       isRaw: true,
-      body: item,
+      body: "",
       headers: {
         "Content-Type": "application/json",
       },
@@ -66,6 +73,7 @@ async function fnOcrExtractDataReader(dirPathDoc) {
   }
 }
 
+// Extract information in raw format from any PDF file with password
 async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
   let PdfReaderAsync = () => {
     return new Promise((res, rej) => {
@@ -76,10 +84,11 @@ async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
             logger.error(err);
           } else if (!item) {
             flushRows();
+            resultDocument += "(END_OF_FILE)";
             res(resultDocument);
-            logger.warn("end of file");
           } else if (item.page) {
             flushRows(); // print the rows of the previous page
+            resultDocument += `(PAGE ${item.page})`;
           } else if (item.text) {
             (rows[item.y] = rows[item.y] || []).push(item.text);
           }
@@ -89,7 +98,9 @@ async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
   };
 
   try {
+    resultDocument = ""; // clear page for next documents
     let item = await PdfReaderAsync();
+    resultDocument = ""; // clear page for next documents
     let result = {
       status: 200,
       isRaw: true,
@@ -98,15 +109,17 @@ async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
         "Content-Type": "application/json",
       },
       IsErroredOnProcessing: false,
-      ErrorMessage: err,
+      ErrorMessage: "",
     };
     return result;
   } catch (err) {
-    let item = await PdfReaderAsync();
+    logger.error({ err });
+    resultDocument = ""; // clear page for next documents
+    rows = {}; // clear rows for next page
     let result = {
       status: 204,
       isRaw: true,
-      body: item,
+      body: "",
       headers: {
         "Content-Type": "application/json",
       },
@@ -180,7 +193,7 @@ async function fnOcrExtractDataReaderOnTable(dirPathDoc) {
   );
 }
 
-// Function of
+// Payment information extractor (OCR not used)
 async function fnOcrExtractData(dirPathDoc) {
   let res = ocrSpace(
     __basedir + "/resources/static/assets/uploads/" + dirPathDoc
@@ -188,7 +201,7 @@ async function fnOcrExtractData(dirPathDoc) {
   return res;
 }
 
-// Payment information extractor (OCR not used)
+// Extract classification and categorization using IA Natural
 async function fnOcrExtractClassify(dirPathDoc) {
   let pdfParseData = await fnOcrExtractDataReader(dirPathDoc);
   let res = "";
