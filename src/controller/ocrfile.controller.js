@@ -1,50 +1,122 @@
 import { ocrSpace } from "ocr-space-api-wrapper";
 import { fnGetClassifyData } from "./natural.controller.js";
-import pdfParse from "pdf-parse";
 
 // winston logs file config
 import logger from "../logs_module/logs.controller.js";
 
 let rows = {}; // indexed by y-position
-import { PdfReader } from "pdfreader";
+let resultDocument = ""; // variable by return
+import { PdfReader, Rule } from "pdfreader";
 
 function flushRows() {
   Object.keys(rows) // => array of y-positions (type: float)
     .sort((y1, y2) => parseFloat(y1) - parseFloat(y2)) // sort float positions
-    .forEach((y) => console.log((rows[y] || []).join("")));
+    .forEach((y) => (resultDocument += (rows[y] || []).join(" ")));
   rows = {}; // clear rows for next page
 }
 
 async function fnOcrExtractDataReader(dirPathDoc) {
-  new PdfReader().parseFileItems(
-    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-    (err, item) => {
-      if (err) {
-        logger.error({ err });
-      } else if (!item) {
-        flushRows();
-        logger.info("END OF FILE");
-      } else if (item.page) {
-        flushRows(); // print the rows of the previous page
-        logger.info(`PAGE: ${item.page}`);
-      } else if (item.text) {
-        // accumulate text items into rows object, per line
-        (rows[item.y] = rows[item.y] || []).push(item.text);
-      }
-    }
-  );
+  let PdfReaderAsync = () => {
+    return new Promise((res, rej) => {
+      new PdfReader().parseFileItems(
+        __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+        (err, item) => {
+          if (err) {
+            logger.error({ err });
+          } else if (!item) {
+            flushRows();
+            res(resultDocument);
+          } else if (item.page) {
+            flushRows(); // print the rows of the previous page
+          } else if (item.text) {
+            // accumulate text items into rows object, per line
+            (rows[item.y] = rows[item.y] || []).push(item.text);
+          }
+        }
+      );
+    });
+  };
+
+  try {
+    let item = await PdfReaderAsync();
+    let result = {
+      status: 200,
+      isRaw: true,
+      body: item,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: false,
+      ErrorMessage: err,
+    };
+    return result;
+  } catch (err) {
+    let item = await PdfReaderAsync();
+    let result = {
+      status: 204,
+      isRaw: true,
+      body: item,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: true,
+      ErrorMessage: err,
+    };
+    return result;
+  }
 }
 
 async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
-  new PdfReader({ password: pdfPassword }).parseFileItems(
-    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-    function (err, item) {
-      if (err) logger.error(err);
-      else if (!item) logger.warn("end of file");
-      else if (item.text) logger.info(item.text);
-    }
-  );
+  let PdfReaderAsync = () => {
+    return new Promise((res, rej) => {
+      new PdfReader({ password: pdfPassword }).parseFileItems(
+        __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+        function (err, item) {
+          if (err) {
+            logger.error(err);
+          } else if (!item) {
+            flushRows();
+            res(resultDocument);
+            logger.warn("end of file");
+          } else if (item.page) {
+            flushRows(); // print the rows of the previous page
+          } else if (item.text) {
+            (rows[item.y] = rows[item.y] || []).push(item.text);
+          }
+        }
+      );
+    });
+  };
+
+  try {
+    let item = await PdfReaderAsync();
+    let result = {
+      status: 200,
+      isRaw: true,
+      body: item,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: false,
+      ErrorMessage: err,
+    };
+    return result;
+  } catch (err) {
+    let item = await PdfReaderAsync();
+    let result = {
+      status: 204,
+      isRaw: true,
+      body: item,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: true,
+      ErrorMessage: err,
+    };
+    return result;
+  }
 }
+
 // In progress...
 async function fnOcrExtractDataReaderRuleOnTable(dirPathDoc) {
   const processItem = Rule.makeItemProcessor([
@@ -67,6 +139,7 @@ async function fnOcrExtractDataReaderRuleOnTable(dirPathDoc) {
     }
   );
 }
+
 // In progress...
 async function fnOcrExtractDataReaderOnTable(dirPathDoc) {
   const nbCols = 2;
@@ -107,6 +180,7 @@ async function fnOcrExtractDataReaderOnTable(dirPathDoc) {
   );
 }
 
+// Function of
 async function fnOcrExtractData(dirPathDoc) {
   let res = ocrSpace(
     __basedir + "/resources/static/assets/uploads/" + dirPathDoc
@@ -114,32 +188,26 @@ async function fnOcrExtractData(dirPathDoc) {
   return res;
 }
 
+// Payment information extractor (OCR not used)
 async function fnOcrExtractClassify(dirPathDoc) {
-  let pdfParseData = await fnPdfParseExtractData(dirPathDoc);
+  let pdfParseData = await fnOcrExtractDataReader(dirPathDoc);
   let res = "";
   if (
-    !pdfParseData ||
-    pdfParseData.length <= 0 ||
-    pdfParseData.match(/^\s*$/) !== null
+    !pdfParseData.body ||
+    pdfParseData.body.length <= 0 ||
+    pdfParseData.body.match(/^\s*$/) !== null
   ) {
     res = "-1_33_Documento_NoCategorizado";
   } else {
-    res = fnGetClassifyData(pdfParseData);
+    res = fnGetClassifyData(pdfParseData.body);
   }
   return res;
-}
-
-async function fnPdfParseExtractData(dirPathDoc) {
-  return pdfParse(
-    __basedir + "/resources/static/assets/uploads/" + dirPathDoc
-  ).then((result) => {
-    return result.text;
-  });
 }
 
 export {
   fnOcrExtractDataReader,
   fnOcrExtractDataReaderPassword,
+  fnOcrExtractDataReaderRuleOnTable,
   fnOcrExtractData,
   fnOcrExtractClassify,
 };

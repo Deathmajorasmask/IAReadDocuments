@@ -1,18 +1,20 @@
 // Middleware load
 import uploadFile from "../middleware/upload.js";
 
-// File reader
-import { createReadStream } from "fs";
-
 // OCR Documment
 import {
   fnOcrExtractDataReader,
+  fnOcrExtractDataReaderPassword,
+  fnOcrExtractDataReaderRuleOnTable,
   fnOcrExtractData,
   fnOcrExtractClassify,
 } from "./ocrfile.controller.js";
 
 // File Utils
-import {fnRemoveAsyncFile, fnCreatePathFiles} from "./file.utils.controller.js";
+import {
+  fnRemoveAsyncFile,
+  fnCreatePathFiles,
+} from "./file.utils.controller.js";
 
 // AWS S3 Module
 import { aws3BucketUploadPDF } from "./s3bucket.controller.js";
@@ -115,17 +117,10 @@ const test = async (req, res) => {
         },
       });
     }
-
-    const fileContent = await fnOcrExtractData(req.file.originalname);
-    logger.info(`fileContent of ocrExtractData: ${fileContent}`);
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
-    const fileContentDataReader = await fnOcrExtractDataReader(
-      req.file.originalname
-    );
-    logger.info(
-      `fileContent of OcrExtractDataReader: ${fileContentDataReader}`
-    );
+    //const fileContentDataReader = await fnOcrExtractDataReaderRuleOnTable(req.file.originalname);
+    //logger.info(JSON.stringify(fileContentDataReader));
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date
@@ -148,7 +143,7 @@ const test = async (req, res) => {
     if (req.body.docs_type) {
       arrClassifyNatural[1] = req.body.docs_type;
     }
-
+    
     await aws3BucketUploadPDF(
       process.env.AWSS3_ACCESS_BUCKET,
       req.file.path,
@@ -312,16 +307,12 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
       });
     }
 
-    const fileContent = await fnOcrExtractData(req.file.originalname);
-    logger.info(`fileContent of ocrExtractData: ${fileContent}`);
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
     const fileContentDataReader = await fnOcrExtractDataReader(
       req.file.originalname
     );
-    logger.info(
-      `fileContent of OcrExtractDataReader: ${fileContentDataReader}`
-    );
+    logger.info(JSON.stringify(fileContentDataReader));
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date

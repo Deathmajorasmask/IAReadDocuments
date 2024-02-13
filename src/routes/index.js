@@ -2,7 +2,8 @@ import { Router } from "express";
 const router = Router();
 import { seguTiendaSekuraUploadFile, test } from "../controller/file.controller.js";
 
-let routes = (app) => {
+
+const routes = (app) => {
   router.post("/segutiendasekurauploadfile", seguTiendaSekuraUploadFile);
   router.post("/test", test);
   app.use(router);

@@ -20,31 +20,6 @@ let uploadFile = multer({
 let uploadFileMiddleware = promisify(uploadFile);
 export default uploadFileMiddleware;
 
-/* import util from "util";
-import multer from 'multer';
-const maxSize = 22282810 //= 2 * 1024 * 1024;
-
-let storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __basedir + "/resources/static/assets/uploads/");
-  },
-  filename: (req, file, cb) => {
-    console.log(file.originalname);
-    cb(null, file.originalname);
-  },
-});
-
-const uploadFile = multer({
-  storage: storage,
-  limits: { fileSize: maxSize },
-}).single("file");
-
-const uploadFileMiddleware = util.promisify(uploadFile);
-export {
-  uploadFileMiddleware,
-  uploadFile,
-}; */
-
 /*
 First, we import multer module.
 – Next, we configure multer to use Disk Storage engine.

@@ -34,31 +34,23 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// Index Custom Routes
 import initRoutes from "./src/routes/index.js";
+import initRoutesSamples from "./src/routes/index.samples.js";
 
 // Middleware api
 app.use(json());
 app.use(urlencoded({ extended: true }));
 initRoutes(app);
 
-// Middleware
+// Middleware Web app
 app.use(express.static(path.join(__dirname, "public")));
-//app.engine("html", require("ejs").renderFile);
 app.use(fileUpload());
 app.use(_urlencoded({ extended: false }));
+initRoutesSamples(app);
 
+// Init IA Natural
 mainNatural();
-
-app.post("/extract-text", (req, res) => {
-  if (!req.files && !req.files.pdfFile) {
-    res.status(400);
-    res.end();
-  }
-
-  pdfParse(req.files.pdfFile).then((result) => {
-    res.send(result.text);
-  });
-});
 
 app.listen(app.get("port"), () => {
   logger.info(`App listening in port: ${app.get("port")}`);
