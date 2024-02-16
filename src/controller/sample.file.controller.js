@@ -2,7 +2,7 @@ import { writeFileSync } from "fs";
 
 // OCR Documment
 import {
-  fnOcrExtractDataReader
+  fnOcrEDR
 } from "./ocrfile.controller.js";
 
 // File Utils
@@ -18,7 +18,7 @@ const sampleUploadFile = async (req, res) => {
       }
       await fnCreatePathFiles();
       writeFileSync(__basedir + "/resources/static/assets/uploads/" + req.files.pdfFile.name, req.files.pdfFile.data);
-      let fileContentDataReader = await fnOcrExtractDataReader(req.files.pdfFile.name);
+      let fileContentDataReader = await fnOcrEDR(req.files.pdfFile.name);
       let removeFile = fnRemoveAsyncFile(__basedir + "/resources/static/assets/uploads/" + req.files.pdfFile.name);
       res.send(fileContentDataReader.body);
 }

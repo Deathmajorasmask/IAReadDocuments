@@ -3,9 +3,10 @@ import uploadFile from "../middleware/upload.js";
 
 // OCR Documment
 import {
-  fnOcrExtractDataReader,
-  fnOcrExtractDataReaderPassword,
-  fnOcrExtractDataReaderRuleOnTable,
+  fnOcrEDR,
+  fnOcrEDRPassword,
+  fnOcrEDRegexv,
+  fnOcrEDNextRegexv,
   fnOcrExtractData,
   fnOcrExtractClassify,
 } from "./ocrfile.controller.js";
@@ -120,7 +121,8 @@ const test = async (req, res) => {
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
     //const fileContentDataReader = await fnOcrExtractDataReaderRuleOnTable(req.file.originalname);
-    //logger.info(JSON.stringify(fileContentDataReader));
+    const fileContentDataReader = await fnOcrEDR(req.file.originalname);
+    logger.info(JSON.stringify(fileContentDataReader));
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date

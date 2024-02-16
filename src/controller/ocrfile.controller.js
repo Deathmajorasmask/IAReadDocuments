@@ -15,34 +15,15 @@ function flushRows() {
   rows = {}; // clear rows for next page
 }
 
+function displayValue(values) {
+  return values;
+}
+
 // Extract information in raw format from any PDF file
-async function fnOcrExtractDataReader(dirPathDoc) {
-  let PdfReaderAsync = () => {
-    return new Promise((res, rej) => {
-      new PdfReader().parseFileItems(
-        __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-        (err, item) => {
-          if (err) {
-            logger.error({ err });
-          } else if (!item) {
-            flushRows();
-            resultDocument += "(END_OF_FILE)";
-            res(resultDocument);
-          } else if (item.page) {
-            flushRows(); // print the rows of the previous page
-            resultDocument += `(PAGE ${item.page})`;
-          } else if (item.text) {
-            // accumulate text items into rows object, per line
-            (rows[item.y] = rows[item.y] || []).push(item.text);
-          }
-        }
-      );
-    });
-  };
-  
+async function fnOcrEDR(dirPathDoc) {
   try {
     resultDocument = ""; // clear page for next documents
-    let item = await PdfReaderAsync();
+    let item = await fnOcrEDataReader(dirPathDoc);
     resultDocument = ""; // clear page for next documents
     let result = {
       status: 200,
@@ -71,35 +52,36 @@ async function fnOcrExtractDataReader(dirPathDoc) {
     };
     return result;
   }
+}
+
+async function fnOcrEDataReader(dirPathDoc) {
+  return new Promise((resolve, reject) => {
+    new PdfReader().parseFileItems(
+      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+      (err, item) => {
+        if (err) {
+          reject({ err });
+        } else if (!item) {
+          flushRows();
+          resultDocument += "(END_OF_FILE)";
+          resolve(resultDocument);
+        } else if (item.page) {
+          flushRows(); // print the rows of the previous page
+          resultDocument += `(PAGE ${item.page})`;
+        } else if (item.text) {
+          // accumulate text items into rows object, per line
+          (rows[item.y] = rows[item.y] || []).push(item.text);
+        }
+      }
+    );
+  });
 }
 
 // Extract information in raw format from any PDF file with password
-async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
-  let PdfReaderAsync = () => {
-    return new Promise((res, rej) => {
-      new PdfReader({ password: pdfPassword }).parseFileItems(
-        __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-        function (err, item) {
-          if (err) {
-            logger.error(err);
-          } else if (!item) {
-            flushRows();
-            resultDocument += "(END_OF_FILE)";
-            res(resultDocument);
-          } else if (item.page) {
-            flushRows(); // print the rows of the previous page
-            resultDocument += `(PAGE ${item.page})`;
-          } else if (item.text) {
-            (rows[item.y] = rows[item.y] || []).push(item.text);
-          }
-        }
-      );
-    });
-  };
-
+async function fnOcrEDRPassword(dirPathDoc, pdfPassword) {
   try {
     resultDocument = ""; // clear page for next documents
-    let item = await PdfReaderAsync();
+    const item = await fnOcrEDataReaderPassword(dirPathDoc, pdfPassword);
     resultDocument = ""; // clear page for next documents
     let result = {
       status: 200,
@@ -130,27 +112,100 @@ async function fnOcrExtractDataReaderPassword(dirPathDoc, pdfPassword) {
   }
 }
 
-// In progress...
-async function fnOcrExtractDataReaderRuleOnTable(dirPathDoc) {
-  const processItem = Rule.makeItemProcessor([
-    Rule.on(/^Hello \"(.*)\"$/)
-      .extractRegexpValues()
-      .then(displayValue),
-    Rule.on(/^Value\:/)
+async function fnOcrEDataReaderPassword(dirPathDoc, pdfPassword) {
+  return new Promise((resolve, reject) => {
+    new PdfReader({ password: pdfPassword }).parseFileItems(
+      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+      function (err, item) {
+        if (err) {
+          reject(err);
+        } else if (!item) {
+          flushRows();
+          resultDocument += "(END_OF_FILE)";
+          resolve(resultDocument);
+        } else if (item.page) {
+          flushRows(); // print the rows of the previous page
+          resultDocument += `(PAGE ${item.page})`;
+        } else if (item.text) {
+          (rows[item.y] = rows[item.y] || []).push(item.text);
+        }
+      }
+    );
+  });
+}
+
+async function fnOcrEDataReaderRegex(dirPathDoc) {
+  return new Promise((resolve, reject) => {
+    const extractedValues = [];
+    const processItem = Rule.makeItemProcessor([
+      Rule.on(/^Hello \"(.*)\"$/)
+        .extractRegexpValues()
+        .then((values) => extractedValues.push(displayValue(values))),
+    ]);
+
+    new PdfReader().parseFileItems(
+      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+      (err, item) => {
+        if (err) {
+          reject(err);
+        } 
+        else if (!item) {
+          processItem(item);
+          // When there are no more items, we resolve the promise with the extracted values
+          resolve(extractedValues);
+        } 
+        else {
+          processItem(item);
+        }
+      }
+    );
+  });
+}
+
+async function fnOcrEDataReaderNextRegex(dirPathDoc) {
+  return new Promise((resolve, reject) => {
+    const extractedValues = [];
+    const processItem = Rule.makeItemProcessor([
+      Rule.on(/^Value\:/)
       .parseNextItemValue()
-      .then(displayValue),
-    Rule.on(/^c1$/).parseTable(3).then(displayTable),
-    Rule.on(/^Values\:/)
-      .accumulateAfterHeading()
-      .then(displayValue),
-  ]);
-  new PdfReader().parseFileItems(
-    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-    (err, item) => {
-      if (err) console.error(err);
-      else processItem(item);
+        .then((values) => extractedValues.push(displayValue(values))),
+    ]);
+
+    new PdfReader().parseFileItems(
+      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+      (err, item) => {
+        if (err) {
+          reject(err);
+        } 
+        else if (!item) {
+          processItem(item);
+          // When there are no more items, we resolve the promise with the extracted values
+          resolve(extractedValues);
+        } 
+        else {
+          processItem(item);
+        }
+      }
+    );
+  });
+}
+
+async function fnOcrEDRegexv(dirPathDoc) {
+    try {
+      const values = await fnOcrEDataReaderRegex(dirPathDoc);
+      return values // Return the values ​​extracted from the PDF
+    } catch (error) {
+      console.error("Error al extraer valores:", error);
     }
-  );
+}
+
+async function fnOcrEDNextRegexv(dirPathDoc) {
+  try {
+    const values = await fnOcrEDataReaderNextRegex(dirPathDoc);
+    return values // Return the values ​​extracted from the PDF
+  } catch (error) {
+    console.error("Error al extraer valores:", error);
+  }
 }
 
 // In progress...
@@ -203,7 +258,7 @@ async function fnOcrExtractData(dirPathDoc) {
 
 // Extract classification and categorization using IA Natural
 async function fnOcrExtractClassify(dirPathDoc) {
-  let pdfParseData = await fnOcrExtractDataReader(dirPathDoc);
+  let pdfParseData = await fnOcrEDR(dirPathDoc);
   let res = "";
   if (
     !pdfParseData.body ||
@@ -218,9 +273,10 @@ async function fnOcrExtractClassify(dirPathDoc) {
 }
 
 export {
-  fnOcrExtractDataReader,
-  fnOcrExtractDataReaderPassword,
-  fnOcrExtractDataReaderRuleOnTable,
+  fnOcrEDR,
+  fnOcrEDRPassword,
+  fnOcrEDRegexv,
+  fnOcrEDNextRegexv,
   fnOcrExtractData,
   fnOcrExtractClassify,
 };
