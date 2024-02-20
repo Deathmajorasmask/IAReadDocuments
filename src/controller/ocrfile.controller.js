@@ -8,6 +8,7 @@ let rows = {}; // indexed by y-position
 let resultDocument = ""; // variable by return
 import { PdfReader, Rule } from "pdfreader";
 
+// Helps scroll reading cursor for pdf file
 function flushRows() {
   Object.keys(rows) // => array of y-positions (type: float)
     .sort((y1, y2) => parseFloat(y1) - parseFloat(y2)) // sort float positions
@@ -15,6 +16,7 @@ function flushRows() {
   rows = {}; // clear rows for next page
 }
 
+// Returns the value to be displayed in the REGEX function
 function displayValue(values) {
   return values;
 }
@@ -134,11 +136,118 @@ async function fnOcrEDataReaderPassword(dirPathDoc, pdfPassword) {
   });
 }
 
-async function fnOcrEDataReaderRegex(dirPathDoc) {
+// Extract information in raw format from any PDF file with REGEX rules
+async function fnOcrEDRegexv(dirPathDoc, regexRule) {
+  try {
+    let result = {};
+    if (typeof regexRule === "object") {
+      if (Object.keys(regexRule).length < 1) {
+        const values = await fnOcrEDataReaderRegex(dirPathDoc, regexRule);
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      } else {
+        let regexRuleProp = Object.values(regexRule);
+        let values = [];
+        for (var i = 0; i < regexRuleProp.length; i++) {
+          values.push(
+            await fnOcrEDataReaderRegex(dirPathDoc, regexRuleProp[i])
+          );
+        }
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      }
+    } else if (typeof regexRule === "string") {
+      if (regexRule.startsWith("{")) {
+        regexRule = eval("(" + regexRule + ")");
+      } else {
+        regexRule = "{ key1 : " + regexRule + " }";
+        regexRule = eval("(" + regexRule + ")");
+      }
+
+      if (Object.keys(regexRule).length < 1) {
+        const values = await fnOcrEDataReaderRegex(dirPathDoc, regexRule);
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      } else {
+        let regexRuleProp = Object.values(regexRule);
+        let values = [];
+        for (var i = 0; i < regexRuleProp.length; i++) {
+          values.push(
+            await fnOcrEDataReaderRegex(dirPathDoc, regexRuleProp[i])
+          );
+        }
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      }
+    } else {
+      result = {
+        status: 204,
+        isRaw: true,
+        body: "",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        IsErroredOnProcessing: true,
+        ErrorMessage:
+          "regexRule is not of type object / does not contain identifier '{key1: , key2: ...}'",
+      };
+    }
+    return result; // Return the values ​​extracted from the PDF
+  } catch (err) {
+    logger.error({ err });
+    resultDocument = ""; // clear page for next documents
+    rows = {}; // clear rows for next page
+    let result = {
+      status: 204,
+      isRaw: true,
+      body: "",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: true,
+      ErrorMessage: err,
+    };
+    return result;
+  }
+}
+
+async function fnOcrEDataReaderRegex(dirPathDoc, regexRule) {
   return new Promise((resolve, reject) => {
     const extractedValues = [];
     const processItem = Rule.makeItemProcessor([
-      Rule.on(/^Hello \"(.*)\"$/)
+      Rule.on(regexRule) // /^Hello \"(.*)\"$/
         .extractRegexpValues()
         .then((values) => extractedValues.push(displayValue(values))),
     ]);
@@ -148,13 +257,11 @@ async function fnOcrEDataReaderRegex(dirPathDoc) {
       (err, item) => {
         if (err) {
           reject(err);
-        } 
-        else if (!item) {
+        } else if (!item) {
           processItem(item);
           // When there are no more items, we resolve the promise with the extracted values
           resolve(extractedValues);
-        } 
-        else {
+        } else {
           processItem(item);
         }
       }
@@ -162,12 +269,119 @@ async function fnOcrEDataReaderRegex(dirPathDoc) {
   });
 }
 
-async function fnOcrEDataReaderNextRegex(dirPathDoc) {
+// Extract information in raw format from any PDF file with REGEX rules the following value
+async function fnOcrEDNextRegexv(dirPathDoc, regexRule) {
+  try {
+    let result = {};
+    if (typeof regexRule === "object") {
+      if (Object.keys(regexRule).length < 1) {
+        const values = await fnOcrEDataReaderNextRegex(dirPathDoc, regexRule);
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      } else {
+        let regexRuleProp = Object.values(regexRule);
+        let values = [];
+        for (var i = 0; i < regexRuleProp.length; i++) {
+          values.push(
+            await fnOcrEDataReaderNextRegex(dirPathDoc, regexRuleProp[i])
+          );
+        }
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      }
+    } else if (typeof regexRule === "string") {
+      if (regexRule.startsWith("{")) {
+        regexRule = eval("(" + regexRule + ")");
+      } else {
+        regexRule = "{ key1 : " + regexRule + " }";
+        regexRule = eval("(" + regexRule + ")");
+      }
+
+      if (Object.keys(regexRule).length < 1) {
+        const values = await fnOcrEDataReaderNextRegex(dirPathDoc, regexRule);
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      } else {
+        let regexRuleProp = Object.values(regexRule);
+        let values = [];
+        for (var i = 0; i < regexRuleProp.length; i++) {
+          values.push(
+            await fnOcrEDataReaderNextRegex(dirPathDoc, regexRuleProp[i])
+          );
+        }
+        result = {
+          status: 200,
+          isRaw: true,
+          body: values,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          IsErroredOnProcessing: false,
+          ErrorMessage: "",
+        };
+      }
+    } else {
+      result = {
+        status: 204,
+        isRaw: true,
+        body: "",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        IsErroredOnProcessing: true,
+        ErrorMessage:
+          "regexRule is not of type object or string / does not contain identifier '{key1: , key2: ...}'",
+      };
+    }
+    return result; // Return the values ​​extracted from the PDF
+  } catch (err) {
+    logger.error({ err });
+    resultDocument = ""; // clear page for next documents
+    rows = {}; // clear rows for next page
+    let result = {
+      status: 204,
+      isRaw: true,
+      body: "",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: true,
+      ErrorMessage: err,
+    };
+    return result;
+  }
+}
+
+async function fnOcrEDataReaderNextRegex(dirPathDoc, regexRule) {
   return new Promise((resolve, reject) => {
     const extractedValues = [];
     const processItem = Rule.makeItemProcessor([
-      Rule.on(/^Value\:/)
-      .parseNextItemValue()
+      Rule.on(regexRule) // /^Value\:/
+        .parseNextItemValue()
         .then((values) => extractedValues.push(displayValue(values))),
     ]);
 
@@ -176,36 +390,16 @@ async function fnOcrEDataReaderNextRegex(dirPathDoc) {
       (err, item) => {
         if (err) {
           reject(err);
-        } 
-        else if (!item) {
+        } else if (!item) {
           processItem(item);
           // When there are no more items, we resolve the promise with the extracted values
           resolve(extractedValues);
-        } 
-        else {
+        } else {
           processItem(item);
         }
       }
     );
   });
-}
-
-async function fnOcrEDRegexv(dirPathDoc) {
-    try {
-      const values = await fnOcrEDataReaderRegex(dirPathDoc);
-      return values // Return the values ​​extracted from the PDF
-    } catch (error) {
-      console.error("Error al extraer valores:", error);
-    }
-}
-
-async function fnOcrEDNextRegexv(dirPathDoc) {
-  try {
-    const values = await fnOcrEDataReaderNextRegex(dirPathDoc);
-    return values // Return the values ​​extracted from the PDF
-  } catch (error) {
-    console.error("Error al extraer valores:", error);
-  }
 }
 
 // In progress...
