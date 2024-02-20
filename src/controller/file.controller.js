@@ -9,6 +9,7 @@ import {
   fnOcrEDNextRegexv,
   fnOcrExtractData,
   fnOcrExtractClassify,
+
 } from "./ocrfile.controller.js";
 
 // File Utils
@@ -120,10 +121,7 @@ const test = async (req, res) => {
     }
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
-    // var str = '{ key1 : /^Hello \"(.*)\"$/ , key2 : /^Value\:/ }';
-    var str = '{ key1 : /^Hello \"(.*)\"$/ , key2 : /^Hello \"(.*)\"$/ }';
-    var obj = eval("(" + str + ")");
-    const fileContentDataReader = await fnOcrEDRegexv(req.file.originalname, '/^Hello \"(.*)\"$/');
+    const fileContentDataReader = await fnOcrEDR(req.file.originalname);
     logger.info(JSON.stringify(fileContentDataReader));
 
     let arrClassifyNatural = fileClassify.split(/_/);

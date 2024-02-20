@@ -4,3 +4,27 @@ npm install -g node-gyp
 npm install --save-exact @tensorflow/tfjs-node@3.1.0
 
 docker build -t paasidocs .
+
+/*
+Documentos Cargados
+ Auto Banorte 3
+ Auto Chubb 3
+ Auto GNP 3
+ Auto Primero 3
+ Auto Qualitas 3
+ CDom CFE 3
+ cDom Gas 1
+ Dental Dentalia 3
+ Dental Dentegra 3
+ Funerario Thona 3
+ GMM Atlas 3
+ GMM Axxa 3
+ GMM GNP 3
+ GMM Metlife 3
+ GMmen MediAccess 3
+ GMmen Mms 3
+ Hogar Zurich 3
+ Vida GNP 3
+ Test Axxa 3
+ Test GNP 1
+*/

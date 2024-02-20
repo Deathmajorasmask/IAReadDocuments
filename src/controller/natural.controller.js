@@ -2,9 +2,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 // Natural IA See Documentation: https://github.com/NaturalNode/natural
-/* import { BayesClassifier } from "natural";
-const classifier = new BayesClassifier(); */
-import pkg from 'natural';
+import pkg from "natural";
 const { BayesClassifier } = pkg;
 const classifier = new BayesClassifier();
 
@@ -12,10 +10,9 @@ const classifier = new BayesClassifier();
 import logger from "../logs_module/logs.controller.js";
 
 async function readDocumentSamples(dirFile, typeFile) {
-  const data = readFileSync(
-    join(__dirname, "./src/documents/" + dirFile),
-    { encoding: "utf8" }
-  );
+  const data = readFileSync(join(__dirname, "./src/documents/" + dirFile), {
+    encoding: "utf8",
+  });
   classifier.addDocument(data, typeFile);
   return data;
 }
@@ -280,9 +277,7 @@ async function readSamplesInit() {
 
   for (const element of classifyDocsType.body) {
     for (let j = 0; j < 3; j++) {
-      logger.info(
-        `sample_${element.id}_${element.name}_${j}.txt`
-      );
+      logger.info(`sample_${element.id}_${element.name}_${j}.txt`);
       readDocumentSamples(
         `sample_${element.id}_${element.name}_${j}.txt`,
         `2_${element.id}_${element.name}_DocsPersonal`
@@ -308,10 +303,9 @@ async function fnTrainingDataIA() {
 }
 
 async function classifyDocumentSamples(dirFile) {
-  const data = readFileSync(
-    join(__dirname, "./src/documents/" + dirFile),
-    { encoding: "utf8" }
-  );
+  const data = readFileSync(join(__dirname, "./src/documents/" + dirFile), {
+    encoding: "utf8",
+  });
   return data;
 }
 
@@ -323,10 +317,9 @@ async function fnTestClassification() {
 }
 
 async function fnGetClassificationsDocumment(dirFile) {
-  const data = readFileSync(
-    join(__dirname, "./src/documents/" + dirFile),
-    { encoding: "utf8" }
-  );
+  const data = readFileSync(join(__dirname, "./src/documents/" + dirFile), {
+    encoding: "utf8",
+  });
   console.log(classifier.getClassifications(data));
   return data;
 }
@@ -368,10 +361,7 @@ async function fnGetClassifyData(data) {
 
 async function fnLoadIdClassifyProductsArray() {
   let file = readFileSync(
-    join(
-      __dirname,
-      "./src/natural_classify/natural.classify.products.json"
-    ),
+    join(__dirname, "./src/natural_classify/natural.classify.products.json"),
     "utf8"
   );
   let json = JSON.parse(file);
