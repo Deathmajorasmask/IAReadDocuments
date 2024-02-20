@@ -3,12 +3,19 @@ import { readFileSync } from "fs";
 import { join } from "path";
 // Natural IA See Documentation: https://github.com/NaturalNode/natural
 import pkg from "natural";
-const { BayesClassifier } = pkg;
-const classifier = new BayesClassifier();
+const { BayesClassifier, SentimentAnalyzer, PorterStemmer, PorterStemmerEs} = pkg;
+const classifier = new BayesClassifier(PorterStemmerEs);
+// Sentiment Analysis
+// languageFiles in SentimentAnalyzer.js
+const Analyzer = SentimentAnalyzer;
+const stemmer = PorterStemmer;
+const analyzer = new Analyzer("Spanish", stemmer, "afinn");
+const analyzerEng = new Analyzer("English", stemmer, "afinn");
 
 // winston logs file config
 import logger from "../logs_module/logs.controller.js";
 
+// Send plain text documents to be classified by relating them to a file type
 async function readDocumentSamples(dirFile, typeFile) {
   const data = readFileSync(join(__dirname, "./src/documents/" + dirFile), {
     encoding: "utf8",
@@ -17,6 +24,7 @@ async function readDocumentSamples(dirFile, typeFile) {
   return data;
 }
 
+// Load the initial samples, here the magic happens to prepare the beginning of Bayes theorem
 async function readSamplesInit() {
   logger.info(`Extract natural_classify...`);
   let classifyProducts = await fnLoadIdClassifyProductsArray();
@@ -295,6 +303,7 @@ async function readSamplesInit() {
   logger.info(`Read Sample files content ✅`);
 }
 
+// Train the AI ​​and start Bayes theorem by saving the classifications in a json file
 async function fnTrainingDataIA() {
   logger.info(`Training IA...`);
   classifier.train();
@@ -302,6 +311,7 @@ async function fnTrainingDataIA() {
   classifier.save("clasificaciones.json");
 }
 
+// Load data from a file asynchronously with encoding utf-8
 async function classifyDocumentSamples(dirFile) {
   const data = readFileSync(join(__dirname, "./src/documents/" + dirFile), {
     encoding: "utf8",
@@ -309,6 +319,7 @@ async function classifyDocumentSamples(dirFile) {
   return data;
 }
 
+// Run a classification test using Bayes theorem, uploading test files
 async function fnTestClassification() {
   logger.info(`Classification test is carried out...`);
   classifyDocumentSamples("test_gmm_Gnp.txt");
@@ -316,14 +327,8 @@ async function fnTestClassification() {
   logger.info(`Classifier working correctly`);
 }
 
-async function fnGetClassificationsDocumment(dirFile) {
-  const data = readFileSync(join(__dirname, "./src/documents/" + dirFile), {
-    encoding: "utf8",
-  });
-  console.log(classifier.getClassifications(data));
-  return data;
-}
-
+// NOT USED
+// Run a classification test using Bayes theorem, Tests using the knowledge gained from classifications.json
 async function fnLoadingClassification() {
   logger.info(`Loading Classifications...`);
   BayesClassifier.load(
@@ -331,34 +336,26 @@ async function fnLoadingClassification() {
     null,
     function (err, classifier) {
       classifyDocumentSamples("test_gmm_Axxa2.txt");
-      fnGetClassificationsDocumment("test_gmm_Axxa3.txt");
+      classifyDocumentSamples("test_gmm_Axxa3.txt");
     }
   );
 }
 
-async function fnLoadClassifyFileFromJson(jsonName, dirFile) {
-  BayesClassifier.load(jsonName, null, function (err, classifier) {
-    classifyDocumentSamples(dirFile);
-  });
-}
-
-async function fnLoadGetClassifyFileFromJson(jsonName, dirFile) {
-  BayesClassifier.load(jsonName, null, function (err, classifier) {
-    fnGetClassificationsDocumment(dirFile);
-  });
-}
-
+// NOT USED
+// Get the classifications using Bayes theorem from a json file
 async function fnLoadGetClassifyDataFromJson(jsonName, data) {
   BayesClassifier.load(jsonName, null, function (err, classifier) {
     return classifier.classify(data);
   });
 }
 
+// Obtains the classification according to Bayes theorem from a text string.
 async function fnGetClassifyData(data) {
   let res = classifier.classify(data);
   return res;
 }
 
+// Load the products into an array from the json file
 async function fnLoadIdClassifyProductsArray() {
   let file = readFileSync(
     join(__dirname, "./src/natural_classify/natural.classify.products.json"),
@@ -368,6 +365,7 @@ async function fnLoadIdClassifyProductsArray() {
   return json;
 }
 
+// Load the docs type into an array from the json file
 async function fnLoadIdClassifyDocsTypeArray() {
   let file = readFileSync(
     join(__dirname, "./src/natural_classify/natural.classify.docs.json"),
@@ -377,23 +375,25 @@ async function fnLoadIdClassifyDocsTypeArray() {
   return json;
 }
 
+// sentiment analysis module based on an array of words in English
+async function sentimentSentenceAfinnEng(data){
+  return analyzerEng.getSentiment(data);
+}
+
+// sentiment analysis module based on an array of words
+async function sentimentSentenceAfinn(data){
+  return analyzer.getSentiment(data)
+}
+
 async function mainNatural() {
   await readSamplesInit();
   await fnTrainingDataIA();
   await fnTestClassification();
+  // await sentimentSentenceAfinn(["Me", "gusta", "programar"]);
+  // await sentimentSentenceAfinnEng(["I", "hate", "books"]);
 }
 
 export {
-  readDocumentSamples,
-  readSamplesInit,
-  fnTrainingDataIA,
-  classifyDocumentSamples,
-  fnTestClassification,
-  fnGetClassificationsDocumment,
-  fnLoadingClassification,
-  fnLoadClassifyFileFromJson,
-  fnLoadGetClassifyFileFromJson,
-  fnLoadGetClassifyDataFromJson,
   fnGetClassifyData,
   mainNatural,
 };
