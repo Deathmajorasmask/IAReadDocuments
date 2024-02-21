@@ -12,6 +12,11 @@ import {
 
 } from "./ocrfile.controller.js";
 
+// OCR Tesseract
+import {
+  TesseractReadFileWorker
+} from "./ocrTesseract.controller.js"
+
 // File Utils
 import {
   fnRemoveAsyncFile,
@@ -121,8 +126,9 @@ const test = async (req, res) => {
     }
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
-    const fileContentDataReader = await fnOcrEDR(req.file.originalname);
-    logger.info(JSON.stringify(fileContentDataReader));
+    const fileContentDataReader = await TesseractReadFileWorker(req.file.originalname);
+    //logger.info(JSON.stringify(fileContentDataReader));
+    console.log(fileContentDataReader);
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date
