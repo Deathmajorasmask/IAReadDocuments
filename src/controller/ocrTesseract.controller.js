@@ -1,28 +1,41 @@
-/* import tesseract from "tesseract.js";
+// winston logs file config
+import logger from "../logs_module/logs.controller.js";
 
-async function TesseractReadFile(dirPathDoc) {
-  return new Promise((resolve, reject) => {
-    tesseract
-      .recognize(__basedir + "/test/data/imageTest.png", "eng", {
-        logger: (e) => console.log(e),
-      })
-      .then((out) => resolve(out.data.text));
-  });
-}
-export { TesseractReadFile }; */
+// File stream module
+import fs from "fs";
 
+// Tesseract Supp https://tesseract-ocr.github.io/tessdoc/Data-Files#data-files-for-version-400-november-29-2016
 import { createWorker } from "tesseract.js";
 const worker = await createWorker("eng", 1, {
-  logger: (m) => console.log(m), // Add logger here
+  logger: (m) => logger.info(JSON.stringify(m)), // Add logger here
 });
 
-async function TesseractReadFileWorker(dirPathDoc) {
+async function TesseractRFWorker(dirPathDoc) {
   const {
     data: { text },
   } = await worker.recognize(__basedir + "/test/data/imageTest.png");
-  console.log(text);
+  logger.info(text);
   await worker.terminate();
   return text;
 }
 
-export { TesseractReadFileWorker };
+async function TesseractRFPDF(dirPathDoc, pdfFileName) {
+  const {
+    data: { text, pdf },
+  } = await worker.recognize(
+    //__basedir + "/test/data/imageTest.png",
+    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+    { pdfTitle: "Example PDF" },
+    { pdf: true }
+  );
+  logger.info(text);
+  fs.writeFileSync(
+    __basedir + "/resources/static/assets/uploads/" + pdfFileName + ".pdf",
+    Buffer.from(pdf)
+  );
+  logger.info(`Generate PDF: ${pdfFileName}`);
+  await worker.terminate();
+  return text;
+}
+
+export { TesseractRFWorker, TesseractRFPDF };

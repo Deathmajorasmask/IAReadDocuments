@@ -14,7 +14,8 @@ import {
 
 // OCR Tesseract
 import {
-  TesseractReadFileWorker
+  TesseractRFWorker,
+  TesseractRFPDF
 } from "./ocrTesseract.controller.js"
 
 // File Utils
@@ -126,8 +127,8 @@ const test = async (req, res) => {
     }
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
-    const fileContentDataReader = await TesseractReadFileWorker(req.file.originalname);
-    //logger.info(JSON.stringify(fileContentDataReader));
+    const fileContentDataReader = await TesseractRFPDF(req.file.originalname, 'tesseract-ocr-result');
+    logger.info(JSON.stringify(fileContentDataReader));
     console.log(fileContentDataReader);
 
     let arrClassifyNatural = fileClassify.split(/_/);
