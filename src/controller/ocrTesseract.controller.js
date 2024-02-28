@@ -13,7 +13,9 @@ const worker = await createWorker("eng", 1, {
 async function TesseractRFWorker(dirPathDoc) {
   const {
     data: { text },
-  } = await worker.recognize(__basedir + "/test/data/imageTest.png");
+  } = await worker.recognize(
+    __basedir + "/resources/static/assets/uploads/" + dirPathDoc
+  );
   logger.info(text);
   await worker.terminate();
   return text;
@@ -25,7 +27,7 @@ async function TesseractRFPDF(dirPathDoc, pdfFileName) {
   } = await worker.recognize(
     //__basedir + "/test/data/imageTest.png",
     __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-    { pdfTitle: "Example PDF" },
+    { pdfTitle: pdfFileName },
     { pdf: true }
   );
   logger.info(text);
