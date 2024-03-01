@@ -4,6 +4,9 @@ import { fnGetClassifyData } from "./natural.controller.js";
 // winston logs file config
 import logger from "../logs_module/logs.controller.js";
 
+// send http request
+import https from "https";
+
 let rows = {}; // indexed by y-position
 let resultDocument = ""; // variable by return
 import { PdfReader, Rule } from "pdfreader";
@@ -19,6 +22,15 @@ function flushRows() {
 // Returns the value to be displayed in the REGEX function
 function displayValue(values) {
   return values;
+}
+
+function addTextToLines(textLines, item) {
+  const existingLine = textLines.find(({ y }) => y === item.y);
+  if (existingLine) {
+    existingLine.text += " " + item.text;
+  } else {
+    textLines.push(item);
+  }
 }
 
 // Extract information in raw format from any PDF file
@@ -402,6 +414,88 @@ async function fnOcrEDataReaderNextRegex(dirPathDoc, regexRule) {
   });
 }
 
+/* async function fnOcrEDRFromWeb(urlWeb) {
+  const get = (url) =>
+    new Promise((resolve, reject) =>
+      https
+        .get(url, (res) => {
+          const data = [];
+          res
+            .on("data", (chunk) => data.push(chunk))
+            .on("end", () => resolve(Buffer.concat(data)));
+        })
+        .on("error", reject)
+    );
+  const parseLinesPerPage = (buffer) =>
+    new Promise((resolve, reject) => {
+      const linesPerPage = [];
+      let pageNumber = 0;
+      new PdfReader().parseBuffer(buffer, (err, item) => {
+        if (err) reject(err);
+        else if (!item) {
+          resolve(linesPerPage.map((page) => page.map((line) => line.text)));
+        } else if (item.page) {
+          pageNumber = item.page - 1;
+          linesPerPage[pageNumber] = [];
+        } else if (item.text) {
+          addTextToLines(linesPerPage[pageNumber], item);
+        }
+      });
+    });
+
+  const url = new URL(
+    "https://raw.githubusercontent.com/adrienjoly/npm-pdfreader/master/test/sample.pdf"
+  );
+  const buffer = get(url)
+    .then((buffer) => parseLinesPerPage(buffer))
+    .then((linesPerPage) => console.log(linesPerPage));
+} */
+
+async function fnOcrExtractDataReaderFromWeb(urlWeb) {
+  const get = (url) =>
+    new Promise((resolve, reject) =>
+      https
+        .get(url, (res) => {
+          const data = [];
+          res
+            .on("data", (chunk) => data.push(chunk))
+            .on("end", () => resolve(Buffer.concat(data)));
+        })
+        .on("error", reject)
+    );
+  
+  const parseLinesPerPage = (buffer) =>
+    new Promise((resolve, reject) => {
+      const linesPerPage = [];
+      let pageNumber = 0;
+      new PdfReader().parseBuffer(buffer, (err, item) => {
+        if (err) reject(err);
+        else if (!item) {
+          resolve(linesPerPage.map((page) => page.map((line) => line.text)));
+        } else if (item.page) {
+          pageNumber = item.page - 1;
+          linesPerPage[pageNumber] = [];
+        } else if (item.text) {
+          addTextToLines(linesPerPage[pageNumber], item);
+        }
+      });
+    });
+ 
+  const url = new URL(
+    urlWeb
+  );
+  
+  const linesPerPage = await get(url)
+    .then((buffer) => parseLinesPerPage(buffer));
+    
+  return linesPerPage;
+}
+
+async function fnOcrEDRFromWeb(urlWeb){
+  //
+  return await fnOcrExtractDataReaderFromWeb(urlWeb);
+}
+
 // In progress...
 async function fnOcrExtractDataReaderOnTable(dirPathDoc) {
   const nbCols = 2;
@@ -473,6 +567,7 @@ export {
   fnOcrEDNextRegexv,
   fnOcrExtractData,
   fnOcrExtractClassify,
+  fnOcrEDRFromWeb
 };
 
 /*********************

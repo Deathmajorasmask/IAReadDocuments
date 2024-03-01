@@ -1,5 +1,6 @@
 // File reader
 import { unlinkSync, existsSync, mkdirSync } from "fs";
+import path from "path"
 
 async function fnRemoveAsyncFile(dirPathDoc) {
   try {
@@ -18,4 +19,8 @@ async function fnCreatePathFiles() {
   }
 }
 
-export { fnRemoveAsyncFile, fnCreatePathFiles };
+async function fnReadExtensionFile(dirPathDoc){
+  return path.extname(dirPathDoc);
+}
+
+export { fnRemoveAsyncFile, fnCreatePathFiles, fnReadExtensionFile };

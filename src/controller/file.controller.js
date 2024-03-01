@@ -9,19 +9,21 @@ import {
   fnOcrEDNextRegexv,
   fnOcrExtractData,
   fnOcrExtractClassify,
-
+  fnOcrEDRFromWeb
 } from "./ocrfile.controller.js";
 
 // OCR Tesseract
 import {
   TesseractRFWorker,
-  TesseractRFPDF
+  TesseractRFPDF,
+  TesseractRFSpecial
 } from "./ocrTesseract.controller.js"
 
 // File Utils
 import {
   fnRemoveAsyncFile,
   fnCreatePathFiles,
+  fnReadExtensionFile
 } from "./file.utils.controller.js";
 
 // AWS S3 Module
@@ -111,7 +113,6 @@ const test = async (req, res) => {
       });
     }
     if (req.file == undefined || req.file == "") {
-      let removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
         isRaw: true,
@@ -125,10 +126,14 @@ const test = async (req, res) => {
         },
       });
     }
+    let fileExt = await fnReadExtensionFile(req.file.originalname);
+    console.log(fileExt);
+
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
-    const fileContentDataReader = await TesseractRFWorker(req.file.originalname);
+    const fileContentDataReader = await fnOcrEDRFromWeb("https://raw.githubusercontent.com/adrienjoly/npm-pdfreader/master/test/sample.pdf");
     //logger.info(JSON.stringify(fileContentDataReader));
+    console.log("BUFFER:");
     console.log(fileContentDataReader);
 
     let arrClassifyNatural = fileClassify.split(/_/);
@@ -188,7 +193,7 @@ const test = async (req, res) => {
       },
     });
   } catch (err) {
-    logger.error(`Error seguTiendaSekuraUploadFile: ${err}`);
+    logger.error(`Error TestEndpoint: ${err}`);
 
     if (err.code == "LIMIT_FILE_SIZE") {
       res.status(500).send({
@@ -300,8 +305,8 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
         },
       });
     }
+    
     if (req.file == undefined || req.file == "") {
-      let removeFile = fnRemoveAsyncFile(req.file.path);
       return res.status(400).send({
         status: 400,
         isRaw: true,
@@ -315,13 +320,17 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
         },
       });
     }
+    
+    
+    let fileExt = await fnReadExtensionFile(req.file.originalname);
+    console.log(fileExt);
 
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
-    const fileContentDataReader = await fnOcrExtractDataReader(
-      req.file.originalname
-    );
-    logger.info(JSON.stringify(fileContentDataReader));
+    //const fileContentDataReader = await fnOcrEDRFromWeb("https://raw.githubusercontent.com/adrienjoly/npm-pdfreader/master/test/sample.pdf");
+    //logger.info(JSON.stringify(fileContentDataReader));
+    console.log("BUFFER:");
+    console.log(fileContentDataReader);
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date
@@ -344,7 +353,7 @@ const seguTiendaSekuraUploadFile = async (req, res) => {
     if (req.body.docs_type) {
       arrClassifyNatural[1] = req.body.docs_type;
     }
-
+    
     await aws3BucketUploadPDF(
       process.env.AWSS3_ACCESS_BUCKET,
       req.file.path,
