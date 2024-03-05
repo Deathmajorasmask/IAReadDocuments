@@ -132,9 +132,7 @@ const test = async (req, res) => {
     const fileClassify = await fnOcrExtractClassify(req.file.originalname);
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
     const fileContentDataReader = await fnOcrEDRFromWeb("https://raw.githubusercontent.com/adrienjoly/npm-pdfreader/master/test/sample.pdf");
-    //logger.info(JSON.stringify(fileContentDataReader));
-    console.log("BUFFER:");
-    console.log(fileContentDataReader);
+    logger.info(JSON.stringify(fileContentDataReader));
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date

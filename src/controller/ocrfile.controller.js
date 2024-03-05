@@ -414,43 +414,7 @@ async function fnOcrEDataReaderNextRegex(dirPathDoc, regexRule) {
   });
 }
 
-/* async function fnOcrEDRFromWeb(urlWeb) {
-  const get = (url) =>
-    new Promise((resolve, reject) =>
-      https
-        .get(url, (res) => {
-          const data = [];
-          res
-            .on("data", (chunk) => data.push(chunk))
-            .on("end", () => resolve(Buffer.concat(data)));
-        })
-        .on("error", reject)
-    );
-  const parseLinesPerPage = (buffer) =>
-    new Promise((resolve, reject) => {
-      const linesPerPage = [];
-      let pageNumber = 0;
-      new PdfReader().parseBuffer(buffer, (err, item) => {
-        if (err) reject(err);
-        else if (!item) {
-          resolve(linesPerPage.map((page) => page.map((line) => line.text)));
-        } else if (item.page) {
-          pageNumber = item.page - 1;
-          linesPerPage[pageNumber] = [];
-        } else if (item.text) {
-          addTextToLines(linesPerPage[pageNumber], item);
-        }
-      });
-    });
-
-  const url = new URL(
-    "https://raw.githubusercontent.com/adrienjoly/npm-pdfreader/master/test/sample.pdf"
-  );
-  const buffer = get(url)
-    .then((buffer) => parseLinesPerPage(buffer))
-    .then((linesPerPage) => console.log(linesPerPage));
-} */
-
+// Extract information in raw format from any PDF file web link host
 async function fnOcrExtractDataReaderFromWeb(urlWeb) {
   const get = (url) =>
     new Promise((resolve, reject) =>
@@ -463,7 +427,7 @@ async function fnOcrExtractDataReaderFromWeb(urlWeb) {
         })
         .on("error", reject)
     );
-  
+
   const parseLinesPerPage = (buffer) =>
     new Promise((resolve, reject) => {
       const linesPerPage = [];
@@ -480,20 +444,44 @@ async function fnOcrExtractDataReaderFromWeb(urlWeb) {
         }
       });
     });
- 
-  const url = new URL(
-    urlWeb
+
+  const url = new URL(urlWeb);
+
+  const linesPerPage = await get(url).then((buffer) =>
+    parseLinesPerPage(buffer)
   );
-  
-  const linesPerPage = await get(url)
-    .then((buffer) => parseLinesPerPage(buffer));
-    
+
   return linesPerPage;
 }
 
-async function fnOcrEDRFromWeb(urlWeb){
-  //
-  return await fnOcrExtractDataReaderFromWeb(urlWeb);
+async function fnOcrEDRFromWeb(urlWeb) {
+  try {
+    let item = await fnOcrExtractDataReaderFromWeb(urlWeb);
+    let result = {
+      status: 200,
+      isRaw: true,
+      body: item,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: false,
+      ErrorMessage: "",
+    };
+    return result;
+  } catch (err) {
+    logger.error({ err });
+    let result = {
+      status: 204,
+      isRaw: true,
+      body: "",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      IsErroredOnProcessing: true,
+      ErrorMessage: err,
+    };
+    return result;
+  }
 }
 
 // In progress...
@@ -567,7 +555,7 @@ export {
   fnOcrEDNextRegexv,
   fnOcrExtractData,
   fnOcrExtractClassify,
-  fnOcrEDRFromWeb
+  fnOcrEDRFromWeb,
 };
 
 /*********************
