@@ -28,3 +28,15 @@ Documentos Cargados
  Test Axxa 3
  Test GNP 1
 */
+
+# AWS S3 Buckets
+AWSS3_ACCESS_BUCKET = ""
+AWSS3_ACCESS_KEYID = ""
+AWSS3_ACCESS_KEY = ""
+
+# reSIO
+RESIO_HOST= "127.0.0.1"
+RESIO_USER= "fgalvan"
+RESIO_PASSWORD= "b4s3T3st"
+RESIO_DATABASE= "postgres"
+RESIO_PORT= "3309"
