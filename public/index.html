@@ -9,21 +9,48 @@
   <body>
     <form action="/classify-text" method="post">
       <input type="file" id="inpFile" />
-      <button type="button" id="btnUpload">Upload</button>
+      <button type="button" id="btnUpload">Extract Text of File</button>
+      <button type="button" id="btnSaveFile">Save Sample To IA</button>
+      <br />
+      <br />
+      <label for="sampleFileName">Filename for save IA sample:</label>
+      <input
+        style="width: 300px"
+        type="text"
+        id="sampleFileName"
+        name="sampleFileName"
+        class="form__element-input"
+        placeholder="Your sample name file here..."
+        minlength="4"
+      />
       <br />
       <br />
       <textarea
         style="width: 300px; height: 150px"
         id="resultText"
         name="resultText"
+        class="form__element-input"
         placeholder="Your PDF text will appear here..."
       ></textarea>
-      <input type="submit" value="Send to Classify">
     </form>
     <script>
       const inpFile = document.getElementById("inpFile");
       const btnUpload = document.getElementById("btnUpload");
       const resultText = document.getElementById("resultText");
+      const btnSaveFile = document.getElementById("btnSaveFile");
+      const sampleFileName = document.getElementById("sampleFileName");
+      const form = [...document.querySelectorAll(".form__element-input")];
+
+      form.forEach((input, index) => {
+        btnSaveFile.classList.add("none__send");
+        input.addEventListener("input", () => {
+          if (form.some((el) => el.value.trim() === "")) {
+            btnSaveFile.classList.add("none__send");
+          } else {
+            btnSaveFile.classList.remove("none__send");
+          }
+        });
+      });
 
       btnUpload.addEventListener("click", () => {
         const formData = new FormData();
@@ -41,6 +68,29 @@
             resultText.value = extractedText.trim();
           });
       });
+
+      btnSaveFile.addEventListener("click", () => {
+        const formData = new FormData();
+        formData.set("pdfContentRaw", resultText.value);
+        formData.set("sampleFileName", sampleFileName.value);
+
+        fetch("/save-sample", {
+          method: "post",
+          body: formData,
+        })
+          .then((response) => {
+            return response.text();
+          })
+          .then((extractedText) => {
+            resultText.value = extractedText.trim();
+          });
+      });
+      
     </script>
   </body>
+  <style>
+    .none__send {
+      display: none;
+    }
+  </style>
 </html>

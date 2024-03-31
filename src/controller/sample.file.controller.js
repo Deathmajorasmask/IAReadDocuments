@@ -19,10 +19,16 @@ const sampleUploadFile = async (req, res) => {
       await fnCreatePathFiles();
       writeFileSync(__basedir + "/resources/static/assets/uploads/" + req.files.pdfFile.name, req.files.pdfFile.data);
       let fileContentDataReader = await fnOcrEDR(req.files.pdfFile.name);
-      let removeFile = fnRemoveAsyncFile(__basedir + "/resources/static/assets/uploads/" + req.files.pdfFile.name);
+      fnRemoveAsyncFile(__basedir + "/resources/static/assets/uploads/" + req.files.pdfFile.name);
       res.send(fileContentDataReader.body);
+}
+
+const sampleSaveFile = async (req, res) => {
+  writeFileSync(__basedir + "/src/documents/" + req.body.sampleFileName + ".txt", req.body.pdfContentRaw);
+  res.send(`The file has been saved successfully: ${__basedir}/src/documents/${req.body.sampleFileName}.txt`);
 }
 
 export {
     sampleUploadFile,
+    sampleSaveFile
 }
