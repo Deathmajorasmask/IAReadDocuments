@@ -3,7 +3,7 @@ import uploadFile from "../middleware/upload.js";
 import uploadFiles from "../middleware/uploadMultiple.js";
 
 // PDF to Image
-import {fnPdfToImage} from './pdfFilesToImages.controller.js'
+import { fnPdfToImage } from "./pdfFilesToImages.controller.js";
 
 // OCR Documment
 import {
@@ -11,8 +11,8 @@ import {
   fnOcrEDRPassword,
   fnOcrEDRegexv,
   fnOcrEDNextRegexv,
-  fnOcrExtractData,
   fnOcrExtractClassify,
+  fnOcrExtractClassifyFolders,
   fnOcrEDRFromWeb,
 } from "./ocrfile.controller.js";
 
@@ -25,16 +25,233 @@ import {
 
 // File Utils
 import {
+  fnReturnSamplesFolderPath,
+  fnReturnUploadFolderPath,
   fnRemoveAsyncFile,
-  fnCreatePathFiles,
+  fnRemoveAsyncFolder,
+  fnRemoveAsyncFilesOfFolder,
   fnReadExtensionFile,
+  fnReturnExcelFilesFolderPath,
+  fnReturnDowloadS3BucketFolderPath,
 } from "./file.utils.controller.js";
 
 // AWS S3 Module
-import { aws3BucketUploadPDF } from "./s3bucket.controller.js";
+import {
+  aws3BucketDowloadFile,
+  aws3BucketDowloadFolder,
+  aws3BucketUploadPDF,
+} from "./s3bucket.controller.js";
+
+import {
+  fnTestWithObjSchema,
+  fnTestWithDataColumns,
+  fnWriteXLSXWithObjSchema,
+  fnWriteXLSXWithSheetsObjSchema,
+  fnAppendObjectToFileWithHeader,
+  isValidNewObjects,
+} from "./write.excel.file.controller.js";
 
 // winston logs file config
 import logger from "../logs_module/logs.controller.js";
+
+// Generic Reponses
+import {
+  validateFieldWithoutResponse,
+  validateHeadersResponse,
+} from "./file.responses.utils.controller.js";
+import { fnSearchAdvanceRegexJSON } from "./file.advance.search.controler.js";
+
+// Send samples endpoint by AWS S3Bucket
+const uploadFolderToSample = async (req, res) => {
+  await uploadFile(req, res);
+  // Array to store errors
+  let validationErrors = [];
+
+  // Validate fields
+  await validateFieldWithoutResponse(
+    req.body.folderPathS3Bucket,
+    "folderPathS3Bucket",
+    validationErrors
+  );
+  await validateFieldWithoutResponse(
+    req.body.idClassifyTypeFile,
+    "idClassifyTypeFile",
+    validationErrors
+  );
+  await validateFieldWithoutResponse(
+    req.body.idElementClassify,
+    "idElementClassify",
+    validationErrors
+  );
+  await validateFieldWithoutResponse(
+    req.body.nameClassifyTypeFile,
+    "nameClassifyTypeFile",
+    validationErrors
+  );
+  await validateFieldWithoutResponse(
+    req.body.shortnameTypeFile,
+    "shortnameTypeFile",
+    validationErrors
+  );
+
+  // If there are errors, send a response with all the accumulated errors
+  if (validationErrors.length > 0) {
+    return res.status(400).send({
+      status: 400,
+      isRaw: true,
+      body: {
+        errors: validationErrors,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  // If validations are successful, call all other functions
+  try {
+    await aws3BucketDowloadFolder(
+      process.env.AWSS3_ACCESS_BUCKET,
+      req.body.folderPathS3Bucket, // folderPathS3Bucket
+      await fnReturnDowloadS3BucketFolderPath("")
+    );
+
+    await fnOcrExtractClassifyFolders(
+      await fnReturnDowloadS3BucketFolderPath(""),
+      req.body.idClassifyTypeFile, // idClassifyTypeFile
+      req.body.idElementClassify, // idElementClassify
+      req.body.nameClassifyTypeFile, // nameClassifyTypeFile
+      req.body.shortnameTypeFile // shortnameTypeFile
+    );
+
+    await fnRemoveAsyncFolder(await fnReturnDowloadS3BucketFolderPath(""));
+
+    return res.status(200).send({
+      status: 200,
+      isRaw: true,
+      body: {
+        req: {
+          folderPathS3Bucket: req.body.folderPathS3Bucket,
+          idClassifyTypeFile: req.body.idClassifyTypeFile,
+          idElementClassify: req.body.idElementClassify,
+          nameClassifyTypeFile: req.body.nameClassifyTypeFile,
+          shortnameTypeFile: req.body.shortnameTypeFile,
+          message: `Classification has been done successfully`,
+        },
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    // Handling uploadFolderToSample errors
+    logger.error(`Error interno del servidor: ${error}`);
+    return res.status(500).send({
+      status: 500,
+      message: `Error interno del servidor: ${error}`,
+    });
+  }
+};
+
+const sendFileToAnalysis = async (req, res) => {
+  await uploadFile(req, res);
+  // Array to store errors
+  let validationErrors = [];
+
+  // Validate fields
+  await validateFieldWithoutResponse(req.file, "file", validationErrors);
+  await validateHeadersResponse(
+    req.headers,
+    "multipart/form-data",
+    validationErrors
+  );
+
+  // If there are errors, send a response with all the accumulated errors
+  if (validationErrors.length > 0) {
+    return res.status(400).send({
+      status: 400,
+      isRaw: true,
+      body: {
+        errors: validationErrors,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  // If validations are successful, call all other functions
+  try {
+    let fileClassify = await fnOcrExtractClassify(
+      await fnReturnUploadFolderPath(req.file.originalname)
+    );
+    logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
+    let dataFoundFile = await fnSearchAdvanceRegexJSON(
+      fileClassify,
+      await fnReturnUploadFolderPath(req.file.originalname)
+    );
+
+    // Check that data exists in the file search
+    if (!(await isValidNewObjects(dataFoundFile))) {
+      return res.status(400).send({
+        status: 400,
+        isRaw: true,
+        body: {
+          req: {
+            message: `The analysis could not be completed.`,
+          },
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+    // Save to TXT file
+    await fnAppendObjectToFileWithHeader(
+      await fnReturnExcelFilesFolderPath("archivoResultadosSingle.txt"),
+      dataFoundFile,
+      `seClassifyDocument: ${fileClassify}`
+    );
+    await fnAppendObjectToFileWithHeader(
+      await fnReturnExcelFilesFolderPath("archivoResultadosSingleLocal.txt"),
+      dataFoundFile,
+      `seClassifyDocument: ${fileClassify}`
+    );
+    // Upload to S3 Bucket
+    let filePathS3 = await aws3BucketUploadPDF(
+      process.env.AWSS3_ACCESS_BUCKET,
+      req.file.path,
+      `OKULAR/FILES_UPLOAD/${fileClassify}/${req.file.originalname}`
+    );
+    let fileAnalisysPathS3 = await aws3BucketUploadPDF(
+      process.env.AWSS3_ACCESS_BUCKET,
+      await fnReturnExcelFilesFolderPath("archivoResultadosSingle.txt"),
+      `OKULAR/ANALISYS_REPORTS/archivoResultadosSingle.pdf`
+    );
+    return res.status(200).send({
+      status: 200,
+      isRaw: true,
+      body: {
+        req: {
+          fileClassify: fileClassify,
+          url_bucket_file: filePathS3,
+          url_bucket_analisys: fileAnalisysPathS3,
+          message: `Analysis has been done successfully`,
+        },
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    // Handling uploadFolderToSample errors
+    logger.error(`Internal Server Error: ${error}`);
+    return res.status(500).send({
+      status: 500,
+      message: `Internal Server Error: ${error}`,
+    });
+  }
+};
 
 const test = async (req, res) => {
   try {
@@ -54,7 +271,6 @@ const test = async (req, res) => {
         },
       });
     }
-    await fnCreatePathFiles();
     await uploadFile(req, res);
     // await uploadFiles(req, res);
     // console.log(req.files[0].originalname);
@@ -133,13 +349,15 @@ const test = async (req, res) => {
       });
     }
 
-    const fileClassify = await fnOcrExtractClassify(req.file.originalname);
+    const fileClassify = await fnOcrExtractClassify(
+      await fnReturnUploadFolderPath(req.file.originalname)
+    );
     logger.info(`fileClassify of ocrExtractClassify: ${fileClassify}`);
     /* const fileContentDataReader = await fnOcrEDRFromWeb(
       "https://raw.githubusercontent.com/adrienjoly/npm-pdfreader/master/test/sample.pdf"
     ); */
-    const fileContentDataReader = await fnPdfToImage();
-    logger.info(JSON.stringify(fileContentDataReader));
+    /* const fileContentDataReader = await fnPdfToImage();
+    logger.info(JSON.stringify(fileContentDataReader)); */
 
     let arrClassifyNatural = fileClassify.split(/_/);
     // get current date
@@ -156,18 +374,18 @@ const test = async (req, res) => {
     if (req.body.date) {
       customDate = req.body.date;
     }
-    if (arrClassifyNatural[0] == "1" && !req.body.docs_type) {
+    /* if (arrClassifyNatural[0] == "1" && !req.body.docs_type) {
       arrClassifyNatural[1] = "25";
-    }
+    } */
     if (req.body.docs_type) {
       arrClassifyNatural[1] = req.body.docs_type;
     }
 
-    /* let filePathS3 = await aws3BucketUploadPDF(
+    let filePathS3 = await aws3BucketUploadPDF(
       process.env.AWSS3_ACCESS_BUCKET,
       req.file.path,
       `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`
-    ); */
+    );
 
     res.status(200).send({
       status: 200,
@@ -181,7 +399,7 @@ const test = async (req, res) => {
           timestamp: `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milliseconds}+00`,
           abbr_folder: req.body.abbr_folder,
           url: `${req.body.abbr_folder}/users/${req.body.id_user}_${req.body.id_product}_${arrClassifyNatural[1]}_${req.body.docs_group}_${customDate}.pdf`,
-          //url_bucket: filePathS3,
+          url_bucket: filePathS3,
           ocrdoc_classify:
             arrClassifyNatural[0] +
             "_" +
@@ -230,7 +448,108 @@ const test = async (req, res) => {
   }
 };
 
-export { test };
+const otherTest = async (req, res) => {
+  try {
+    /* let objects = [
+      {
+        name: "David Hdz",
+        age: 1800,
+        dateOfBirth: new Date(),
+        graduated: true,
+      },
+      {
+        name: "Jairo Lope",
+        age: 2600.5,
+        dateOfBirth: new Date(),
+        graduated: false,
+      },
+      {
+        name: "Aldo Saucedo",
+        age: 2800.6,
+        dateOfBirth: new Date(),
+        graduated: true,
+      },
+    ];
+
+    let schema = [
+      {
+        column: "Name",
+        type: String,
+        value: (student) => student.name,
+        getCellStyle: (student) => {
+          return {
+            align: "right",
+            width: 20,
+          };
+        },
+      },
+      {
+        column: "Cost",
+        type: Number,
+        format: "#,##0.00",
+        width: 12,
+        align: "center",
+        value: (student) => student.age,
+      },
+      {
+        column: "Date of Birth",
+        type: Date,
+        format: "mm/dd/yyyy",
+        value: (student) => student.dateOfBirth,
+      },
+      {
+        column: "Graduated",
+        type: Boolean,
+        value: (student) => student.graduated,
+      },
+    ];
+
+    await fnWriteXLSXWithObjSchema(
+      objects,
+      schema,
+      "Sheet One",
+      await fnReturnExcelFilesFolderPath("test-schema.xlsx")
+    );
+
+    await fnWriteXLSXWithSheetsObjSchema(
+      [objects, objects],
+      [schema, schema],
+      ["Sheet One", "Sheet Two"],
+      await fnReturnExcelFilesFolderPath("testSheets-schema.xlsx")
+    ); */
+
+    res.status(200).send({
+      status: 200,
+      isRaw: true,
+      body: {
+        req: {
+          url_bucket: "hola",
+          message: "Uploaded the file successfully: " + "filePathS3",
+        },
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    logger.error(`Error TestEndpoint: ${err}`);
+
+    res.status(500).send({
+      status: 500,
+      isRaw: true,
+      body: {
+        req: {
+          message: `Could not upload the file. Error: ${err}`,
+        },
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+};
+
+export { test, otherTest, uploadFolderToSample, sendFileToAnalysis };
 
 /**
 File Upload method, we will export upload() function that:

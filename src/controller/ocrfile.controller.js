@@ -1,5 +1,21 @@
-import { ocrSpace } from "ocr-space-api-wrapper";
-import { fnGetClassifyData } from "./natural.controller.js";
+// fs module
+import { existsSync, readdirSync, lstatSync, writeFileSync } from "fs";
+import { join, extname } from "path";
+
+// utils file
+import {
+  fnRemoveExtensionFile,
+  fnReturnCustomSamplesFolderPath,
+  fnReturnSamplesFolderPath,
+  fnSaveCustomSamplesInJSON,
+} from "./file.utils.controller.js";
+
+// Natural IA
+import {
+  fnGetClassifyData,
+  fnTrainingDataIA,
+  readDataSamples,
+} from "./natural.controller.js";
 
 // winston logs file config
 import logger from "../logs_module/logs.controller.js";
@@ -39,55 +55,35 @@ async function fnOcrEDR(dirPathDoc) {
     resultDocument = ""; // clear page for next documents
     let item = await fnOcrEDataReader(dirPathDoc);
     resultDocument = ""; // clear page for next documents
-    let result = {
-      status: 200,
-      isRaw: true,
-      body: item,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      IsErroredOnProcessing: false,
-      ErrorMessage: "",
-    };
+    let result = item;
     return result;
   } catch (err) {
     logger.error({ err });
     resultDocument = ""; // clear page for next documents
     rows = {}; // clear rows for next page
-    let result = {
-      status: 204,
-      isRaw: true,
-      body: "",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      IsErroredOnProcessing: true,
-      ErrorMessage: err,
-    };
+    let result = "";
     return result;
   }
 }
 
+// Private function read OCR
 async function fnOcrEDataReader(dirPathDoc) {
   return new Promise((resolve, reject) => {
-    new PdfReader().parseFileItems(
-      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-      (err, item) => {
-        if (err) {
-          reject({ err });
-        } else if (!item) {
-          flushRows();
-          resultDocument += "(END_OF_FILE)";
-          resolve(resultDocument);
-        } else if (item.page) {
-          flushRows(); // print the rows of the previous page
-          resultDocument += `(PAGE ${item.page})`;
-        } else if (item.text) {
-          // accumulate text items into rows object, per line
-          (rows[item.y] = rows[item.y] || []).push(item.text);
-        }
+    new PdfReader().parseFileItems(dirPathDoc, (err, item) => {
+      if (err) {
+        reject(new Error({ err }));
+      } else if (!item) {
+        flushRows();
+        resultDocument += "(END_OF_FILE)";
+        resolve(resultDocument);
+      } else if (item.page) {
+        flushRows(); // print the rows of the previous page
+        resultDocument += `(PAGE ${item.page})`;
+      } else if (item.text) {
+        // accumulate text items into rows object, per line
+        (rows[item.y] = rows[item.y] || []).push(item.text);
       }
-    );
+    });
   });
 }
 
@@ -126,13 +122,14 @@ async function fnOcrEDRPassword(dirPathDoc, pdfPassword) {
   }
 }
 
+// Private function read OCR with password
 async function fnOcrEDataReaderPassword(dirPathDoc, pdfPassword) {
   return new Promise((resolve, reject) => {
     new PdfReader({ password: pdfPassword }).parseFileItems(
-      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+      dirPathDoc,
       function (err, item) {
         if (err) {
-          reject(err);
+          reject(new Error({ err }));
         } else if (!item) {
           flushRows();
           resultDocument += "(END_OF_FILE)";
@@ -168,10 +165,8 @@ async function fnOcrEDRegexv(dirPathDoc, regexRule) {
       } else {
         let regexRuleProp = Object.values(regexRule);
         let values = [];
-        for (var i = 0; i < regexRuleProp.length; i++) {
-          values.push(
-            await fnOcrEDataReaderRegex(dirPathDoc, regexRuleProp[i])
-          );
+        for (const element of regexRuleProp) {
+          values.push(await fnOcrEDataReaderRegex(dirPathDoc, element));
         }
         result = {
           status: 200,
@@ -207,10 +202,8 @@ async function fnOcrEDRegexv(dirPathDoc, regexRule) {
       } else {
         let regexRuleProp = Object.values(regexRule);
         let values = [];
-        for (var i = 0; i < regexRuleProp.length; i++) {
-          values.push(
-            await fnOcrEDataReaderRegex(dirPathDoc, regexRuleProp[i])
-          );
+        for (const element of regexRuleProp) {
+          values.push(await fnOcrEDataReaderRegex(dirPathDoc, element));
         }
         result = {
           status: 200,
@@ -256,6 +249,7 @@ async function fnOcrEDRegexv(dirPathDoc, regexRule) {
 }
 
 async function fnOcrEDataReaderRegex(dirPathDoc, regexRule) {
+  console.log(regexRule);
   return new Promise((resolve, reject) => {
     const extractedValues = [];
     const processItem = Rule.makeItemProcessor([
@@ -264,20 +258,17 @@ async function fnOcrEDataReaderRegex(dirPathDoc, regexRule) {
         .then((values) => extractedValues.push(displayValue(values))),
     ]);
 
-    new PdfReader().parseFileItems(
-      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-      (err, item) => {
-        if (err) {
-          reject(err);
-        } else if (!item) {
-          processItem(item);
-          // When there are no more items, we resolve the promise with the extracted values
-          resolve(extractedValues);
-        } else {
-          processItem(item);
-        }
+    new PdfReader().parseFileItems(dirPathDoc, (err, item) => {
+      if (err) {
+        reject(new Error({ err }));
+      } else if (!item) {
+        processItem(item);
+        // When there are no more items, we resolve the promise with the extracted values
+        resolve(extractedValues);
+      } else {
+        processItem(item);
       }
-    );
+    });
   });
 }
 
@@ -301,10 +292,8 @@ async function fnOcrEDNextRegexv(dirPathDoc, regexRule) {
       } else {
         let regexRuleProp = Object.values(regexRule);
         let values = [];
-        for (var i = 0; i < regexRuleProp.length; i++) {
-          values.push(
-            await fnOcrEDataReaderNextRegex(dirPathDoc, regexRuleProp[i])
-          );
+        for (const element of regexRuleProp) {
+          values.push(await fnOcrEDataReaderNextRegex(dirPathDoc, element));
         }
         result = {
           status: 200,
@@ -340,10 +329,8 @@ async function fnOcrEDNextRegexv(dirPathDoc, regexRule) {
       } else {
         let regexRuleProp = Object.values(regexRule);
         let values = [];
-        for (var i = 0; i < regexRuleProp.length; i++) {
-          values.push(
-            await fnOcrEDataReaderNextRegex(dirPathDoc, regexRuleProp[i])
-          );
+        for (const element of regexRuleProp) {
+          values.push(await fnOcrEDataReaderNextRegex(dirPathDoc, element));
         }
         result = {
           status: 200,
@@ -398,10 +385,10 @@ async function fnOcrEDataReaderNextRegex(dirPathDoc, regexRule) {
     ]);
 
     new PdfReader().parseFileItems(
-      __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
+      dirPathDoc /* __basedir + "/resources/static/assets/uploads/" + dirPathDoc, */,
       (err, item) => {
         if (err) {
-          reject(err);
+          reject(new Error({ err }));
         } else if (!item) {
           processItem(item);
           // When there are no more items, we resolve the promise with the extracted values
@@ -433,7 +420,7 @@ async function fnOcrExtractDataReaderFromWeb(urlWeb) {
       const linesPerPage = [];
       let pageNumber = 0;
       new PdfReader().parseBuffer(buffer, (err, item) => {
-        if (err) reject(err);
+        if (err) reject(new Error({ err }));
         else if (!item) {
           resolve(linesPerPage.map((page) => page.map((line) => line.text)));
         } else if (item.page) {
@@ -491,7 +478,7 @@ async function fnOcrExtractDataReaderOnTable(dirPathDoc) {
   const columnQuantitizer = (item) => parseFloat(item.x) >= 20;
 
   const padColumns = (array, nb) =>
-    Array.apply(null, { length: nb }).map((val, i) => array[i] || []);
+    Array(...{ length: nb }).map((val, i) => array[i] || []);
   // .. because map() skips undefined elements - nb length
 
   const mergeCells = (cells) =>
@@ -506,30 +493,19 @@ async function fnOcrExtractDataReaderOnTable(dirPathDoc) {
       .map((row, y) => padColumns(row, nbCols).map(mergeCells).join(" | "))
       .join("\n");
 
-  var table = new PdfReader.TableParser();
+  let table = new PdfReader.TableParser();
 
-  new PdfReader.PdfReader().parseFileItems(
-    __basedir + "/resources/static/assets/uploads/" + dirPathDoc,
-    function (err, item) {
-      if (!item || item.page) {
-        // end of file, or page
-        console.log(renderMatrix(table.getMatrix()));
-        console.log("PAGE:", item.page);
-        table = new PdfReader.TableParser(); // new/clear table for next page
-      } else if (item.text) {
-        // accumulate text items into rows object, per line
-        table.processItem(item, columnQuantitizer(item));
-      }
+  new PdfReader.PdfReader().parseFileItems(dirPathDoc, function (err, item) {
+    if (!item || item.page) {
+      // end of file, or page
+      console.log(renderMatrix(table.getMatrix()));
+      console.log("PAGE:", item.page);
+      table = new PdfReader.TableParser(); // new/clear table for next page
+    } else if (item.text) {
+      // accumulate text items into rows object, per line
+      table.processItem(item, columnQuantitizer(item));
     }
-  );
-}
-
-// Payment information extractor (OCR not used)
-async function fnOcrExtractData(dirPathDoc) {
-  let res = ocrSpace(
-    __basedir + "/resources/static/assets/uploads/" + dirPathDoc
-  );
-  return res;
+  });
 }
 
 // Extract classification and categorization using IA Natural
@@ -537,15 +513,95 @@ async function fnOcrExtractClassify(dirPathDoc) {
   let pdfParseData = await fnOcrEDR(dirPathDoc);
   let res = "";
   if (
-    !pdfParseData.body ||
-    pdfParseData.body.length <= 0 ||
-    pdfParseData.body.match(/^\s*$/) !== null
+    !pdfParseData ||
+    pdfParseData.length <= 0 ||
+    pdfParseData.match(/^\s*$/) !== null
   ) {
-    res = "-1_33_Documento_NoCategorizado";
+    res = "-1_-1_Documento_NoCategorizado";
   } else {
-    res = fnGetClassifyData(pdfParseData.body);
+    res = fnGetClassifyData(pdfParseData);
   }
   return res;
+}
+
+// Extract classification and categorization using IA Natural for folder
+async function fnOcrExtractClassifyFolders(
+  folderPath,
+  idClassifyTypeFile,
+  idElementClassify,
+  nameClassifyTypeFile,
+  shortnameTypeFile
+) {
+  try {
+    if (!existsSync(folderPath)) {
+      logger.info(`The folder '${folderPath}' dont exist.`);
+      return;
+    }
+
+    let date_time = new Date().toISOString().replace(/:/g, "-");
+
+    // Read files by folder
+    const archivos = readdirSync(folderPath);
+
+    for (const archivo of archivos) {
+      const rutaCompleta = join(folderPath, archivo);
+
+      // Check if it is a file and has a .pdf extension
+      if (
+        lstatSync(rutaCompleta).isFile() &&
+        extname(archivo).toLowerCase() === ".pdf"
+      ) {
+        try {
+          logger.info(`Working file: ${rutaCompleta}`);
+          let pdfParseData = await fnOcrEDR(rutaCompleta); // Send folder path to OCR
+          if (
+            !pdfParseData ||
+            pdfParseData.length <= 0 ||
+            pdfParseData.match(/^\s*$/) !== null
+          ) {
+            // null file or error read file
+            logger.warn(`File error or null data '${rutaCompleta}'`);
+          } else {
+            logger.info("Send sample to IA: " + rutaCompleta);
+            // Send IA Sample (plain text / Classification catalog)
+            readDataSamples(
+              pdfParseData,
+              `${idClassifyTypeFile}_${idElementClassify}_${nameClassifyTypeFile}_${shortnameTypeFile}`
+            );
+            // Write / Save Sample in Samples Folder
+            let fileSampleName =
+              `${idClassifyTypeFile}_${idElementClassify}_${nameClassifyTypeFile}_${shortnameTypeFile}` +
+              "_" +
+              (await fnRemoveExtensionFile(archivo)) +
+              "_" +
+              date_time +
+              ".txt";
+            writeFileSync(
+              await fnReturnSamplesFolderPath(fileSampleName),
+              pdfParseData
+            );
+            // Write / Save Sample in custom json
+            await fnSaveCustomSamplesInJSON(
+              await fnReturnCustomSamplesFolderPath("customSamples.json"),
+              idClassifyTypeFile,
+              idElementClassify,
+              nameClassifyTypeFile,
+              shortnameTypeFile,
+              fileSampleName,
+              date_time
+            );
+          }
+        } catch (error) {
+          logger.error(`Error processing '${rutaCompleta}' : ${error}`);
+        }
+      }
+    }
+    // save ia classifications
+    await fnTrainingDataIA();
+    logger.info("Task classify folder complete.");
+  } catch (error) {
+    logger.error(`fnOcrExtractClassifyFolders error: : ${error}`);
+  }
 }
 
 export {
@@ -553,26 +609,26 @@ export {
   fnOcrEDRPassword,
   fnOcrEDRegexv,
   fnOcrEDNextRegexv,
-  fnOcrExtractData,
   fnOcrExtractClassify,
+  fnOcrExtractClassifyFolders,
   fnOcrEDRFromWeb,
 };
 
 /*********************
-1 = Pólizas
-2 = Other Documments
-Example = 1_2_Flotillas_Chubb
-Significa que es una poliza (1), de Flotillas Autos(2), Flotilla (Flotillas) de la aseguradora Chubb
+25 = Products
+2 = Documments
+Example = 25_2_Flotillas_Chubb
+Significa que es una producto(poliza) (1), de Flotillas Autos(2), Flotilla (Flotillas) de la aseguradora Chubb
 Other Example = 2_33_cDom_Agua
-Significa que es algo que NO es póliza (2), Otro tipo de documento (33), categorizado como comprobante de Domicilio (cDom), y del Agua
+Significa que es algo que entra en Documents (2), Otro tipo de documento (33), categorizado como comprobante de Domicilio (cDom), y del Agua
 **********************
 Catalogo de Samples
 **********************
-1 Catalogo de Pólizas
-2 Catalogo General
+1 Catalogo de products (natural.classify.products.json)
+2 Catalogo docs (natural.classify.docs.json)
 **********************
 **********************
-Catalogo General
+Catalogo Docs
 **********************
 1	Acta Administrativa
 2	Acta de Defunción
@@ -607,4 +663,5 @@ Catalogo General
 31	Nota de Débito
 32	Complemento de Pago
 33	Otros
+34  Comprobante de Domicilio
 *********************/

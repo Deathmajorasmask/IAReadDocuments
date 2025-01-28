@@ -1,13 +1,14 @@
 import { promisify } from "util";
 import multer, { diskStorage } from "multer";
-const maxSize = 22282810 //= 2 * 1024 * 1024;
+import { fnReturnUploadFolderPath } from "../controller/file.utils.controller.js";
+const maxSize = 22282810; //= 2 * 1024 * 1024;
 
 let storage = diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __basedir + "/resources/static/assets/uploads/");
+  destination: async (req, file, cb) => {
+    //cb(null, __basedir + "/resources/uploads/");
+    cb(null, await fnReturnUploadFolderPath("/"));
   },
   filename: (req, file, cb) => {
-    console.log(file.originalname);
     cb(null, file.originalname);
   },
 });

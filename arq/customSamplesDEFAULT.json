@@ -1,0 +1,474 @@
+[
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Banorte",
+    "file": "sample_2_Flotillas_Banorte_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Banorte",
+    "file": "sample_2_Flotillas_Banorte_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Banorte",
+    "file": "sample_2_Flotillas_Banorte_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_2_Flotillas_Chubb_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_2_Flotillas_Chubb_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_2_Flotillas_Chubb_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_2_Flotillas_GNP_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_2_Flotillas_GNP_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_2_Flotillas_GNP_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Primero",
+    "file": "sample_2_Flotillas_Primero_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Primero",
+    "file": "sample_2_Flotillas_Primero_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Primero",
+    "file": "sample_2_Flotillas_Primero_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Qualitas",
+    "file": "sample_2_Flotillas_Qualitas_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Qualitas",
+    "file": "sample_2_Flotillas_Qualitas_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Qualitas",
+    "file": "sample_2_Flotillas_Qualitas_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Atlas",
+    "file": "sample_3_Gastos Médicos Mayores_Atlas_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Atlas",
+    "file": "sample_3_Gastos Médicos Mayores_Atlas_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Atlas",
+    "file": "sample_3_Gastos Médicos Mayores_Atlas_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_3_Gastos Médicos Mayores_GNP_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_3_Gastos Médicos Mayores_GNP_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_3_Gastos Médicos Mayores_GNP_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Axxa",
+    "file": "sample_3_Gastos Médicos Mayores_Axxa_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Axxa",
+    "file": "sample_3_Gastos Médicos Mayores_Axxa_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Axxa",
+    "file": "sample_3_Gastos Médicos Mayores_Axxa_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Metlife",
+    "file": "sample_3_Gastos Médicos Mayores_Metlife_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Metlife",
+    "file": "sample_3_Gastos Médicos Mayores_Metlife_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Metlife",
+    "file": "sample_3_Gastos Médicos Mayores_Metlife_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "MediAccess",
+    "file": "sample_4_Gastos Médicos Menores_MediAccess_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "MediAccess",
+    "file": "sample_4_Gastos Médicos Menores_MediAccess_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "MediAccess",
+    "file": "sample_4_Gastos Médicos Menores_MediAccess_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "Mms",
+    "file": "sample_4_Gastos Médicos Menores_Mms_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "Mms",
+    "file": "sample_4_Gastos Médicos Menores_Mms_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "Mms",
+    "file": "sample_4_Gastos Médicos Menores_Mms_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentalia",
+    "file": "sample_5_Seguro Dental_Dentalia_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentalia",
+    "file": "sample_5_Seguro Dental_Dentalia_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentalia",
+    "file": "sample_5_Seguro Dental_Dentalia_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentegra",
+    "file": "sample_5_Seguro Dental_Dentegra_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentegra",
+    "file": "sample_5_Seguro Dental_Dentegra_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentegra",
+    "file": "sample_5_Seguro Dental_Dentegra_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Vida",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_6_Vida_GNP_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Vida",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_6_Vida_GNP_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Vida",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_6_Vida_GNP_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Gastos Funerarios",
+    "shortnameTypeFile": "Thona",
+    "file": "sample_7_Gastos Funerarios_Thona_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Gastos Funerarios",
+    "shortnameTypeFile": "Thona",
+    "file": "sample_7_Gastos Funerarios_Thona_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Gastos Funerarios",
+    "shortnameTypeFile": "Thona",
+    "file": "sample_7_Gastos Funerarios_Thona_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_10_Daños Casa_Chubb_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_10_Daños Casa_Chubb_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_10_Daños Casa_Chubb_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Zurich",
+    "file": "sample_10_Daños Casa_Zurich_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Zurich",
+    "file": "sample_10_Daños Casa_Zurich_1.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Zurich",
+    "file": "sample_10_Daños Casa_Zurich_2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Acta de Matrimonio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_4_Acta de Matrimonio_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 12,
+    "nameClassifyTypeFile": "CURP",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_12_CURP_0.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_Agua.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_CFE.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_CFE2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_CFE3.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_Gas.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_Gas2.txt",
+    "date_time": "2025-01-16T04-05-35.785Z"
+  }
+]

@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "36bbdbcf-b56e-4c99-814b-e3933afec7c7",
+		"name": "PASSIDOCS_SEKURA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22342752"
+	},
+	"item": [
+		{
+			"name": "segutiendasekurauploadfile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/FZGC/FrontJairo/Pólizas_NoCargadas/(Auto-Primero)23110770685f3c-7bd4-4d47-b752-96e6bb7e6273.pdf"
+						},
+						{
+							"key": "id_user",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "id_product",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "docs_type",
+							"value": "25",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "docs_group",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "20231019",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "abbr_folder",
+							"value": "AER",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/segutiendasekurauploadfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"segutiendasekurauploadfile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "segutiendasekurauploadbucket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/FZGC/FrontJairo/Pólizas_NoCargadas/(Auto-Primero)23110770685f3c-7bd4-4d47-b752-96e6bb7e6273.pdf"
+								},
+								{
+									"key": "id_user",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "id_product",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "docs_type",
+									"value": "25",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "docs_group",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "20231019",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "abbr_folder",
+									"value": "AER",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/segutiendasekurauploadfile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"segutiendasekurauploadfile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3001"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "546"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"222-yt6W7fbEF+O24Gi+7YzO67/XYjQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Jan 2024 18:19:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"isRaw\": true,\n    \"body\": {\n        \"req\": {\n            \"id_user\": \"3\",\n            \"id_product\": \"12345\",\n            \"docs_group\": \"6\",\n            \"timestamp\": \"2024-01-23 12:19:48.878+00\",\n            \"abbr_folder\": \"AER\",\n            \"url\": \"AER/users/3_12345_25_6_20231019.pdf\",\n            \"url_bucket\": \"https://resio.s3.amazonaws.com/AER/users/3_12345_25_6_20231019.pdf\",\n            \"ocrdoc_classify\": \"1_25_Flotillas_Primero\",\n            \"message\": \"Uploaded the file successfully: C:\\\\FZGC\\\\AER_PassiDocs_Natural\\\\resources\\\\static\\\\assets\\\\uploads\\\\(Auto-Primero)23110770685f3c-7bd4-4d47-b752-96e6bb7e6273.pdf\"\n        }\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/json\"\n    }\n}"
+				}
+			]
+		}
+	]
+}

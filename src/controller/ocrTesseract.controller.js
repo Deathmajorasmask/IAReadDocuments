@@ -9,7 +9,7 @@ import pngjs from "pngjs";
 
 // Tesseract Supp https://tesseract-ocr.github.io/tessdoc/Data-Files#data-files-for-version-400-november-29-2016
 import { createWorker } from "tesseract.js";
-const worker = await createWorker(['eng', 'spa'], 1, {
+const worker = await createWorker(["eng", "spa"], 1, {
   logger: (m) => logger.info(JSON.stringify(m)), // Add logger here
 });
 

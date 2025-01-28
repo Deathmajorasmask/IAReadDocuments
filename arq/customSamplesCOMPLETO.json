@@ -1,0 +1,1250 @@
+[
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Banorte",
+    "file": "sample_2_Flotillas_Banorte_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Banorte",
+    "file": "sample_2_Flotillas_Banorte_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Banorte",
+    "file": "sample_2_Flotillas_Banorte_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_2_Flotillas_Chubb_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_2_Flotillas_Chubb_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_2_Flotillas_Chubb_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_2_Flotillas_GNP_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_2_Flotillas_GNP_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_2_Flotillas_GNP_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Primero",
+    "file": "sample_2_Flotillas_Primero_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Primero",
+    "file": "sample_2_Flotillas_Primero_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Primero",
+    "file": "sample_2_Flotillas_Primero_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Qualitas",
+    "file": "sample_2_Flotillas_Qualitas_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Qualitas",
+    "file": "sample_2_Flotillas_Qualitas_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Flotillas",
+    "shortnameTypeFile": "Qualitas",
+    "file": "sample_2_Flotillas_Qualitas_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Atlas",
+    "file": "sample_3_Gastos Médicos Mayores_Atlas_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Atlas",
+    "file": "sample_3_Gastos Médicos Mayores_Atlas_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Atlas",
+    "file": "sample_3_Gastos Médicos Mayores_Atlas_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_3_Gastos Médicos Mayores_GNP_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_3_Gastos Médicos Mayores_GNP_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_3_Gastos Médicos Mayores_GNP_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Axxa",
+    "file": "sample_3_Gastos Médicos Mayores_Axxa_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Axxa",
+    "file": "sample_3_Gastos Médicos Mayores_Axxa_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Axxa",
+    "file": "sample_3_Gastos Médicos Mayores_Axxa_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Metlife",
+    "file": "sample_3_Gastos Médicos Mayores_Metlife_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Metlife",
+    "file": "sample_3_Gastos Médicos Mayores_Metlife_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Gastos Médicos Mayores",
+    "shortnameTypeFile": "Metlife",
+    "file": "sample_3_Gastos Médicos Mayores_Metlife_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "MediAccess",
+    "file": "sample_4_Gastos Médicos Menores_MediAccess_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "MediAccess",
+    "file": "sample_4_Gastos Médicos Menores_MediAccess_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "MediAccess",
+    "file": "sample_4_Gastos Médicos Menores_MediAccess_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "Mms",
+    "file": "sample_4_Gastos Médicos Menores_Mms_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "Mms",
+    "file": "sample_4_Gastos Médicos Menores_Mms_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Gastos Médicos Menores",
+    "shortnameTypeFile": "Mms",
+    "file": "sample_4_Gastos Médicos Menores_Mms_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentalia",
+    "file": "sample_5_Seguro Dental_Dentalia_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentalia",
+    "file": "sample_5_Seguro Dental_Dentalia_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentalia",
+    "file": "sample_5_Seguro Dental_Dentalia_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentegra",
+    "file": "sample_5_Seguro Dental_Dentegra_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentegra",
+    "file": "sample_5_Seguro Dental_Dentegra_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Seguro Dental",
+    "shortnameTypeFile": "Dentegra",
+    "file": "sample_5_Seguro Dental_Dentegra_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Vida",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_6_Vida_GNP_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Vida",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_6_Vida_GNP_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Vida",
+    "shortnameTypeFile": "GNP",
+    "file": "sample_6_Vida_GNP_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Gastos Funerarios",
+    "shortnameTypeFile": "Thona",
+    "file": "sample_7_Gastos Funerarios_Thona_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Gastos Funerarios",
+    "shortnameTypeFile": "Thona",
+    "file": "sample_7_Gastos Funerarios_Thona_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Gastos Funerarios",
+    "shortnameTypeFile": "Thona",
+    "file": "sample_7_Gastos Funerarios_Thona_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_10_Daños Casa_Chubb_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_10_Daños Casa_Chubb_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Chubb",
+    "file": "sample_10_Daños Casa_Chubb_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Zurich",
+    "file": "sample_10_Daños Casa_Zurich_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Zurich",
+    "file": "sample_10_Daños Casa_Zurich_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 25,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Daños Casa",
+    "shortnameTypeFile": "Zurich",
+    "file": "sample_10_Daños Casa_Zurich_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 1,
+    "nameClassifyTypeFile": "Acta Administrativa",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_1_Acta Administrativa_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 1,
+    "nameClassifyTypeFile": "Acta Administrativa",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_1_Acta Administrativa_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 1,
+    "nameClassifyTypeFile": "Acta Administrativa",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_1_Acta Administrativa_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Acta de Defunción",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_2_Acta de Defunción_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Acta de Defunción",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_2_Acta de Defunción_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 2,
+    "nameClassifyTypeFile": "Acta de Defunción",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_2_Acta de Defunción_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Acta de Divorcio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_3_Acta de Divorcio_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Acta de Divorcio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_3_Acta de Divorcio_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 3,
+    "nameClassifyTypeFile": "Acta de Divorcio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_3_Acta de Divorcio_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Acta de Matrimonio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_4_Acta de Matrimonio_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Acta de Matrimonio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_4_Acta de Matrimonio_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 4,
+    "nameClassifyTypeFile": "Acta de Matrimonio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_4_Acta de Matrimonio_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Acta de Nacimiento",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_5_Acta de Nacimiento_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Acta de Nacimiento",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_5_Acta de Nacimiento_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 5,
+    "nameClassifyTypeFile": "Acta de Nacimiento",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_5_Acta de Nacimiento_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Acta Ministerio Publico",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_6_Acta Ministerio Publico_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Acta Ministerio Publico",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_6_Acta Ministerio Publico_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 6,
+    "nameClassifyTypeFile": "Acta Ministerio Publico",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_6_Acta Ministerio Publico_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Bitacora",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_7_Bitacora_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Bitacora",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_7_Bitacora_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 7,
+    "nameClassifyTypeFile": "Bitacora",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_7_Bitacora_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 8,
+    "nameClassifyTypeFile": "Carnet",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_8_Carnet_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 8,
+    "nameClassifyTypeFile": "Carnet",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_8_Carnet_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 8,
+    "nameClassifyTypeFile": "Carnet",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_8_Carnet_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 9,
+    "nameClassifyTypeFile": "Carta",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_9_Carta_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 9,
+    "nameClassifyTypeFile": "Carta",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_9_Carta_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 9,
+    "nameClassifyTypeFile": "Carta",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_9_Carta_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Certificado",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_10_Certificado_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Certificado",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_10_Certificado_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 10,
+    "nameClassifyTypeFile": "Certificado",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_10_Certificado_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 11,
+    "nameClassifyTypeFile": "Constancia",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_11_Constancia_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 11,
+    "nameClassifyTypeFile": "Constancia",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_11_Constancia_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 11,
+    "nameClassifyTypeFile": "Constancia",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_11_Constancia_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 12,
+    "nameClassifyTypeFile": "CURP",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_12_CURP_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 12,
+    "nameClassifyTypeFile": "CURP",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_12_CURP_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 12,
+    "nameClassifyTypeFile": "CURP",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_12_CURP_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 13,
+    "nameClassifyTypeFile": "Declaracion anual",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_13_Declaracion anual_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 13,
+    "nameClassifyTypeFile": "Declaracion anual",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_13_Declaracion anual_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 13,
+    "nameClassifyTypeFile": "Declaracion anual",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_13_Declaracion anual_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 14,
+    "nameClassifyTypeFile": "Dictamen",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_14_Dictamen_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 14,
+    "nameClassifyTypeFile": "Dictamen",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_14_Dictamen_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 14,
+    "nameClassifyTypeFile": "Dictamen",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_14_Dictamen_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 15,
+    "nameClassifyTypeFile": "Endoso",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_15_Endoso_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 15,
+    "nameClassifyTypeFile": "Endoso",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_15_Endoso_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 15,
+    "nameClassifyTypeFile": "Endoso",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_15_Endoso_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 16,
+    "nameClassifyTypeFile": "Estados financieros",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_16_Estados financieros_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 16,
+    "nameClassifyTypeFile": "Estados financieros",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_16_Estados financieros_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 16,
+    "nameClassifyTypeFile": "Estados financieros",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_16_Estados financieros_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 17,
+    "nameClassifyTypeFile": "Factura",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_17_Factura_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 17,
+    "nameClassifyTypeFile": "Factura",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_17_Factura_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 17,
+    "nameClassifyTypeFile": "Factura",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_17_Factura_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 18,
+    "nameClassifyTypeFile": "Formato",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_18_Formato_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 18,
+    "nameClassifyTypeFile": "Formato",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_18_Formato_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 18,
+    "nameClassifyTypeFile": "Formato",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_18_Formato_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 19,
+    "nameClassifyTypeFile": "Fotografía",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_19_Fotografía_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 19,
+    "nameClassifyTypeFile": "Fotografía",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_19_Fotografía_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 19,
+    "nameClassifyTypeFile": "Fotografía",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_19_Fotografía_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 20,
+    "nameClassifyTypeFile": "ID",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_20_ID_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 20,
+    "nameClassifyTypeFile": "ID",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_20_ID_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 20,
+    "nameClassifyTypeFile": "ID",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_20_ID_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 21,
+    "nameClassifyTypeFile": "INE",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_21_INE_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 21,
+    "nameClassifyTypeFile": "INE",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_21_INE_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 21,
+    "nameClassifyTypeFile": "INE",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_21_INE_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 22,
+    "nameClassifyTypeFile": "Licencia de Conducir",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_22_Licencia de Conducir_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 22,
+    "nameClassifyTypeFile": "Licencia de Conducir",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_22_Licencia de Conducir_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 22,
+    "nameClassifyTypeFile": "Licencia de Conducir",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_22_Licencia de Conducir_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 23,
+    "nameClassifyTypeFile": "Manual",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_23_Manual_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 23,
+    "nameClassifyTypeFile": "Manual",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_23_Manual_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 23,
+    "nameClassifyTypeFile": "Manual",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_23_Manual_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 24,
+    "nameClassifyTypeFile": "Pasaporte",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_24_Pasaporte_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 24,
+    "nameClassifyTypeFile": "Pasaporte",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_24_Pasaporte_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 24,
+    "nameClassifyTypeFile": "Pasaporte",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_24_Pasaporte_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 25,
+    "nameClassifyTypeFile": "Poliza",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_25_Poliza_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 25,
+    "nameClassifyTypeFile": "Poliza",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_25_Poliza_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 25,
+    "nameClassifyTypeFile": "Poliza",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_25_Poliza_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 26,
+    "nameClassifyTypeFile": "Recibo",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_26_Recibo_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 26,
+    "nameClassifyTypeFile": "Recibo",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_26_Recibo_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 26,
+    "nameClassifyTypeFile": "Recibo",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_26_Recibo_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 27,
+    "nameClassifyTypeFile": "Reporte",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_27_Reporte_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 27,
+    "nameClassifyTypeFile": "Reporte",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_27_Reporte_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 27,
+    "nameClassifyTypeFile": "Reporte",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_27_Reporte_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 28,
+    "nameClassifyTypeFile": "CIF",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_28_CIF_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 28,
+    "nameClassifyTypeFile": "CIF",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_28_CIF_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 28,
+    "nameClassifyTypeFile": "CIF",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_28_CIF_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 29,
+    "nameClassifyTypeFile": "Resultados clínicos",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_29_Resultados clínicos_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 29,
+    "nameClassifyTypeFile": "Resultados clínicos",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_29_Resultados clínicos_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 29,
+    "nameClassifyTypeFile": "Resultados clínicos",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_29_Resultados clínicos_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 30,
+    "nameClassifyTypeFile": "Nota de Crédito",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_30_Nota de Crédito_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 30,
+    "nameClassifyTypeFile": "Nota de Crédito",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_30_Nota de Crédito_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 30,
+    "nameClassifyTypeFile": "Nota de Crédito",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_30_Nota de Crédito_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 31,
+    "nameClassifyTypeFile": "Nota de Débito",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_31_Nota de Débito_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 31,
+    "nameClassifyTypeFile": "Nota de Débito",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_31_Nota de Débito_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 31,
+    "nameClassifyTypeFile": "Nota de Débito",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_31_Nota de Débito_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 32,
+    "nameClassifyTypeFile": "Complemento de Pago",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_32_Complemento de Pago_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 32,
+    "nameClassifyTypeFile": "Complemento de Pago",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_32_Complemento de Pago_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 32,
+    "nameClassifyTypeFile": "Complemento de Pago",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_32_Complemento de Pago_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 33,
+    "nameClassifyTypeFile": "Otros",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_33_Otros_0.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 33,
+    "nameClassifyTypeFile": "Otros",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_33_Otros_1.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": 2,
+    "idElementClassify": 33,
+    "nameClassifyTypeFile": "Otros",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_33_Otros_2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_Agua.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_CFE.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_CFE2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_CFE3.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_Gas.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  },
+  {
+    "idClassifyTypeFile": "2",
+    "idElementClassify": "34",
+    "nameClassifyTypeFile": "Comprobante de Domicilio",
+    "shortnameTypeFile": "DocsType",
+    "file": "sample_cDom_Gas2.txt",
+    "date_time": "2025-01-16T03-56-58.736Z"
+  }
+]

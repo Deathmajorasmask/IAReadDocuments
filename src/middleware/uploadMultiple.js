@@ -1,21 +1,22 @@
 import { promisify } from "util";
 import multer, { diskStorage } from "multer";
-const maxSize = 22282810 //= 2 * 1024 * 1024;
+import { fnReturnUploadFolderPath } from "../controller/file.utils.controller.js";
+const maxSize = 22282810; //= 2 * 1024 * 1024;
 
 let storage = diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, __basedir + "/resources/static/assets/uploads/");
-    },
-    filename: (req, file, cb) => {
-      console.log(file.originalname);
-      cb(null, file.originalname);
-    },
-  });
+  destination: async (req, file, cb) => {
+    //cb(null, __basedir + "/resources/uploads/");
+    cb(null, await fnReturnUploadFolderPath("/"));
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
 
 let uploadFiles = multer({
-    storage,
-    limits: { fileSize: maxSize }, // 1MB
-    /* fileFilter: (req, file, cb) => {
+  storage,
+  limits: { fileSize: maxSize }, // 1MB
+  /* fileFilter: (req, file, cb) => {
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
             cb(null, true);
         } else {
@@ -25,7 +26,7 @@ let uploadFiles = multer({
             return cb(err);
         }
     }, */
-}).array("file", 10)
+}).array("file", 10);
 
 let uploadFileMiddleware = promisify(uploadFiles);
 export default uploadFileMiddleware;

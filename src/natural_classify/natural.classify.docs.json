@@ -1,207 +1,691 @@
 {
-    "status":200,
-    "isRaw":true,
-    "body":[
-       {
-          "id":1,
-          "name":"Acta Administrativa",
-          "created_at":"2023-06-27T22:35:29.298Z",
-          "modified_at":"2023-06-27T22:35:29.298Z"
-       },
-       {
-          "id":2,
-          "name":"Acta de Defunción",
-          "created_at":"2023-06-27T22:35:29.373Z",
-          "modified_at":"2023-06-27T22:35:29.373Z"
-       },
-       {
-          "id":3,
-          "name":"Acta de Divorcio",
-          "created_at":"2023-06-27T22:35:29.444Z",
-          "modified_at":"2023-06-27T22:35:29.444Z"
-       },
-       {
-          "id":4,
-          "name":"Acta de Matrimonio",
-          "created_at":"2023-06-27T22:35:29.515Z",
-          "modified_at":"2023-06-27T22:35:29.515Z"
-       },
-       {
-          "id":5,
-          "name":"Acta de Nacimiento",
-          "created_at":"2023-06-27T22:35:29.587Z",
-          "modified_at":"2023-06-27T22:35:29.587Z"
-       },
-       {
-          "id":6,
-          "name":"Acta Ministerio Publico",
-          "created_at":"2023-06-27T22:35:29.661Z",
-          "modified_at":"2023-06-27T22:35:29.661Z"
-       },
-       {
-          "id":7,
-          "name":"Bitacora",
-          "created_at":"2023-06-27T22:35:29.736Z",
-          "modified_at":"2023-06-27T22:35:29.736Z"
-       },
-       {
-          "id":8,
-          "name":"Carnet",
-          "created_at":"2023-06-27T22:35:29.808Z",
-          "modified_at":"2023-06-27T22:35:29.808Z"
-       },
-       {
-          "id":9,
-          "name":"Carta",
-          "created_at":"2023-06-27T22:35:29.879Z",
-          "modified_at":"2023-06-27T22:35:29.879Z"
-       },
-       {
-          "id":10,
-          "name":"Certificado",
-          "created_at":"2023-06-27T22:35:29.951Z",
-          "modified_at":"2023-06-27T22:35:29.951Z"
-       },
-       {
-          "id":11,
-          "name":"Constancia",
-          "created_at":"2023-06-27T22:35:30.030Z",
-          "modified_at":"2023-06-27T22:35:30.030Z"
-       },
-       {
-          "id":12,
-          "name":"CURP",
-          "created_at":"2023-06-27T22:35:30.102Z",
-          "modified_at":"2023-06-27T22:35:30.102Z"
-       },
-       {
-          "id":13,
-          "name":"Declaracion anual",
-          "created_at":"2023-06-27T22:35:30.175Z",
-          "modified_at":"2023-06-27T22:35:30.175Z"
-       },
-       {
-          "id":14,
-          "name":"Dictamen",
-          "created_at":"2023-06-27T22:35:30.248Z",
-          "modified_at":"2023-06-27T22:35:30.248Z"
-       },
-       {
-          "id":15,
-          "name":"Endoso",
-          "created_at":"2023-06-27T22:35:30.321Z",
-          "modified_at":"2023-06-27T22:35:30.321Z"
-       },
-       {
-          "id":16,
-          "name":"Estados financieros",
-          "created_at":"2023-06-27T22:35:30.392Z",
-          "modified_at":"2023-06-27T22:35:30.392Z"
-       },
-       {
-          "id":17,
-          "name":"Factura",
-          "created_at":"2023-06-27T22:35:30.467Z",
-          "modified_at":"2023-06-27T22:35:30.467Z"
-       },
-       {
-          "id":18,
-          "name":"Formato",
-          "created_at":"2023-06-27T22:35:30.540Z",
-          "modified_at":"2023-06-27T22:35:30.540Z"
-       },
-       {
-          "id":19,
-          "name":"Fotografía",
-          "created_at":"2023-06-27T22:35:30.614Z",
-          "modified_at":"2023-06-27T22:35:30.614Z"
-       },
-       {
-          "id":20,
-          "name":"ID",
-          "created_at":"2023-06-27T22:35:30.698Z",
-          "modified_at":"2023-06-27T22:35:30.698Z"
-       },
-       {
-          "id":21,
-          "name":"INE",
-          "created_at":"2023-06-27T22:35:30.785Z",
-          "modified_at":"2023-06-27T22:35:30.785Z"
-       },
-       {
-          "id":22,
-          "name":"Licencia de Conducir",
-          "created_at":"2023-06-27T22:35:30.872Z",
-          "modified_at":"2023-06-27T22:35:30.872Z"
-       },
-       {
-          "id":23,
-          "name":"Manual",
-          "created_at":"2023-06-27T22:35:30.945Z",
-          "modified_at":"2023-06-27T22:35:30.945Z"
-       },
-       {
-          "id":24,
-          "name":"Pasaporte",
-          "created_at":"2023-06-27T22:35:31.017Z",
-          "modified_at":"2023-06-27T22:35:31.017Z"
-       },
-       {
-          "id":25,
-          "name":"Poliza",
-          "created_at":"2023-06-27T22:35:31.094Z",
-          "modified_at":"2023-06-27T22:35:31.094Z"
-       },
-       {
-          "id":26,
-          "name":"Recibo",
-          "created_at":"2023-06-27T22:35:31.169Z",
-          "modified_at":"2023-06-27T22:35:31.169Z"
-       },
-       {
-          "id":27,
-          "name":"Reporte",
-          "created_at":"2023-06-27T22:35:31.241Z",
-          "modified_at":"2023-06-27T22:35:31.241Z"
-       },
-       {
-          "id":28,
-          "name":"CIF",
-          "created_at":"2023-06-27T22:35:31.323Z",
-          "modified_at":"2023-06-27T22:35:31.323Z"
-       },
-       {
-          "id":29,
-          "name":"Resultados clínicos",
-          "created_at":"2023-06-27T22:35:31.397Z",
-          "modified_at":"2023-06-27T22:35:31.397Z"
-       },
-       {
-          "id":30,
-          "name":"Nota de Crédito",
-          "created_at":"2023-06-27T22:35:31.471Z",
-          "modified_at":"2023-06-27T22:35:31.471Z"
-       },
-       {
-          "id":31,
-          "name":"Nota de Débito",
-          "created_at":"2023-06-27T22:35:31.471Z",
-          "modified_at":"2023-06-27T22:35:31.471Z"
-       },
-       {
-          "id":32,
-          "name":"Complemento de Pago",
-          "created_at":"2023-07-03T20:43:10.792Z",
-          "modified_at":"2023-07-03T20:43:10.792Z"
-       },
-       {
-          "id":33,
-          "name":"Otros",
-          "created_at":"2023-07-03T20:43:10.863Z",
-          "modified_at":"2023-07-03T20:43:10.863Z"
-       }
-    ],
-    "headers":{
-       "Content-Type":"application/json"
+  "idClassifyTypeFile": 2,
+  "nameClassifyTypeFile": "Documments",
+  "status": 200,
+  "isRaw": true,
+  "body": [
+    {
+      "id": 1,
+      "name": "Acta Administrativa",
+      "created_at": "2023-06-27T22:35:29.298Z",
+      "modified_at": "2023-06-27T22:35:29.298Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Acta de Defunción",
+      "created_at": "2023-06-27T22:35:29.373Z",
+      "modified_at": "2023-06-27T22:35:29.373Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Acta de Divorcio",
+      "created_at": "2023-06-27T22:35:29.444Z",
+      "modified_at": "2023-06-27T22:35:29.444Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Acta de Matrimonio",
+      "created_at": "2023-06-27T22:35:29.515Z",
+      "modified_at": "2023-06-27T22:35:29.515Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Acta de Nacimiento",
+      "created_at": "2023-06-27T22:35:29.587Z",
+      "modified_at": "2023-06-27T22:35:29.587Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Acta Ministerio Publico",
+      "created_at": "2023-06-27T22:35:29.661Z",
+      "modified_at": "2023-06-27T22:35:29.661Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Bitacora",
+      "created_at": "2023-06-27T22:35:29.736Z",
+      "modified_at": "2023-06-27T22:35:29.736Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Carnet",
+      "created_at": "2023-06-27T22:35:29.808Z",
+      "modified_at": "2023-06-27T22:35:29.808Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Carta",
+      "created_at": "2023-06-27T22:35:29.879Z",
+      "modified_at": "2023-06-27T22:35:29.879Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Certificado",
+      "created_at": "2023-06-27T22:35:29.951Z",
+      "modified_at": "2023-06-27T22:35:29.951Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Constancia",
+      "created_at": "2023-06-27T22:35:30.030Z",
+      "modified_at": "2023-06-27T22:35:30.030Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "CURP",
+      "created_at": "2023-06-27T22:35:30.102Z",
+      "modified_at": "2023-06-27T22:35:30.102Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": true,
+          "regex_client_name": "(?<=PRESENTE)(.*?)(?=,.*)",
+          "regex_breakdown_amounts": "(?<=Clave:)(\\S+)(?=Nombre)",
+          "regex_total_amounts": "(\\d{2} de \\w+ de \\d{4})(?=El derecho a la identidad)",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": "(?<=Nombre)([\\w\\s]+)(?=MEXICO)"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Declaracion anual",
+      "created_at": "2023-06-27T22:35:30.175Z",
+      "modified_at": "2023-06-27T22:35:30.175Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Dictamen",
+      "created_at": "2023-06-27T22:35:30.248Z",
+      "modified_at": "2023-06-27T22:35:30.248Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Endoso",
+      "created_at": "2023-06-27T22:35:30.321Z",
+      "modified_at": "2023-06-27T22:35:30.321Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Estados financieros",
+      "created_at": "2023-06-27T22:35:30.392Z",
+      "modified_at": "2023-06-27T22:35:30.392Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Factura",
+      "created_at": "2023-06-27T22:35:30.467Z",
+      "modified_at": "2023-06-27T22:35:30.467Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Formato",
+      "created_at": "2023-06-27T22:35:30.540Z",
+      "modified_at": "2023-06-27T22:35:30.540Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Fotografía",
+      "created_at": "2023-06-27T22:35:30.614Z",
+      "modified_at": "2023-06-27T22:35:30.614Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "ID",
+      "created_at": "2023-06-27T22:35:30.698Z",
+      "modified_at": "2023-06-27T22:35:30.698Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "INE",
+      "created_at": "2023-06-27T22:35:30.785Z",
+      "modified_at": "2023-06-27T22:35:30.785Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Licencia de Conducir",
+      "created_at": "2023-06-27T22:35:30.872Z",
+      "modified_at": "2023-06-27T22:35:30.872Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Manual",
+      "created_at": "2023-06-27T22:35:30.945Z",
+      "modified_at": "2023-06-27T22:35:30.945Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Pasaporte",
+      "created_at": "2023-06-27T22:35:31.017Z",
+      "modified_at": "2023-06-27T22:35:31.017Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Poliza",
+      "created_at": "2023-06-27T22:35:31.094Z",
+      "modified_at": "2023-06-27T22:35:31.094Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Recibo",
+      "created_at": "2023-06-27T22:35:31.169Z",
+      "modified_at": "2023-06-27T22:35:31.169Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Reporte",
+      "created_at": "2023-06-27T22:35:31.241Z",
+      "modified_at": "2023-06-27T22:35:31.241Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "CIF",
+      "created_at": "2023-06-27T22:35:31.323Z",
+      "modified_at": "2023-06-27T22:35:31.323Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Resultados clínicos",
+      "created_at": "2023-06-27T22:35:31.397Z",
+      "modified_at": "2023-06-27T22:35:31.397Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Nota de Crédito",
+      "created_at": "2023-06-27T22:35:31.471Z",
+      "modified_at": "2023-06-27T22:35:31.471Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Nota de Débito",
+      "created_at": "2023-06-27T22:35:31.471Z",
+      "modified_at": "2023-06-27T22:35:31.471Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Complemento de Pago",
+      "created_at": "2023-07-03T20:43:10.792Z",
+      "modified_at": "2023-07-03T20:43:10.792Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Otros",
+      "created_at": "2023-07-03T20:43:10.863Z",
+      "modified_at": "2023-07-03T20:43:10.863Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Comprobante de Domicilio",
+      "created_at": "2023-07-03T20:43:10.792Z",
+      "modified_at": "2023-07-03T20:43:10.792Z",
+      "regex_list": [
+        {
+          "id_docs_type": 1,
+          "name_insurance": "DocsType",
+          "enable": false,
+          "regex_client_name": "",
+          "regex_breakdown_amounts": "",
+          "regex_total_amounts": "",
+          "regex_insurance_company": "",
+          "regex_coverages": "",
+          "regex_exclusions": "",
+          "regex_insured": ""
+        }
+      ]
     }
- }
+  ],
+  "headers": {
+    "Content-Type": "application/json"
+  }
+}
