@@ -288,13 +288,13 @@
           "id_insurance": 8,
           "name_insurance": "Metlife",
           "enable": true,
-          "regex_client_name": "(?<=Certificado No\\.)\\s*([A-Za-z\\s,\\.]+(?: S\\.A\\. (?:DE C\\.V\\.)?))",
+          "regex_client_name": "Certificado No\\.(.+?)\\s+[A-Z]\\d+",
           "regex_breakdown_amounts": "DEDUCIBLE\\s+([0-9]+\\s+U\\.M\\.A\\.M\\.)",
           "regex_total_amounts": "SUMA ASEGURADA\\s+([0-9,]+ U\\.M\\.A\\.M\\.)",
           "regex_insurance_company": "",
           "regex_coverages": "TIPO DE PLAN CONTRATADO\\s+([A-Z]+)(?=\\s*SUMA ASEGURADA)",
           "regex_exclusions": "([A-Z0-9]{8})\\s+\\d+Nombre del asegurado",
-          "regex_insured": "Subgrupo([A-Z\\s]+)Fecha"
+          "regex_insured": "Subgrupo(.*?)\\s*\\d*\\s*Fecha"
         }
       ]
     },

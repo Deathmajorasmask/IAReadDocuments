@@ -206,6 +206,60 @@ const sendFileToAnalysis = async (req, res) => {
         },
       });
     }
+
+    let schema = [
+      {
+        column: "Key",
+        type: String,
+        value: (dataFileOCR) => dataFileOCR.key,
+        getCellStyle: (dataFileOCR) => {
+          return {
+            align: "left",
+            width: 60,
+          };
+        },
+      },
+      {
+        column: "Key substract",
+        type: String,
+        value: (dataFileOCR) => dataFileOCR.regex,
+        getCellStyle: (dataFileOCR) => {
+          return {
+            align: "left",
+            width: 60,
+          };
+        },
+      },
+      {
+        column: "Value",
+        type: String,
+        value: (dataFileOCR) => dataFileOCR.result,
+        getCellStyle: (dataFileOCR) => {
+          return {
+            align: "left",
+            width: 60,
+          };
+        },
+      },
+    ];
+
+    // Add Header file
+    let newElementHeader = {
+      key: "Classify",
+      regex: "",
+      result: fileClassify,
+    };
+
+    // Agregar al array
+    dataFoundFile.push(newElementHeader);
+
+    await fnWriteXLSXWithObjSchema(
+      dataFoundFile,
+      schema,
+      "Sheet Analisys",
+      await fnReturnExcelFilesFolderPath("test-schema.xlsx")
+    );
+
     // Save to TXT file
     await fnAppendObjectToFileWithHeader(
       await fnReturnExcelFilesFolderPath("archivoResultadosSingle.txt"),
@@ -450,7 +504,7 @@ const test = async (req, res) => {
 
 const otherTest = async (req, res) => {
   try {
-    /* let objects = [
+    let objects = [
       {
         name: "David Hdz",
         age: 1800,
@@ -516,7 +570,7 @@ const otherTest = async (req, res) => {
       [schema, schema],
       ["Sheet One", "Sheet Two"],
       await fnReturnExcelFilesFolderPath("testSheets-schema.xlsx")
-    ); */
+    );
 
     res.status(200).send({
       status: 200,
